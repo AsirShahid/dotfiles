@@ -1,0 +1,90 @@
+#+Title: dired-rsync -- asynchronous rsync from dired
+
+[[https://stable.melpa.org/#/dired-rsync][file:https://stable.melpa.org/packages/dired-rsync-badge.svg]]
+[[https://melpa.org/#/dired-rsync][file:https://melpa.org/packages/dired-rsync-badge.svg]]
+[[https://coveralls.io/repos/github/stsquad/dired-rsync][file:https://coveralls.io/repos/github/stsquad/dired-rsync/badge.svg?branch=master]]
+
+* Introduction
+
+This package adds the command ~dired-rsync~ which allows the user to
+copy marked files in a ~dired~ buffer via rsync. This is useful,
+especially for large files, because the copy happens in the background
+and doesn't lock up Emacs. It is also more efficient than using tramp's
+own encoding methods for moving data between systems.
+
+Configuration is simple as you only need to bind the ~dired-rsync~
+command to your preferred ~dired~ binding.
+
+#+name: configuring-dired-rsync
+#+begin_src emacs-lisp
+(use-package dired-rsync
+  :bind (:map dired-mode-map
+              ("C-c C-r" . dired-rsync))
+#+end_src
+
+A second package in this repository provides a transient version
+called ~dired-rsync-transient~. This wraps the command in a `magit`
+like transient interface allowing you to tweaks the parameters for
+your call.
+
+#+name: configuring-dired-rsync-transient
+#+begin_src emacs-lisp
+(use-package dired-rsync-transient
+  :bind (:map dired-mode-map
+              ("C-c C-x" . dired-rsync-transient)))
+#+end_src
+
+* Customisation
+
+A variable called ~dired-rsync-modeline-status~ is provided for mode
+lines that will report the number of active rsync operations in
+progress. The variable ~dired-rsync-job-count~ contains the number of
+currently active ~dired-rsync~ jobs currently running.
+
+For those that don't like the way ~dired-rsync~ unmarks transferred
+files when it completes please see ~dired-rsync-unmark-on-completion~.
+
+If you want to tweak the way marks are collected you can customise
+~dired-rsync-source-files~ and provide your own function to return a
+list of fully qualified names to include in the command.
+
+From time to time the call to rsync may fail. dired-rsync keeps the
+process buffer around for debugging and reports to the console. You
+can customise ~dired-rsync-failed-hook~ with your own hook function or
+select the more aggressive ~dired-rsync--pop-to-rsync-failed-buf~ to
+pop straight to the buffer. Also you can customise ~dired-rsync-success-hook~
+with your own hook function to provide notification for compleated transfers.
+
+The options ~dired-rsync-command~ and ~dired-rsync-options~ are there
+to modify the call to rsync but a user is unlikely to need to tweak
+these.
+
+* Technical Notes
+
+While you can use rsync to copy files locally the main use case is
+copying files to/from a remote system. The rsync tool is always run
+locally as rsync needs working SSH authentication to work. If you can
+access a remote machine via tramp/ssh without having to enter a
+password (because ssh-agent is working) then rsync should work fine.
+
+You can also do a remote-to-remote copy although this does involve
+setting up a port forward so the first remote can access the second
+remote. Also as dired-rsync needs to reverse ssh from your source
+location it is best if you fully qualify the location in tramp (i.e.
+user@remote:/dest/path) so it can extract the correct username to
+login with. It's ugly but it works.
+
+The test used by ~dired-rsync~ is ~tramp-tramp-file-p~ which will mean
+any tramp path will attempt to be converted to an rsync path with
+optional ssh transport. Obviously if your remote target doesn't also
+have ssh running and remote rsync binary this will fail. The reporting
+could be improved.
+
+There have been several attempts at doing this but I found them
+wanting in usability. This attempts to clean up the ideas from:
+
+ - https://truongtx.me/tmtxt-dired-async.html
+ - https://oremacs.com/2016/02/24/dired-rsync/
+ - https://vxlabs.com/2018/03/30/asynchronous-rsync-with-emacs-dired-and-tramp/
+
+in a hopefully cleaner and more idiomatic way.

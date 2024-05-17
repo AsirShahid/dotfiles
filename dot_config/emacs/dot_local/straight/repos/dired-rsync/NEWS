@@ -1,0 +1,38 @@
+v0.7
+   - truncate process buffer output to last status line
+   - raise minimum Emacs version to 25.1
+   - new dired-rsync-transient frontend
+   - various code clean-ups
+   - new customisation hook dired-rsync-success-hook
+   - moved the project CI to GitHub Actions
+   - now understands alternate port syntax in tramp URIs
+v0.6
+   - use tramp functions to decompose URIs (fix #22)
+   - use username from dired URI if we have it in rsync
+   - fix escaping of 's for remote-to-remote copies
+   - better detection of running jobs by parsing buffers
+   - increment the reverse proxy port based on active connections
+   - don't set mode-line-process, leave it to user to put dired-rsync-modeline-status somewhere
+v0.5
+   - Big CI clean-ups (dropped emake, added Cask)
+   - smarter modeline status (show R:n% when one job running)
+   - make dired-rsync process dest with expand-file-name
+   - we now support remote to remote with an ugly port forward hack
+   - prompt the user for a passphrase if we detect stall in process
+   - add some basic ert tests
+   - new customisation option dired-rsync-source-files
+   - new customisation hook dired-rsync-failed-hook
+v0.4
+   - convert dired-rsync-[command|options] to defcustom
+   - added dired-rsync-unmark-on-completion option
+   - re-factored to keep temp data in lexically let variable
+   - and tramp path (as defined by tramp-tramp-file-p) will attempt to be converted to remote rsync
+   - updates to README.org
+   - A simple Travis base CI has been enabled
+v0.3
+   - clean-up handling of finished tasks
+   - rationalise the quoting of arguments
+   - automatically set mode-line-process with status
+   - added LICENSE file to repo
+v0.2
+   - first release to MELPA
