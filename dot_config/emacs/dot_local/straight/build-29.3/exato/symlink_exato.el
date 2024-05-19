@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/exato/exato.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/exato/exato.el

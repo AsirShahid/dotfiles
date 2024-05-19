@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/annalist.el/annalist.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/annalist.el/annalist.el

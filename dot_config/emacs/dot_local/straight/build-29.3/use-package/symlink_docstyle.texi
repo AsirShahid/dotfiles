@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/use-package/docstyle.texi
+/var/home/ashahid/.config/emacs/.local/straight/repos/use-package/docstyle.texi

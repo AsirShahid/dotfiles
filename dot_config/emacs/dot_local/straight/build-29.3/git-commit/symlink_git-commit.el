@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/magit/lisp/git-commit.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/magit/lisp/git-commit.el

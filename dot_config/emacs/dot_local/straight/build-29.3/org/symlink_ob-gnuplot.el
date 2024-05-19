@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/org/lisp/ob-gnuplot.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/org/lisp/ob-gnuplot.el

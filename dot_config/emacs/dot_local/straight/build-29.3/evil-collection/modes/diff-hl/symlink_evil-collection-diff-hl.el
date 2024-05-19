@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/diff-hl/evil-collection-diff-hl.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/diff-hl/evil-collection-diff-hl.el

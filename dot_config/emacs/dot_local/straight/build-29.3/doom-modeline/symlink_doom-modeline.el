@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/doom-modeline/doom-modeline.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/doom-modeline/doom-modeline.el

@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/selectrum/evil-collection-selectrum.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/selectrum/evil-collection-selectrum.el

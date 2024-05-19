@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-nerd-commenter/evil-nerd-commenter-sdk.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-nerd-commenter/evil-nerd-commenter-sdk.el

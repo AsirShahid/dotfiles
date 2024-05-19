@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/calc/evil-collection-calc.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/calc/evil-collection-calc.el

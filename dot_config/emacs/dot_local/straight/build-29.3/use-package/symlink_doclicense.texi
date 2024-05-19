@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/use-package/doclicense.texi
+/var/home/ashahid/.config/emacs/.local/straight/repos/use-package/doclicense.texi

@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/flycheck-package/flycheck-package.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/flycheck-package/flycheck-package.el

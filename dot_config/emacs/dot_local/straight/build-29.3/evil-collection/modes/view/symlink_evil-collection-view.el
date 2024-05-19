@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/view/evil-collection-view.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/view/evil-collection-view.el

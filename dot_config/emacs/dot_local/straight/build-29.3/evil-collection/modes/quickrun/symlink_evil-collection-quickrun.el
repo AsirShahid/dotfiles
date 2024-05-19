@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/quickrun/evil-collection-quickrun.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/quickrun/evil-collection-quickrun.el

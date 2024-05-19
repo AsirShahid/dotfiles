@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/leetcode/evil-collection-leetcode.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/leetcode/evil-collection-leetcode.el

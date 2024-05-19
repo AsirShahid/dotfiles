@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/fd-dired/fd-dired.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/fd-dired/fd-dired.el

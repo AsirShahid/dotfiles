@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/gcmh/gcmh.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/gcmh/gcmh.el

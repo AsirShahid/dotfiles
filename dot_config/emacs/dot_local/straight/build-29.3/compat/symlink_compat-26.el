@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/compat/compat-26.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/compat/compat-26.el

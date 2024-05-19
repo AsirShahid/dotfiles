@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/marginalia/marginalia.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/marginalia/marginalia.el

@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/snippets/julia-mode/.yas-setup.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/snippets/julia-mode/.yas-setup.el

@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/smartparens/smartparens-ruby.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/smartparens/smartparens-ruby.el

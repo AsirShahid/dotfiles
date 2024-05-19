@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/embark/evil-collection-embark.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/embark/evil-collection-embark.el

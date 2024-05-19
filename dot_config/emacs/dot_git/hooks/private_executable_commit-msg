@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-/home/asir/.config/emacs/bin/doom --no-color ci hook commit-msg "$@"
+/var/home/ashahid/.config/emacs/bin/doom --no-color ci hook commit-msg "$@"

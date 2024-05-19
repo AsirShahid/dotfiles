@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/org-contrib/lisp/ox-bibtex.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/org-contrib/lisp/ox-bibtex.el

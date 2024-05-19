@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/ox-clip/ox-clip.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/ox-clip/ox-clip.el

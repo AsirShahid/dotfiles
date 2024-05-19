@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/restart-emacs/restart-emacs.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/restart-emacs/restart-emacs.el

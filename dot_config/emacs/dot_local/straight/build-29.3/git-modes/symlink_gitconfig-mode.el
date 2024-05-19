@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/git-modes/gitconfig-mode.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/git-modes/gitconfig-mode.el

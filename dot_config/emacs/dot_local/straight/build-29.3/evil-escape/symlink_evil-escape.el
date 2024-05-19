@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-escape/evil-escape.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-escape/evil-escape.el

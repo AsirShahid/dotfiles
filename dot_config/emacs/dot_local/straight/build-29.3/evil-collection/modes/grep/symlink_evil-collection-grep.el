@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/grep/evil-collection-grep.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/grep/evil-collection-grep.el

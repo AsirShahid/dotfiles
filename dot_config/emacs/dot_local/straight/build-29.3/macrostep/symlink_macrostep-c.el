@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/macrostep/macrostep-c.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/macrostep/macrostep-c.el

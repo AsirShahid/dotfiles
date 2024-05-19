@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/straight.el/straight-x.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/straight.el/straight-x.el

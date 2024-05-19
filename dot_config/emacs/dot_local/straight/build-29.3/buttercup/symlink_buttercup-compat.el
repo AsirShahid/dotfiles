@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/emacs-buttercup/buttercup-compat.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/emacs-buttercup/buttercup-compat.el

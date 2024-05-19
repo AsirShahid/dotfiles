@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/nerd-icons.el/nerd-icons.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/nerd-icons.el/nerd-icons.el

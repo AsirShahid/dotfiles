@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/nov/evil-collection-nov.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/nov/evil-collection-nov.el

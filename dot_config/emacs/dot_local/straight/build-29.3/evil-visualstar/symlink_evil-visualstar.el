@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-visualstar/evil-visualstar.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-visualstar/evil-visualstar.el

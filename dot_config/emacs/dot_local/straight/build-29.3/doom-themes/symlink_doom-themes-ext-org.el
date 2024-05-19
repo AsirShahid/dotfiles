@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/themes/extensions/doom-themes-ext-org.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/themes/extensions/doom-themes-ext-org.el

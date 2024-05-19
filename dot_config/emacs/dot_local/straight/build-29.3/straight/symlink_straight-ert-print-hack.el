@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/straight.el/straight-ert-print-hack.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/straight.el/straight-ert-print-hack.el

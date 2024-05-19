@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/highlight-quoted/highlight-quoted.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/highlight-quoted/highlight-quoted.el

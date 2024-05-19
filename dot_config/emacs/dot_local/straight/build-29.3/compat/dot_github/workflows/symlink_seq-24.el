@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/compat/.github/workflows/seq-24.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/compat/.github/workflows/seq-24.el

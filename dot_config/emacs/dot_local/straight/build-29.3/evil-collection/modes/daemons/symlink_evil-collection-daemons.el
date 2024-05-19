@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/daemons/evil-collection-daemons.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/daemons/evil-collection-daemons.el

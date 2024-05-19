@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/magit/evil-collection-magit.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/magit/evil-collection-magit.el

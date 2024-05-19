@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/edit-indirect/edit-indirect.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/edit-indirect/edit-indirect.el

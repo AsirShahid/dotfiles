@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/browse-at-remote/browse-at-remote.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/browse-at-remote/browse-at-remote.el

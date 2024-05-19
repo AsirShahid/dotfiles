@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/org/lisp/ol-man.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/org/lisp/ol-man.el

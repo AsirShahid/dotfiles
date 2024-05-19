@@ -1,1 +1,1 @@
-/home/asir/.config/emacs/.local/straight/repos/evil-collection/modes/trashed/evil-collection-trashed.el
+/var/home/ashahid/.config/emacs/.local/straight/repos/evil-collection/modes/trashed/evil-collection-trashed.el
