@@ -1,0 +1,6 @@
+# XONSH WEBCONFIG START
+$PROMPT = '{BOLD_INTENSE_RED}➜ {CYAN}{cwd_base} {gitstatus}{RESET} '
+# XONSH WEBCONFIG END# XONSH WIZARD START
+source-foreign  "echo loading xonsh foreign shell"
+xontrib load coreutils
+# XONSH WIZARD END
