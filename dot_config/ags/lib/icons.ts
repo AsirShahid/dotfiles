@@ -10,6 +10,8 @@ export const substitutes = {
     "preferences-system": "emblem-system-symbolic",
     "com.github.Aylur.ags-symbolic": "controls-symbolic",
     "com.github.Aylur.ags": "controls-symbolic",
+    "Alacritty": "nf-cod-terminal",
+    "emacs": "nf-custom-emacs",
 }
 
 export default {
