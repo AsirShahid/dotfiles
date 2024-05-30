@@ -4,3 +4,4 @@ $PROMPT = '{BOLD_INTENSE_RED}➜ {CYAN}{cwd_base} {gitstatus}{RESET} '
 #source-foreign  "echo loading xonsh foreign shell"
 xontrib load coreutils
 # XONSH WIZARD END
+execx($(atuin init xonsh))
