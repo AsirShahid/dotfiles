@@ -111,3 +111,8 @@ source $ZSH/oh-my-zsh.sh
 
 [[ "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/var/home/ashahid/.bun/_bun" ] && source "/var/home/ashahid/.bun/_bun"
+
+source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
