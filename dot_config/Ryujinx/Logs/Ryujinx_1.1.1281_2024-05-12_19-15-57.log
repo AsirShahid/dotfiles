@@ -1,0 +1,548 @@
+00:00:00.054 |I| Configuration LogValueChange: ResScale set to: 1
+00:00:00.059 |I| Configuration LogValueChange: ResScaleCustom set to: 1
+00:00:00.059 |I| Configuration LogValueChange: MaxAnisotropy set to: -1
+00:00:00.061 |I| Configuration LogValueChange: AspectRatio set to: Fixed16x10
+00:00:00.063 |I| Configuration LogValueChange: BackendThreading set to: Auto
+00:00:00.064 |I| Configuration LogValueChange: GraphicsBackend set to: OpenGl
+00:00:00.065 |I| Configuration LogValueChange: PreferredGpu set to: 
+00:00:00.067 |I| Configuration LogValueChange: AntiAliasing set to: None
+00:00:00.068 |I| Configuration LogValueChange: ScalingFilter set to: Bilinear
+00:00:00.068 |I| Configuration LogValueChange: ScalingFilterLevel set to: 80
+00:00:00.071 |I| Configuration LogValueChange: EnableDockedMode set to: True
+00:00:00.082 |I| Configuration LogValueChange: EnableVsync set to: True
+00:00:00.082 |I| Configuration LogValueChange: EnableShaderCache set to: True
+00:00:00.082 |I| Configuration LogValueChange: EnableTextureRecompression set to: False
+00:00:00.082 |I| Configuration LogValueChange: EnableMacroHLE set to: True
+00:00:00.082 |I| Configuration LogValueChange: EnableColorSpacePassthrough set to: False
+00:00:00.082 |I| Configuration LogValueChange: EnablePtc set to: True
+00:00:00.082 |I| Configuration LogValueChange: EnableInternetAccess set to: False
+00:00:00.082 |I| Configuration LogValueChange: EnableFsIntegrityChecks set to: True
+00:00:00.082 |I| Configuration LogValueChange: FsGlobalAccessLogMode set to: 0
+00:00:00.084 |I| Configuration LogValueChange: AudioBackend set to: SDL2
+00:00:00.084 |I| Configuration LogValueChange: AudioVolume set to: 1
+00:00:00.086 |I| Configuration LogValueChange: MemoryManagerMode set to: HostMappedUnsafe
+00:00:00.086 |I| Configuration LogValueChange: ExpandRam set to: False
+00:00:00.086 |I| Configuration LogValueChange: IgnoreMissingServices set to: False
+00:00:00.086 |I| Configuration LogValueChange: UseHypervisor set to: True
+00:00:00.090 |I| Configuration LogValueChange: MultiplayerMode set to: Disabled
+00:00:00.107 |W| Application GetActualScaleFactor: Couldn't determine monitor DPI: Wayland not yet supported
+00:00:00.108 |N| Application PrintSystemInfo: Ryujinx Version: 1.1.1281
+00:00:00.114 |N| Application Print: Operating System: CachyOS (X64)
+00:00:00.114 |N| Application Print: CPU: AMD Ryzen 5 7640U w/ Radeon 760M Graphics ; 12 logical
+00:00:00.116 |N| Application Print: RAM: Total 30.5 GiB ; Available 21.5 GiB
+00:00:00.121 |N| Application PrintSystemInfo: Logs Enabled: Info, Warning, Error, Guest, Stub
+00:00:00.122 |N| Application PrintSystemInfo: Launch Mode: UserProfile
+00:00:00.543 |E| UI : [Error] [OpenGL] Unable to initialize GLX-based rendering: 'System.NullReferenceException: Object reference not set to an instance of an object.
+   at Avalonia.X11.Glx.GlxInterface.GetExtensions(IntPtr display)
+   at Avalonia.X11.Glx.GlxDisplay..ctor(X11Info x11, IList`1 probeProfiles)
+   at Avalonia.X11.Glx.GlxPlatformGraphics.TryCreate(X11Info x11, IList`1 glProfiles)'
+00:00:07.250 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.252 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:00:07.253 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.253 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:00:07.268 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.269 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:11.568 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #59404709)
+00:00:11.587 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #20815867)
+00:00:11.587 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #20815867)
+00:01:27.419 |W| Application .ctor: Failed to deserialize title update data for 72174692027785216 at /home/[redacted]/.config/Ryujinx/games/01006a800016e000/updates.json
+00:01:27.482 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #56487722)
+00:01:27.482 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #56487722)
+00:01:27.533 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #12102778)
+00:01:27.533 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #12102778)
+00:02:11.598 |E| Application CreateErrorDialog: The specified file does not contain an update for the selected title!
+00:02:14.613 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #45490212)
+00:02:14.613 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #45490212)
+00:02:21.077 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #63059925)
+00:02:21.077 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #63059925)
+00:02:21.580 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #46224020)
+00:02:21.580 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #46224020)
+00:02:26.962 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #28896937)
+00:02:26.962 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #28896937)
+00:02:27.588 |E| Configuration .ctor: Downloadable Content JSON failed to deserialize.
+00:02:27.626 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #10796581)
+00:02:27.626 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #10796581)
+00:02:27.663 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #2107829)
+00:02:27.663 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #2107829)
+00:03:14.850 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #43967757)
+00:03:14.850 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #43967757)
+00:03:14.893 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #4618564)
+00:03:14.893 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #4618564)
+00:03:37.890 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:03:37.892 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:03:37.893 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:03:37.894 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:03:37.899 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:03:37.901 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:00.256 |I| Gpu : Backend Threading (Auto): True
+00:00:00.681 |N| Application LoadGuestApplication: Using Firmware Version: 17.0.1
+00:00:00.681 |I| Application LoadGuestApplication: Loading as NSP.
+00:00:00.703 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02D
+00:00:00.703 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F036
+00:00:00.703 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F027
+00:00:00.703 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03B
+00:00:00.703 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F040
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F044
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F021
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F029
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F023
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F028
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04D
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02B
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02E
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04B
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F035
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02C
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03E
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F020
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F01F
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F051
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F038
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02F
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F022
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F037
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F026
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03A
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04F
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F024
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F050
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F032
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F030
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04A
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03C
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02A
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F042
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F047
+00:00:00.704 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F049
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F025
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04E
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F052
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03F
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04C
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F033
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03D
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F046
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F039
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F041
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F043
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F048
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F034
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F031
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F045
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07D
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07C
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F001
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F015
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00A
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F009
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F008
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F007
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F006
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F005
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F004
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F003
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F002
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00C
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00B
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F086
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F085
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F084
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F083
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F088
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F087
+00:00:00.705 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F082
+00:00:00.706 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F081
+00:00:00.706 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F080
+00:00:00.706 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07F
+00:00:00.706 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07E
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07B
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07A
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F079
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F078
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F077
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F073
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F072
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F071
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F070
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06F
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06E
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06D
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06C
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06B
+00:00:00.718 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06A
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F069
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F068
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F067
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F066
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F065
+00:00:00.719 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F016
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for Application 01006A800016E000 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F001 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F002 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F003 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F004 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F005 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F006 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F007 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F008 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F009 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F015 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F016 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F01F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F020 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F021 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F022 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F023 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F024 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F025 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F026 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F027 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F028 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F029 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.749 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F030 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F031 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F032 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F033 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F034 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F035 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F036 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F037 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F038 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F039 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F040 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F041 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F042 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F043 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F044 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F045 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F046 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F047 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F048 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F049 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F050 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F051 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F052 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F065 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F066 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F067 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F068 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F069 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F070 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F071 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F072 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F073 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F077 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F078 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F079 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.750 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F080 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F081 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F082 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F083 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F084 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F085 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F086 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F087 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F088 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.751 |I| ModLoader QueryContentsDir: Searching mods for Application 01006A800016E000 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F001 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F002 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F003 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F004 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F005 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F006 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F007 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F008 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F009 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F015 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F016 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F01F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F020 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F021 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F022 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F023 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F024 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F025 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F026 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F027 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F028 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F029 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F030 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F031 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F032 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F033 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F034 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F035 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F036 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F037 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F038 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F039 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F040 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F041 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F042 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F043 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F044 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F045 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F046 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F047 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F048 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F049 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F050 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F051 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F052 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F065 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F066 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F067 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F068 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F069 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.752 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F070 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F071 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F072 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F073 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F077 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F078 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F079 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F080 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F081 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F082 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F083 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F084 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F085 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F086 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F087 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.753 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F088 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.755 |I| Loader Load: Loading rtld...
+00:00:00.764 |I| Loader PrintRoSectionInfo: rtld:
+    Module: nnrtld
+00:00:00.764 |I| Loader Load: Loading main...
+00:00:01.698 |I| Loader PrintRoSectionInfo: main:
+    Module: C:\c2\p4\patch-13.0.1\work\build\vs2015.built\cross2app+standalone\NX64\Release\cross2_Release.nss
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_libcurl-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_libz-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_gfx-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Ui2d-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Font-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Vfx-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_G3d-8_2_1-Release
+                   SDK MW+Nintendo+PiaCommon-5_19_1
+                   SDK MW+Nintendo+Pia-5_19_1
+                   SDK MW+Nintendo+PiaNex-5_19_1-forNEX-4_6_3
+                   SDK MW+Nintendo+PiaLan-5_19_1
+                   SDK MW+Nintendo+PiaSession-5_19_1
+                   SDK MW+Nintendo+PiaTransport-5_19_1
+                   SDK MW+Nintendo+PiaLocal-5_19_1
+                   SDK MW+Nintendo+NEX-4_6_13-appc2
+                   SDK MW+Nintendo+NEX_MM-4_6_13
+                   SDK MW+Nintendo+NEX_UT-4_6_13
+                   SDK MW+Nintendo+NEX_DS-4_6_13
+                   SDK MW+Nintendo+NEX_CO-4_6_13
+                   SDK MW+Nintendo+NEX_SC-4_6_13
+00:00:01.699 |I| Loader Load: Loading subsdk0...
+00:00:01.764 |I| Loader PrintRoSectionInfo: subsdk0:
+    Module: multimedia
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_movie-8_2_1-Release
+00:00:01.764 |I| Loader Load: Loading sdk...
+00:00:01.892 |I| Loader PrintRoSectionInfo: sdk:
+    Module: nnSdk
+    FS SDK Version: 8.2.1
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_libz-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSdk_nnSdk-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_NVN-8_2_1-Release
+00:00:02.113 |I| Ptc Initialize: Initializing Profiled Persistent Translation Cache (enabled: True).
+00:00:02.123 |I| Loader LoadNsos: Loading image 0 at 0x0000000008500000...
+00:00:02.126 |I| Loader LoadNsos: Loading image 1 at 0x0000000008504000...
+00:00:02.312 |I| Loader LoadNsos: Loading image 2 at 0x000000000f94c000...
+00:00:02.323 |I| Loader LoadNsos: Loading image 3 at 0x0000000010061000...
+00:00:02.346 |I| ModLoader LoadCheats: Build ids found for application 01006A800016E000:
+    285183CAC95179371CC22CEC3723F882E1589659000000000000000000000000
+    CBD5A9B56EA859BA11CA069B19B666101AE56F5A000000000000000000000000
+    60C6EDBBFCEBD4176CC301D5D9CB5A6F094F9360000000000000000000000000
+    5FD4F531C1195E9E5510C9E73F22CD39612839F8000000000000000000000000
+00:00:02.355 |I| Application EnsureSaveData: Ensuring required savedata exists.
+00:00:02.523 |I| Loader Start: Application Loaded: Super Smash Bros. Ultimate v13.0.2 [01006a800016e000] [64-bit]
+00:00:02.559 |E| Application : Unhandled exception caught: System.NotImplementedException: The method or operation is not implemented.
+   at SPB.Platform.X11.X11Helper.CreateGLXWindow(NativeHandle display, FramebufferFormat format, Int32 x, Int32 y, Int32 width, Int32 height)
+   at SPB.Platform.PlatformHelper.CreateOpenGLWindow(FramebufferFormat format, Int32 x, Int32 y, Int32 width, Int32 height)
+   at Ryujinx.Ava.UI.Renderer.EmbeddedWindow.CreateLinux(IPlatformHandle control) in /build/source/src/Ryujinx/UI/Renderer/EmbeddedWindow.cs:line 128
+   at Ryujinx.Ava.UI.Renderer.EmbeddedWindow.CreateNativeControlCore(IPlatformHandle control) in /build/source/src/Ryujinx/UI/Renderer/EmbeddedWindow.cs:line 78
+   at Avalonia.Controls.NativeControlHost.<UpdateHost>b__10_0(IPlatformHandle parent)
+   at Avalonia.X11.X11NativeControlHost.CreateNewAttachment(Func`2 create)
+   at Avalonia.Controls.NativeControlHost.UpdateHost()
+   at Avalonia.Controls.NativeControlHost.OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+   at Avalonia.Visual.OnAttachedToVisualTreeCore(VisualTreeAttachmentEventArgs e)
+   at Avalonia.Layout.Layoutable.OnAttachedToVisualTreeCore(VisualTreeAttachmentEventArgs e)
+   at Avalonia.Controls.Control.OnAttachedToVisualTreeCore(VisualTreeAttachmentEventArgs e)
+   at Avalonia.Visual.SetVisualParent(IList children, Visual parent)
+   at Avalonia.Controls.Presenters.ContentPresenter.UpdateChild(Object content)
+   at Avalonia.Controls.Presenters.ContentPresenter.ApplyTemplate()
+   at Avalonia.Layout.Layoutable.MeasureCore(Size availableSize)
+   at Avalonia.Layout.Layoutable.Measure(Size availableSize)
+   at Avalonia.Layout.Layoutable.MeasureOverride(Size availableSize)
+   at Avalonia.Layout.Layoutable.MeasureCore(Size availableSize)
+   at Avalonia.Layout.Layoutable.Measure(Size availableSize)
+   at Avalonia.Layout.LayoutHelper.MeasureChild(Layoutable control, Size availableSize, Thickness padding, Thickness borderThickness)
+   at Avalonia.Controls.Presenters.ContentPresenter.MeasureOverride(Size availableSize)
+   at Avalonia.Layout.Layoutable.MeasureCore(Size availableSize)
+   at Avalonia.Layout.Layoutable.Measure(Size availableSize)
+   at Avalonia.Layout.LayoutManager.Measure(Layoutable control)
+   at Avalonia.Layout.LayoutManager.ExecuteLayoutPass()
+   at Avalonia.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   at Avalonia.Media.MediaContext.RenderCore()
+   at Avalonia.Media.MediaContext.Render()
+   at Avalonia.Threading.DispatcherOperation.InvokeCore()
+   at Avalonia.Threading.DispatcherOperation.Execute()
+   at Avalonia.Threading.Dispatcher.ExecuteJob(DispatcherOperation job)
+   at Avalonia.Threading.Dispatcher.ExecuteJobsCore(Boolean fromExplicitBackgroundProcessingCallback)
+   at Avalonia.Threading.Dispatcher.Signaled()
+   at Avalonia.X11.X11PlatformThreading.CheckSignaled()
+   at Avalonia.X11.X11PlatformThreading.RunLoop(CancellationToken cancellationToken)
+   at Avalonia.Threading.DispatcherFrame.Run(IControlledDispatcherImpl impl)
+   at Avalonia.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at Avalonia.Threading.Dispatcher.MainLoop(CancellationToken cancellationToken)
+   at Avalonia.Controls.ApplicationLifetimes.ClassicDesktopStyleApplicationLifetime.Start(String[] args)
+   at Avalonia.ClassicDesktopStyleApplicationLifetimeExtensions.StartWithClassicDesktopLifetime(AppBuilder builder, String[] args, Action`1 lifetimeBuilder)
+   at Ryujinx.Ava.Program.Main(String[] args) in /build/source/src/Ryujinx/Program.cs:line 52

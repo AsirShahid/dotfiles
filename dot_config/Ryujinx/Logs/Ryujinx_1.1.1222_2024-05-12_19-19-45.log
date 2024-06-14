@@ -1,0 +1,2590 @@
+00:00:00.163 |I| Configuration LogValueChange: BackendThreading set to: Auto
+00:00:00.164 |I| Configuration LogValueChange: ResScale set to: 1
+00:00:00.181 |I| Configuration LogValueChange: ResScaleCustom set to: 1
+00:00:00.182 |I| Configuration LogValueChange: MaxAnisotropy set to: -1
+00:00:00.184 |I| Configuration LogValueChange: AspectRatio set to: Fixed16x9
+00:00:00.444 |I| Configuration LogValueChange: GraphicsBackend set to: Vulkan
+00:00:00.446 |I| Configuration LogValueChange: PreferredGpu set to: 
+00:00:00.449 |I| Configuration LogValueChange: EnableDockedMode set to: True
+00:00:00.462 |I| Configuration LogValueChange: EnableVsync set to: True
+00:00:00.462 |I| Configuration LogValueChange: EnableShaderCache set to: True
+00:00:00.462 |I| Configuration LogValueChange: EnableTextureRecompression set to: False
+00:00:00.462 |I| Configuration LogValueChange: EnableMacroHLE set to: True
+00:00:00.463 |I| Configuration LogValueChange: EnableColorSpacePassthrough set to: False
+00:00:00.464 |I| Configuration LogValueChange: AntiAliasing set to: None
+00:00:00.466 |I| Configuration LogValueChange: ScalingFilter set to: Bilinear
+00:00:00.466 |I| Configuration LogValueChange: ScalingFilterLevel set to: 80
+00:00:00.466 |I| Configuration LogValueChange: EnablePtc set to: True
+00:00:00.466 |I| Configuration LogValueChange: EnableInternetAccess set to: False
+00:00:00.466 |I| Configuration LogValueChange: EnableFsIntegrityChecks set to: True
+00:00:00.466 |I| Configuration LogValueChange: FsGlobalAccessLogMode set to: 0
+00:00:00.468 |I| Configuration LogValueChange: AudioBackend set to: SDL2
+00:00:00.468 |I| Configuration LogValueChange: AudioVolume set to: 1
+00:00:00.472 |I| Configuration LogValueChange: MemoryManagerMode set to: HostMappedUnsafe
+00:00:00.472 |I| Configuration LogValueChange: ExpandRam set to: False
+00:00:00.472 |I| Configuration LogValueChange: IgnoreMissingServices set to: False
+00:00:00.472 |I| Configuration LogValueChange: UseHypervisor set to: True
+00:00:00.474 |I| Configuration LogValueChange: MultiplayerMode set to: Disabled
+00:00:00.476 |I| Configuration LogValueChange: AspectRatio set to: Fixed16x10
+00:00:00.476 |I| Configuration LogValueChange: GraphicsBackend set to: OpenGl
+00:00:00.476 |I| Configuration LogValueChange: PreferredGpu set to: 
+00:00:00.497 |W| Application GetActualScaleFactor: Couldn't determine monitor DPI: Wayland not yet supported
+00:00:00.498 |N| Application PrintSystemInfo: Ryujinx Version: 1.1.1222
+00:00:00.514 |N| Application Print: Operating System: CachyOS (X64)
+00:00:00.514 |N| Application Print: CPU: AMD Ryzen 5 7640U w/ Radeon 760M Graphics ; 12 logical
+00:00:00.517 |N| Application Print: RAM: Total 30.5 GiB ; Available 21.7 GiB
+00:00:00.523 |N| Application PrintSystemInfo: Logs Enabled: Info, Warning, Error, Guest, Stub
+00:00:00.524 |N| Application PrintSystemInfo: Launch Mode: UserProfile
+00:00:07.109 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage)
+00:00:07.112 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage)
+00:00:07.114 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage)
+00:00:07.114 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:00:07.122 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage)
+00:00:07.124 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage)
+00:00:00.099 |I| Gpu : Backend Threading (Auto): True
+00:00:00.260 |N| Application LoadGuestApplication: Using Firmware Version: 17.0.1
+00:00:00.261 |I| Application LoadGuestApplication: Loading as NSP.
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02D
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F036
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F027
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03B
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F040
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F044
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F021
+00:00:00.284 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F029
+00:00:00.285 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F023
+00:00:00.285 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F028
+00:00:00.285 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04D
+00:00:00.291 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02B
+00:00:00.291 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02E
+00:00:00.291 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04B
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F035
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02C
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03E
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F020
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F01F
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F051
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F038
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02F
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F022
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F037
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F026
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03A
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04F
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F024
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F050
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F032
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F030
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04A
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03C
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F02A
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F042
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F047
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F049
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F025
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04E
+00:00:00.292 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F052
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03F
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F04C
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F033
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F03D
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F046
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F039
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F041
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F043
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F048
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F034
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F031
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F045
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07D
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07C
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F001
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F015
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00A
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F009
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F008
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F007
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F006
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F005
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F004
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F003
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F002
+00:00:00.293 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00C
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F00B
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F086
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F085
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F084
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F083
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F088
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F087
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F082
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F081
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F080
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07F
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07E
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07B
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F07A
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F079
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F078
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F077
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F073
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F072
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F071
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F070
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06F
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06E
+00:00:00.294 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06D
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06C
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06B
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F06A
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F069
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F068
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F067
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F066
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F065
+00:00:00.295 |I| Application AddAocItem: Found AddOnContent with TitleId 01006A800016F016
+00:00:00.312 |I| ModLoader QueryContentsDir: Searching mods for Application 01006A800016E000 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F001 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F002 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F003 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F004 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F005 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F006 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F007 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F008 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F009 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F015 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F016 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F01F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F020 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F021 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F022 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F023 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F024 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F025 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F026 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F027 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F028 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F029 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F030 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F031 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F032 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F033 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F034 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F035 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F036 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F037 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F038 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F039 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F040 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F041 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F042 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F043 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F044 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F045 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F046 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F047 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F048 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F049 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F050 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F051 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F052 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F065 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F066 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F067 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F068 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F069 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F070 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F071 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F072 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F073 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F077 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F078 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.313 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F079 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07A in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07B in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07C in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07D in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07E in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07F in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F080 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F081 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F082 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F083 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F084 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F085 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F086 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F087 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F088 in "/home/[redacted]/.config/Ryujinx/mods/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for Application 01006A800016E000 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F001 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F002 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F003 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F004 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F005 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F006 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F007 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F008 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F009 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F00C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F015 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F016 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F01F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F020 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F021 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F022 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F023 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F024 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F025 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F026 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F027 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F028 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F029 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F02F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F030 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F031 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F032 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F033 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F034 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F035 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F036 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F037 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F038 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F039 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F03F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F040 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F041 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F042 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F043 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.314 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F044 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F045 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F046 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F047 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F048 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F049 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F04F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F050 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F051 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F052 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F065 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F066 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F067 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F068 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F069 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F06F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F070 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F071 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F072 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F073 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F077 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F078 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F079 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07A in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07B in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07C in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07D in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07E in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F07F in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F080 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F081 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F082 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F083 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F084 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F085 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F086 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F087 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.315 |I| ModLoader QueryContentsDir: Searching mods for DLC 01006A800016F088 in "/home/[redacted]/.config/Ryujinx/sdcard/atmosphere/contents"
+00:00:00.317 |I| Loader Load: Loading rtld...
+00:00:00.322 |I| Loader PrintRoSectionInfo: rtld:
+    Module: nnrtld
+00:00:00.322 |I| Loader Load: Loading main...
+00:00:00.618 |I| Loader PrintRoSectionInfo: main:
+    Module: C:\c2\p4\patch-13.0.1\work\build\vs2015.built\cross2app+standalone\NX64\Release\cross2_Release.nss
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_libcurl-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_libz-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_gfx-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Ui2d-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Font-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_Vfx-8_2_1-Release
+                   SDK MW+Nintendo+NintendoWare_G3d-8_2_1-Release
+                   SDK MW+Nintendo+PiaCommon-5_19_1
+                   SDK MW+Nintendo+Pia-5_19_1
+                   SDK MW+Nintendo+PiaNex-5_19_1-forNEX-4_6_3
+                   SDK MW+Nintendo+PiaLan-5_19_1
+                   SDK MW+Nintendo+PiaSession-5_19_1
+                   SDK MW+Nintendo+PiaTransport-5_19_1
+                   SDK MW+Nintendo+PiaLocal-5_19_1
+                   SDK MW+Nintendo+NEX-4_6_13-appc2
+                   SDK MW+Nintendo+NEX_MM-4_6_13
+                   SDK MW+Nintendo+NEX_UT-4_6_13
+                   SDK MW+Nintendo+NEX_DS-4_6_13
+                   SDK MW+Nintendo+NEX_CO-4_6_13
+                   SDK MW+Nintendo+NEX_SC-4_6_13
+00:00:00.618 |I| Loader Load: Loading subsdk0...
+00:00:00.640 |I| Loader PrintRoSectionInfo: subsdk0:
+    Module: multimedia
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_movie-8_2_1-Release
+00:00:00.640 |I| Loader Load: Loading sdk...
+00:00:00.687 |I| Loader PrintRoSectionInfo: sdk:
+    Module: nnSdk
+    FS SDK Version: 8.2.1
+    SDK Libraries: SDK MW+Nintendo+NintendoSDK_libz-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSdk_nnSdk-8_2_1-Release
+                   SDK MW+Nintendo+NintendoSDK_NVN-8_2_1-Release
+00:00:00.775 |I| Ptc Initialize: Initializing Profiled Persistent Translation Cache (enabled: True).
+00:00:00.781 |I| Loader LoadNsos: Loading image 0 at 0x0000000008500000...
+00:00:00.783 |I| Loader LoadNsos: Loading image 1 at 0x0000000008504000...
+00:00:00.867 |I| Loader LoadNsos: Loading image 2 at 0x000000000f94c000...
+00:00:00.873 |I| Loader LoadNsos: Loading image 3 at 0x0000000010061000...
+00:00:00.883 |I| ModLoader LoadCheats: Build ids found for application 01006A800016E000:
+    285183CAC95179371CC22CEC3723F882E1589659000000000000000000000000
+    CBD5A9B56EA859BA11CA069B19B666101AE56F5A000000000000000000000000
+    60C6EDBBFCEBD4176CC301D5D9CB5A6F094F9360000000000000000000000000
+    5FD4F531C1195E9E5510C9E73F22CD39612839F8000000000000000000000000
+00:00:00.887 |I| Application EnsureSaveData: Ensuring required savedata exists.
+00:00:00.944 |I| Loader Start: Application Loaded: Super Smash Bros. Ultimate v13.0.2 [01006a800016e000] [64-bit]
+00:00:01.008 |I| GUI.WindowThread Hid Configure: Configured Controller JoyconPair to Player1
+00:00:01.016 |N| GUI.RenderThread Gpu PrintGpuInformation: AMD AMD Radeon Graphics (radeonsi, gfx1103_r1, LLVM 17.0.6, DRM 3.57, 6.8.9-7-cachyos) (4.6 (Compatibility Profile) Mesa 24.0.7-arch1.3)
+00:00:01.020 |I| GUI.WindowThread Hid SetupNpad: Connected Controller JoyconPair to Player1
+00:00:01.033 |I| GPU.MainThread Gpu LoadShaders: Loading 0 shaders from the cache...
+00:00:01.038 |I| GPU.MainThread Gpu LoadShaders: Shader cache loaded.
+00:00:01.662 |S| HLE.OsThread.49 ServiceAm GetAppletResourceUserId: Stubbed. {appletResourceUserId: 1}
+00:00:01.758 |S| HLE.OsThread.49 ServiceAm AcquireForegroundRights: Stubbed. 
+00:00:01.761 |S| HLE.OsThread.49 ServiceAm SetFocusHandlingMode: Stubbed. {unknownFlag1: False ; unknownFlag2: False ; unknownFlag3: True}
+00:00:01.764 |S| HLE.OsThread.49 ServiceAm SetOutOfFocusSuspendingEnabled: Stubbed. {outOfFocusSuspendingEnabled: False}
+00:00:01.808 |S| HLE.OsThread.49 ServicePctl Initialize: Stubbed. 
+00:00:03.864 |S| HLE.OsThread.49 ServiceAm SetFocusHandlingMode: Stubbed. {unknownFlag1: True ; unknownFlag2: False ; unknownFlag3: True}
+00:00:03.864 |S| HLE.OsThread.49 ServiceAm SetOutOfFocusSuspendingEnabled: Stubbed. {outOfFocusSuspendingEnabled: False}
+00:00:03.869 |S| HLE.OsThread.49 ServiceAm SetGamePlayRecordingState: Stubbed. {_gamePlayRecordingState: False}
+00:00:04.127 |W| HLE.GuestThread.48 KernelSvc : MapSharedMemory() = InvalidMemoryRegion
+00:00:04.183 |S| HLE.OsThread.8 ServiceNv FinishInitialize: Stubbed. 
+00:00:04.427 |S| HLE.OsThread.8 ServiceNv InitializeEx: Stubbed. 
+00:00:04.526 |S| HLE.OsThread.8 ServiceNv GetActiveSlotMask: Stubbed. 
+00:00:04.531 |S| HLE.OsThread.8 ServiceNv ZbcSetTable: Stubbed. 
+00:00:04.531 |S| HLE.OsThread.8 ServiceNv GetActiveSlotMask: Stubbed. 
+00:00:04.545 |S| HLE.OsThread.8 ServiceNv ZbcSetTable: Stubbed. 
+00:00:04.545 |S| HLE.OsThread.8 ServiceNv GetActiveSlotMask: Stubbed. 
+00:00:04.648 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:04.651 |S| HLE.OsThread.8 ServiceNv AllocGpfifoEx2: Stubbed. 
+00:00:04.652 |S| HLE.OsThread.8 ServiceNv AllocObjCtx: Stubbed. 
+00:00:04.654 |S| HLE.OsThread.8 ServiceNv SetTimeout: Stubbed. 
+00:00:04.659 |S| HLE.OsThread.8 ServiceNv SetErrorNotifier: Stubbed. 
+00:00:04.660 |S| HLE.OsThread.8 ServiceNv SetUserData: Stubbed. 
+00:00:04.667 |S| HLE.OsThread.8 ServiceNv SetTimeslice: Stubbed. 
+00:00:04.684 |S| HLE.OsThread.8 ServiceNv ZcullBind: Stubbed. 
+00:00:04.766 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:04.767 |S| HLE.OsThread.8 ServiceNv AllocGpfifoEx2: Stubbed. 
+00:00:04.767 |S| HLE.OsThread.8 ServiceNv AllocObjCtx: Stubbed. 
+00:00:04.767 |S| HLE.OsThread.8 ServiceNv SetTimeout: Stubbed. 
+00:00:04.768 |S| HLE.OsThread.8 ServiceNv SetErrorNotifier: Stubbed. 
+00:00:04.768 |S| HLE.OsThread.8 ServiceNv SetUserData: Stubbed. 
+00:00:04.768 |S| HLE.OsThread.8 ServiceNv SetTimeslice: Stubbed. 
+00:00:06.726 |S| HLE.OsThread.49 ServiceAcc InitializeApplicationInfo: Stubbed. {TitleId: 72174692027785216}
+00:00:06.732 |S| HLE.OsThread.49 ServiceAcc IsUserAccountSwitchLocked: Stubbed. 
+00:00:06.751 |S| HLE.OsThread.7 ServiceHid ActiveNpadImpl: Stubbed. {appletResourceUserId: 1 ; revision: 3}
+00:00:06.752 |S| HLE.OsThread.7 ServiceHid SetSupportedNpadStyleSet: Stubbed. {pid: 125 ; appletResourceUserId: 1 ; type: ProController, Handheld, JoyconPair, JoyconLeft, JoyconRight, Invalid}
+00:00:06.756 |S| HLE.OsThread.7 ServiceHid SetSupportedNpadIdType: Stubbed. 9 Players: Player1,Player2,Player3,Player4,Player5,Player6,Player7,Player8,Handheld
+00:00:06.764 |S| HLE.OsThread.7 ServiceHid StartSixAxisSensor: Stubbed. {appletResourceUserId: 1 ; sixAxisSensorHandle: 5}
+00:00:06.764 |S| HLE.OsThread.7 ServiceHid StartSixAxisSensor: Stubbed. {appletResourceUserId: 1 ; sixAxisSensorHandle: 65541}
+00:00:06.767 |S| HLE.OsThread.7 ServiceHid ActivateTouchScreen: Stubbed. {appletResourceUserId: 1}
+00:00:06.770 |S| HLE.OsThread.7 ServiceHid ActivateConsoleSixAxisSensor: Stubbed. {appletResourceUserId: 1}
+00:00:06.771 |S| HLE.OsThread.7 ServiceHid InitializeSevenSixAxisSensor: Stubbed. {appletResourceUserId: 1 ; counter0: 4096 ; counter1: 520192}
+00:00:07.553 |I| HLE.OsThread.49 SurfaceFlinger CreateLayerFromId: Creating layer 1
+00:00:07.571 |S| HLE.OsThread.49 ServiceAm SetOperationModeChangedNotification: Stubbed. {operationModeChangedNotification: True}
+00:00:11.967 |S| HLE.OsThread.17 ServiceFriend GetFriendList: Stubbed. {userId: 00000000000000010000000000000000 ; offset: 0 ; filter: { PresenceStatus: None, IsFavoriteOnly: False, IsSameAppPresenceOnly: False, IsSameAppPlayedOnly: False, IsArbitraryAppPlayedOnly: False, PresenceGroupId: 0 } ; pidPlaceholder: 0 ; pid: 125}
+00:00:12.028 |S| HLE.OsThread.49 ServiceSsl SetInterfaceVersion: Stubbed. {interfaceVersion: 3}
+00:00:14.421 |I| HLE.OsThread.15 AudioRenderer AcquireSessionId: Registered new output (0)
+00:00:14.447 |I| HLE.OsThread.15 Audio EnsureAudioStreamSetup: New audio stream setup with a target sample count of 512
+00:00:15.549 |S| HLE.OsThread.49 ServiceNifm CreateRequest: Stubbed. {version: 2}
+00:00:15.554 |S| HLE.OsThread.49 ServiceNifm Submit: Stubbed. 
+00:00:15.554 |S| HLE.OsThread.49 ServiceNifm GetRequestState: Stubbed. 
+00:00:15.555 |S| HLE.OsThread.49 ServiceNifm GetResult: Stubbed. 
+00:00:15.561 |S| HLE.OsThread.49 ServiceAcc CheckAvailability: Stubbed. 
+00:00:15.562 |S| HLE.OsThread.49 ServiceAcc CheckAvailability: Stubbed. 
+00:00:15.562 |S| HLE.OsThread.49 ServiceAcc GetAccountId: Stubbed. {NetworkServiceAccountId: 51966}
+00:00:15.566 |S| HLE.OsThread.16 ServiceBcat GetEvent: Stubbed. 
+00:00:15.568 |S| HLE.OsThread.16 ServiceBcat GetImpl: Stubbed. 
+00:00:15.863 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:15.900 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:00:15.912 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:00:21.265 |S| HLE.OsThread.49 ServiceNifm Submit: Stubbed. 
+00:00:21.265 |S| HLE.OsThread.49 ServiceNifm GetRequestState: Stubbed. 
+00:00:21.265 |S| HLE.OsThread.49 ServiceNifm GetResult: Stubbed. 
+00:00:21.414 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:00:21.753 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:00:22.158 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:00:22.270 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:00:22.292 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:22.307 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:22.513 |S| HLE.OsThread.49 ServiceAm SetFocusHandlingMode: Stubbed. {unknownFlag1: True ; unknownFlag2: True ; unknownFlag3: False}
+00:00:22.513 |S| HLE.OsThread.49 ServiceAm SetOutOfFocusSuspendingEnabled: Stubbed. {outOfFocusSuspendingEnabled: False}
+00:00:22.539 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: sum_misc 
+ Report: {
+    "radar": 2,
+    "dash_fighter": 1,
+    "invisible": 0,
+    "fighter_handicap": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "count_oname": 1,
+    "optout_news": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000001"
+    },
+    "count_inherit": 0,
+    "count_lang_change": 0,
+    "count_spirits_sobaco_user_sync": 0,
+    "count_spirits_sobaco_set": 0,
+    "count_unlocked_fighter": 21,
+    "directory_battle_total_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "directory_battle_cleared_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "directory_battle_played_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:22.541 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: sum_playcount 
+ Report: {
+    "mode_00": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_01": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_02": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_03": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_04": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_05": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_06": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_07": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_08": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_09": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_10": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_11": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_12": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_13": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_14": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_15": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_16": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_17": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_18": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_19": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_20": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_21": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_22": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_23": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_24": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_25": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_26": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_27": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_28": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_29": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_30": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_31": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_32": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_33": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_34": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_35": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_36": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_37": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_38": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_39": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_40": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_41": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_42": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_43": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_44": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_45": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_46": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_47": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_48": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_49": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_50": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_51": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_52": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_53": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_54": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_55": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_56": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_57": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_58": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_59": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_60": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_61": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_62": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_63": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_64": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_65": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_66": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_67": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:22.543 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: sum_playtime 
+ Report: {
+    "mode_00": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_01": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_02": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_03": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_04": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_05": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_06": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_07": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_08": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_09": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_10": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_11": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_12": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_13": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_14": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_15": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_16": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_17": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_18": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_19": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_20": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_21": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_22": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_23": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_24": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_25": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_26": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_27": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_28": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_29": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_30": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_31": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_32": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_33": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_34": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_35": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_36": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_37": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_38": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_39": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_40": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_41": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_42": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_43": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_44": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_45": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_46": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_47": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_48": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_49": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_50": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_51": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_52": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_53": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_54": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_55": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_56": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_57": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_58": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_59": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_60": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_61": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_62": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_63": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_64": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_65": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_66": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "mode_67": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:22.602 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: sum_record_count 
+ Report: {
+    "common_boot_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000001"
+    },
+    "common_working_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000004"
+    },
+    "common_play_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_melee_total_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_melee_offline_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_melee_adhoc_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_time_melee_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_stock_melee_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_life_melee_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_melee_5_8_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_melee_8_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_melee_player_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_vs_melee_reset_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_damage_total_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_kill_total_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_suicide_total_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_gold_get_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_gold_used_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "common_sp_get_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_time_total": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_normal_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_team_compe_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_sp_various_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_sp_suddendeath_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_sp_all_battle_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_tournament_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_have_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_get_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_summon_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_return_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_evolve_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_evolve_kind_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_lv99_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_adventure_battle_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_adventure_trip_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_school_mastery_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_gym_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_search_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "spirits_board_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_standard_clear_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_standard_clear_honki": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_bonus_game_high_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_credit_high_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_kumite_100_high_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_kumite_allstar_high_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_kumite_nasake_muyou_high_score": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_homerun_total_record": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_homerun_single_record": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_homerun_vs_record": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_make_chara_mii_fighter_creation_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_created_stage_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_amiibo_travel_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "play_amiibo_travel_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "melee_sp_vr_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "collection_take_picture_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "collection_make_replay_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "collection_make_video_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "collection_get_tag_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_total_time": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_single_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_single_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_single_smash_power_no1": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_single_smash_power_all": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_double_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_double_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_vip_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_vip_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_vs_room_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_any_watch_ale_point": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_any_watch_hit_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_any_watch_consecutive_hits_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_tournament_part_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_tournament_win_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "online_tournament_champion_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    },
+    "fighter_1st_use": 255,
+    "fighter_2st_use": 255,
+    "fighter_1st_not_use": 255,
+    "fighter_1st_win": 255,
+    "fighter_1st_give_damage": 255,
+    "fighter_1st_get_damage": 255,
+    "fighter_1st_beat_count": 255,
+    "fighter_1st_fall_count": 255,
+    "fighter_1st_suicide_count": 255,
+    "other_most_play_stage": 255,
+    "other_sprits_attacker_1st_use": -1,
+    "other_sprits_supporter_1st_use": -1,
+    "other_bgm_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000355"
+    },
+    "other_mii_parts_head_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000043"
+    },
+    "other_mii_parts_body_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000064"
+    }
+}
+
+00:00:26.056 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:26.078 |S| HLE.OsThread.23 ServiceMm Initialize: Stubbed. {module: NvDec ; fgmPriority: 8 ; isAutoClearEvent: False}
+00:00:26.082 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 12000000 ; clockRateMax: -1}
+00:00:26.085 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.134 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.134 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.147 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.147 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.148 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.149 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.150 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.151 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.249 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:26.250 |S| HLE.OsThread.8 ServiceNv SetSubmitTimeout: Stubbed. 
+00:00:26.270 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:26.334 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.334 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.337 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.392 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.526 |S| HLE.OsThread.8 ServiceNv SetNvMapFd: Stubbed. 
+00:00:26.527 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.528 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.532 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.539 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.539 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.540 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.556 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.557 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.557 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.565 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.566 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.573 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.573 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.578 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.578 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.579 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.579 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.579 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.579 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:26.607 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.631 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3875766000 ; clockRateMax: -1}
+00:00:26.633 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.634 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:26.634 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.649 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4263256000 ; clockRateMax: -1}
+00:00:26.649 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.656 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3847256000 ; clockRateMax: -1}
+00:00:26.656 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:26.662 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3471656000 ; clockRateMax: -1}
+00:00:26.662 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.947 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3132856000 ; clockRateMax: -1}
+00:00:27.947 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:27.978 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.046 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.047 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.048 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.049 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.049 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.049 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.049 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.049 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.050 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.050 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.053 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.053 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.053 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.053 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.053 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4294966296 ; clockRateMax: -1}
+00:00:28.056 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.059 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.061 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.070 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.070 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.077 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.078 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.080 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.080 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.091 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.091 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.104 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 429488704 ; clockRateMax: -1}
+00:00:28.106 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.111 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 314188704 ; clockRateMax: -1}
+00:00:28.111 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.115 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 201688704 ; clockRateMax: -1}
+00:00:28.115 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.118 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 91988704 ; clockRateMax: -1}
+00:00:28.118 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.122 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 4279856000 ; clockRateMax: -1}
+00:00:28.122 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.130 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3966656000 ; clockRateMax: -1}
+00:00:28.130 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.133 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3579456000 ; clockRateMax: -1}
+00:00:28.133 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.136 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 3230256000 ; clockRateMax: -1}
+00:00:28.136 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.140 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 2915056000 ; clockRateMax: -1}
+00:00:28.141 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.146 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 2630656000 ; clockRateMax: -1}
+00:00:28.147 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.158 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 2373856000 ; clockRateMax: -1}
+00:00:28.158 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:28.293 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:29.095 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 2142256000 ; clockRateMax: -1}
+00:00:29.095 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:29.101 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1933056000 ; clockRateMax: -1}
+00:00:29.101 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:29.109 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1744656000 ; clockRateMax: -1}
+00:00:29.109 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:30.292 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:31.056 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 60287 bytes, profiled functions: 19335).
+00:00:31.286 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:32.093 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1574656000 ; clockRateMax: -1}
+00:00:32.094 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:32.096 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1421056000 ; clockRateMax: -1}
+00:00:32.096 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:32.297 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:33.298 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 1085 took more than 1000ms, resuming execution...
+00:00:34.094 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1282656000 ; clockRateMax: -1}
+00:00:34.094 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:34.097 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1157456000 ; clockRateMax: -1}
+00:00:34.097 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:34.112 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 1044656000 ; clockRateMax: -1}
+00:00:34.112 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:34.299 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:35.299 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 1091 took more than 1000ms, resuming execution...
+00:00:36.095 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 942656000 ; clockRateMax: -1}
+00:00:36.095 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:36.098 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 850656000 ; clockRateMax: -1}
+00:00:36.098 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:36.306 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:37.306 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 1097 took more than 1000ms, resuming execution...
+00:00:38.096 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 767856000 ; clockRateMax: -1}
+00:00:38.096 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:38.099 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 693056000 ; clockRateMax: -1}
+00:00:38.099 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:38.302 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:39.302 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 1104 took more than 1000ms, resuming execution...
+00:00:40.099 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 625456000 ; clockRateMax: -1}
+00:00:40.099 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:40.103 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 564656000 ; clockRateMax: -1}
+00:00:40.103 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:40.111 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 509856000 ; clockRateMax: -1}
+00:00:40.111 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:40.122 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 460256000 ; clockRateMax: -1}
+00:00:40.122 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:40.129 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 415456000 ; clockRateMax: -1}
+00:00:40.129 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:42.297 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:43.297 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:44.101 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 375056000 ; clockRateMax: -1}
+00:00:44.101 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:44.112 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 338656000 ; clockRateMax: -1}
+00:00:44.112 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:44.316 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:45.316 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 1122 took more than 1000ms, resuming execution...
+00:00:46.106 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 305856000 ; clockRateMax: -1}
+00:00:46.107 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:46.110 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 276256000 ; clockRateMax: -1}
+00:00:46.110 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:46.153 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 249456000 ; clockRateMax: -1}
+00:00:46.154 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:46.316 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:00:47.295 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 225456000 ; clockRateMax: -1}
+00:00:47.295 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.302 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 203456000 ; clockRateMax: -1}
+00:00:47.302 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.336 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 183856000 ; clockRateMax: -1}
+00:00:47.336 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.340 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 166256000 ; clockRateMax: -1}
+00:00:47.340 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.355 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 150256000 ; clockRateMax: -1}
+00:00:47.356 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.358 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 135856000 ; clockRateMax: -1}
+00:00:47.358 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.386 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 122656000 ; clockRateMax: -1}
+00:00:47.387 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.398 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 154556000 ; clockRateMax: -1}
+00:00:47.398 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.419 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 139756000 ; clockRateMax: -1}
+00:00:47.419 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.439 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 126156000 ; clockRateMax: -1}
+00:00:47.439 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.442 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 114156000 ; clockRateMax: -1}
+00:00:47.442 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.459 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 103356000 ; clockRateMax: -1}
+00:00:47.460 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.474 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.474 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.501 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 126400000 ; clockRateMax: -1}
+00:00:47.501 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.529 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 114400000 ; clockRateMax: -1}
+00:00:47.529 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.534 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 103600000 ; clockRateMax: -1}
+00:00:47.534 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.550 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.550 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.568 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.568 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.580 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.580 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.594 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.594 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.610 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.610 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.636 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.636 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.653 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.653 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.667 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.668 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.681 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.681 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.699 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.699 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.714 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.714 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.727 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.727 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.741 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.741 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.743 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.743 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.767 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 126400000 ; clockRateMax: -1}
+00:00:47.767 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.776 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 114400000 ; clockRateMax: -1}
+00:00:47.776 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.789 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 103600000 ; clockRateMax: -1}
+00:00:47.790 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.801 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.801 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.816 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.816 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.825 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.825 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.845 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.845 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.855 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.855 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.885 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.885 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.912 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.913 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.916 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.917 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.933 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.933 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.934 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.934 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.936 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.936 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.952 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.952 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.972 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.972 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:47.979 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:47.979 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.016 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.016 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.031 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.036 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.063 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.063 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.102 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.102 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.130 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.130 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.196 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.197 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.230 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.230 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.264 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.264 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.299 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.299 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.300 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.300 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.301 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.302 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.335 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.335 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.381 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.381 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.396 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.396 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.446 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.447 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.463 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.463 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.496 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.496 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.530 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.530 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.563 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.563 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.630 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.630 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.663 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.663 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.696 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.696 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.729 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.729 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.730 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.730 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.731 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.731 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.763 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.763 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.796 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.796 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.836 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.836 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.868 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.868 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.896 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.896 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.930 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.930 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.963 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.963 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:48.997 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:48.997 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.064 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.064 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.113 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.114 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.130 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.130 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.166 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.166 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.167 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.167 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.168 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.168 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.197 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.197 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.231 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.231 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.263 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.263 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.264 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.264 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.296 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.296 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.329 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.329 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.365 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.365 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.414 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.414 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.415 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.415 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.449 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.449 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.450 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.450 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.487 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.487 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.531 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.531 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.532 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.532 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.542 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.542 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.564 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.565 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.599 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.599 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.647 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.647 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.664 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.664 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.696 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.696 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.730 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.730 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.796 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.796 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.830 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.830 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.862 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.863 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.929 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.930 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.963 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.963 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:49.996 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:49.996 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.028 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.028 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.062 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.062 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.063 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.063 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.064 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.064 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.096 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.096 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.129 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.129 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.163 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.163 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.196 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.196 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.231 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.231 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.291 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.292 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.301 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.301 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.329 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.329 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.395 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.395 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.429 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.429 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.462 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.462 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.463 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.463 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.464 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.464 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.644 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.644 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.646 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 100000000 ; clockRateMax: -1}
+00:00:50.647 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.666 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 126400000 ; clockRateMax: -1}
+00:00:50.666 |S| HLE.OsThread.23 ServiceMm Get: Stubbed. {requestId: 1}
+00:00:50.718 |S| HLE.OsThread.23 ServiceMm SetAndWait: Stubbed. {requestId: 1 ; clockRateMin: 0 ; clockRateMax: -1}
+00:00:50.719 |S| HLE.OsThread.23 ServiceMm Finalize: Stubbed. {requestId: 1}
+00:00:51.177 |S| HLE.OsThread.49 ServiceAm SetFocusHandlingMode: Stubbed. {unknownFlag1: True ; unknownFlag2: False ; unknownFlag3: True}
+00:00:51.177 |S| HLE.OsThread.49 ServiceAm SetOutOfFocusSuspendingEnabled: Stubbed. {outOfFocusSuspendingEnabled: False}
+00:00:51.669 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 135
+}
+
+00:00:51.669 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 136
+}
+
+00:00:51.670 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 137
+}
+
+00:00:51.670 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 138
+}
+
+00:00:51.670 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 139
+}
+
+00:00:51.671 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 140
+}
+
+00:00:51.671 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 141
+}
+
+00:00:51.671 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 142
+}
+
+00:00:51.671 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 143
+}
+
+00:00:51.672 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 144
+}
+
+00:00:51.672 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 145
+}
+
+00:00:51.672 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 146
+}
+
+00:00:51.868 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004A"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:52.030 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:52.048 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:53.619 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004B"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:53.643 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:53.664 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:55.201 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004C"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:55.226 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:55.249 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:56.648 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004D"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:56.675 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:56.698 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:58.231 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004E"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:58.259 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:58.282 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:00:59.831 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x000000000000004F"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:00:59.859 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:00:59.881 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:01.049 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 66410 bytes, profiled functions: 21094).
+00:01:01.431 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000050"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:01.460 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:01.481 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:02.965 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000051"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:02.993 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:03.015 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:04.481 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000052"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:04.508 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:04.531 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:06.048 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000053"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:06.077 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:06.099 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:07.633 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000054"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:07.659 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:07.681 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:09.181 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: fighter_unlock 
+ Report: {
+    "fighter": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000055"
+    },
+    "challenge_count": {
+        "TypeCode": 0,
+        "Value": "0x0000000000000000"
+    }
+}
+
+00:01:09.209 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:09.234 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:31.048 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 67927 bytes, profiled functions: 21519).
+00:01:45.316 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:45.331 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:01:53.442 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:01:59.127 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:01:59.148 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:02:01.046 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 69933 bytes, profiled functions: 22152).
+00:02:01.065 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:02:01.081 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:02:03.702 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:04.711 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:05.534 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:02:05.736 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:06.525 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:02:06.728 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:07.714 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:08.714 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:09.721 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:10.728 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:11.720 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:12.725 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:13.723 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:14.724 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:15.729 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:16.730 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:17.728 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:18.728 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:19.730 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:20.732 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:21.732 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:22.737 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:23.740 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:24.736 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:25.745 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:26.738 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:27.743 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:28.742 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:29.744 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:30.748 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:31.047 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 70432 bytes, profiled functions: 22297).
+00:02:31.752 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:32.751 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:33.754 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:34.753 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:35.760 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:36.776 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:37.759 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:40.768 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:41.768 |E| HLE.OsThread.8 Gpu WaitOnSyncpoint: Wait on syncpoint 1 for threshold 14132 took more than 1000ms, resuming execution...
+00:02:43.830 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:02:55.898 |I| HLE.OsThread.26 ServicePrepo ProcessPlayReport: 
+PlayReport log:
+ Kind: Normal
+ Pid: 125
+ ApplicationVersion: 0
+ UserId: 00000000000000010000000000000000
+ Room: anniversary 
+ Report: {
+    "anniversary": 0
+}
+
+00:02:56.059 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:02:56.081 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:02:59.316 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:02:59.331 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:03:01.047 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 71969 bytes, profiled functions: 22746).
+00:03:02.875 |S| HLE.OsThread.49 ServiceAm LockExit: Stubbed. 
+00:03:02.898 |S| HLE.OsThread.49 ServiceAm UnlockExit: Stubbed. 
+00:03:05.526 |S| HLE.OsThread.49 ServiceAm GetMainAppletExpectedMasterVolume: Stubbed. 
+00:03:05.527 |S| HLE.OsThread.49 ServiceAm GetLibraryAppletExpectedMasterVolume: Stubbed. 
+00:03:05.528 |S| HLE.OsThread.49 ServiceAm SetExpectedMasterVolume: Stubbed. 
+00:03:05.539 |S| HLE.OsThread.49 ServiceAm GetLibraryAppletLaunchableEvent: Stubbed. 
+00:03:05.548 |I| HLE.OsThread.49 ServiceAm .ctor: Applet 'LibAppletOff' created.
+00:03:05.566 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. WebApplet version: 0x00080000
+00:03:05.567 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. Web Arguments: 19
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. LeftStickMode: Cursor
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. BootAsMediaPlayerInverted: False
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. PointerEnabled: False
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. UnknownFlag0x14: True
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. UnknownFlag0x15: True
+00:03:05.572 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. 12: Unknown value format (raw length: 1)
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. DocumentKind: OfflineHtmlPage
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. ApplicationId: 0
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. DocumentPath: contents.htdocs/howto/html/us_en/howtoplay_melee.html?inc=1&ctrl=1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. PlayReportEnabled: True
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. FooterEnabled: False
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. JsExtensionEnabled: True
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. WebAudioEnabled: True
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. PageFadeEnabled: False
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. TouchEnabledOnContents: False
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. KeyRepeatFrame1: 18
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. KeyRepeatFrame2: 6
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. BootDisplayKind: Black
+00:03:05.573 |S| HLE.OsThread.49 ServiceAm Start: Stubbed. BackgroundKind: Unknown value format (raw length: 4)
+00:03:05.580 |S| HLE.OsThread.49 ServiceAm SetExpectedMasterVolume: Stubbed. 
+00:03:09.802 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:03:09.900 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:03:15.450 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:03:15.569 |S| HLE.OsThread.49 ServiceAm GetSaveDataSize: Stubbed. {saveDataType: Account ; userId: 00000000000000010000000000000000}
+00:03:22.044 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #19406742)
+00:03:22.046 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #19406742)
+00:03:25.624 |I| Configuration LogValueChange: AspectRatio set to: Stretched
+00:03:25.644 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #65497633)
+00:03:25.644 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #65497633)
+00:03:27.084 |I| Configuration LogValueChange: AspectRatio set to: Fixed4x3
+00:03:27.089 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #27144605)
+00:03:27.089 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #27144605)
+00:03:28.476 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #18903728)
+00:03:28.476 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #18903728)
+00:03:31.048 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 78128 bytes, profiled functions: 24572).
+00:03:31.233 |I| Configuration LogValueChange: AspectRatio set to: Fixed16x10
+00:03:31.242 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #60858368)
+00:03:31.242 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #60858368)
+00:03:34.786 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:37.366 |S| HLE.OsThread.49 ServiceAm SetScreenShotPermission: Stubbed. {screenShotPermission: True}
+00:03:42.664 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:42.666 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:45.383 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:46.094 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:47.135 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:48.190 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:49.132 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:50.108 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:50.911 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.912 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.915 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.921 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.924 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.932 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.937 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.943 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.950 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.953 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.960 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:50.967 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.187 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:51.339 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.348 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.351 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.359 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.363 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.369 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.378 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.383 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.392 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.395 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.402 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.407 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.412 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.414 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.416 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.424 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.427 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.428 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.435 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.441 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.444 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.452 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.457 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.464 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.466 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.468 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.476 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.478 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.480 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.486 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.488 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.494 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.496 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.498 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.500 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.508 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.515 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.517 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.524 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:03:51.738 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:55.540 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:03:56.288 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:00.980 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:01.047 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 118407 bytes, profiled functions: 37329).
+00:04:02.137 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:02.611 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:03.562 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:05.436 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #48588170)
+00:04:05.436 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #48588170)
+00:04:06.691 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:07.052 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:10.992 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:14.626 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:22.221 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:22.744 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:23.079 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:31.050 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 127005 bytes, profiled functions: 39757).
+00:04:36.120 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:36.124 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:36.133 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:45.587 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:45.592 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:48.530 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:48.827 |W| HLE.OsThread.8 ServiceNv Wait: GPU processing thread is too slow, waiting on CPU...
+00:04:49.961 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:50.266 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:53.838 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:55.726 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:55.736 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:55.815 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:04:55.818 |W| GPU.MainThread Gpu Log: Shader translator: Shader instruction Votevtg is not implemented.
+00:05:01.047 |I| .NET TP Worker Ptc Save: Saved Profiling Info (size: 131535 bytes, profiled functions: 40999).
+00:05:07.373 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #48407219)
+00:05:07.373 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #48407219)
+00:05:07.382 |W| HLE.GuestThread.48 KernelSvc : SendSyncRequest() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.50 KernelSvc : WaitSynchronization(handleIndex: 0xFFFFFFFF) = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.52 KernelSvc : WaitForAddress() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.53 KernelSvc : WaitForAddress() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.55 KernelSvc : WaitForAddress() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.51 KernelSvc : WaitSynchronization(handleIndex: 0xFFFFFFFF) = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.56 KernelSvc : WaitForAddress() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.58 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.61 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.54 KernelSvc : WaitForAddress() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.59 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.64 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.60 KernelSvc : WaitSynchronization(handleIndex: 0xFFFFFFFF) = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.62 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.66 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.65 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.63 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.72 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.67 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.71 KernelSvc : WaitProcessWideKeyAtomic() = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.68 KernelSvc : WaitSynchronization(handleIndex: 0xFFFFFFFF) = TerminationRequested
+00:05:07.382 |W| HLE.GuestThread.69 KernelSvc : WaitSynchronization(handleIndex: 0xFFFFFFFF) = TerminationRequested
+00:05:07.385 |E| HLE.OsThread.11 SurfaceFlinger DequeueBuffer: No available buffer slots
+00:05:07.386 |E| HLE.OsThread.11 SurfaceFlinger OnTransact: Error returned by transaction DequeueBuffer: Busy
+00:05:07.409 |I| HLE.OsThread.15 AudioRenderer ReleaseSessionId: Unregistered output (0)
+00:05:07.435 |W| GUI.WindowThread ServiceNv Close: Closing channel
+00:05:07.435 |W| GUI.WindowThread ServiceNv Close: Closing channel
+00:05:07.450 |W| GUI.WindowThread UI MakeCurrent: Failed to bind OpenGL context: SPB.Graphics.Exceptions.ContextException: MakeCurrent() failed.
+   at SPB.Platform.GLX.GLXOpenGLContext.MakeCurrent(NativeWindowBase window)
+   at Ryujinx.Ava.UI.Renderer.EmbeddedWindowOpenGL.MakeCurrent(Boolean unbind, Boolean shouldThrow)

@@ -1,0 +1,230 @@
+00:00:00.046 |I| Configuration LogValueChange: ResScale set to: 1
+00:00:00.050 |I| Configuration LogValueChange: ResScaleCustom set to: 1
+00:00:00.050 |I| Configuration LogValueChange: MaxAnisotropy set to: -1
+00:00:00.051 |I| Configuration LogValueChange: AspectRatio set to: Fixed16x10
+00:00:00.053 |I| Configuration LogValueChange: BackendThreading set to: Auto
+00:00:00.054 |I| Configuration LogValueChange: GraphicsBackend set to: Vulkan
+00:00:00.055 |I| Configuration LogValueChange: PreferredGpu set to: 0x1002_0x15BF
+00:00:00.057 |I| Configuration LogValueChange: AntiAliasing set to: None
+00:00:00.058 |I| Configuration LogValueChange: ScalingFilter set to: Bilinear
+00:00:00.058 |I| Configuration LogValueChange: ScalingFilterLevel set to: 80
+00:00:00.061 |I| Configuration LogValueChange: EnableDockedMode set to: True
+00:00:00.073 |I| Configuration LogValueChange: EnableVsync set to: True
+00:00:00.073 |I| Configuration LogValueChange: EnableShaderCache set to: True
+00:00:00.073 |I| Configuration LogValueChange: EnableTextureRecompression set to: False
+00:00:00.073 |I| Configuration LogValueChange: EnableMacroHLE set to: True
+00:00:00.073 |I| Configuration LogValueChange: EnableColorSpacePassthrough set to: False
+00:00:00.073 |I| Configuration LogValueChange: EnablePtc set to: True
+00:00:00.073 |I| Configuration LogValueChange: EnableInternetAccess set to: False
+00:00:00.073 |I| Configuration LogValueChange: EnableFsIntegrityChecks set to: True
+00:00:00.073 |I| Configuration LogValueChange: FsGlobalAccessLogMode set to: 0
+00:00:00.075 |I| Configuration LogValueChange: AudioBackend set to: SDL2
+00:00:00.075 |I| Configuration LogValueChange: AudioVolume set to: 1
+00:00:00.077 |I| Configuration LogValueChange: MemoryManagerMode set to: HostMappedUnsafe
+00:00:00.077 |I| Configuration LogValueChange: ExpandRam set to: False
+00:00:00.077 |I| Configuration LogValueChange: IgnoreMissingServices set to: False
+00:00:00.077 |I| Configuration LogValueChange: UseHypervisor set to: True
+00:00:00.081 |I| Configuration LogValueChange: MultiplayerMode set to: Disabled
+00:00:00.122 |N| Application Load: Configuration file updated to version 50
+00:00:00.139 |W| Application GetActualScaleFactor: Couldn't determine monitor DPI: Wayland not yet supported
+00:00:00.140 |N| Application PrintSystemInfo: Ryujinx Version: 1.1.1281
+00:00:00.146 |N| Application Print: Operating System: CachyOS (X64)
+00:00:00.146 |N| Application Print: CPU: AMD Ryzen 5 7640U w/ Radeon 760M Graphics ; 12 logical
+00:00:00.148 |N| Application Print: RAM: Total 30.5 GiB ; Available 21.3 GiB
+00:00:00.154 |N| Application PrintSystemInfo: Logs Enabled: Info, Warning, Error, Guest, Stub
+00:00:00.155 |N| Application PrintSystemInfo: Launch Mode: UserProfile
+00:00:00.591 |E| UI : [Error] [OpenGL] Unable to initialize GLX-based rendering: 'System.NullReferenceException: Object reference not set to an instance of an object.
+   at Avalonia.X11.Glx.GlxInterface.GetExtensions(IntPtr display)
+   at Avalonia.X11.Glx.GlxDisplay..ctor(X11Info x11, IList`1 probeProfiles)
+   at Avalonia.X11.Glx.GlxPlatformGraphics.TryCreate(X11Info x11, IList`1 glProfiles)'
+00:00:07.661 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.663 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:00:07.664 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.665 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:00:07.669 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:07.670 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:12.259 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #13442339)
+00:00:12.265 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #13442339)
+00:00:13.702 |E| .NET TP Worker Gpu : Error querying Vulkan devices: Unexpected API error "ErrorIncompatibleDriver".
+00:00:14.946 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #493939)
+00:00:14.947 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #493939)
+00:00:14.987 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #40009126)
+00:00:14.987 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #40009126)
+00:00:19.894 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #51431161)
+00:00:19.894 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #51431161)
+00:00:30.787 |I| Configuration LogValueChange: GraphicsBackend set to: OpenGl
+00:00:30.787 |I| Configuration LogValueChange: PreferredGpu set to: 
+00:00:30.829 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:30.831 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:00:30.832 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:30.832 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:00:30.839 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:30.840 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:32.036 |I| Configuration LogValueChange: PreferredGpu set to: 
+00:00:32.063 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #20853488)
+00:00:32.063 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #20853488)
+00:00:37.793 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #14247739)
+00:00:37.793 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #14247739)
+00:00:42.635 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #64403869)
+00:00:42.635 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #64403869)
+00:00:43.570 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #38731704)
+00:00:43.570 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #38731704)
+00:00:44.946 |W| Application .ctor: Failed to deserialize title update data for 72057594037993472 at /home/[redacted]/.config/Ryujinx/games/0100000000010000/updates.json
+00:00:45.005 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #520801)
+00:00:45.005 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #520801)
+00:00:45.038 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #42184884)
+00:00:45.038 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #42184884)
+00:00:54.479 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:54.497 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader..ctor(KeySet keySet, IStorage headerStorage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:00:54.498 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:54.498 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:00:54.504 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:54.505 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:00:59.756 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #51297710)
+00:00:59.757 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #51297710)
+00:01:02.319 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #8424883)
+00:01:02.320 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #8424883)
+00:01:02.342 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #11326888)
+00:01:02.342 |E| UI : [Error] [FreeDesktopPlatform] OnNameChange failed: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Tmds.DBus.Protocol.DBusConnection+Observer'. (FcitxX11TextInputMethod #11326888)
+00:01:05.975 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/New Super Mario Bros U Deluxe.xci/New Super Mario Bros U Deluxe.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:01:05.975 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Kirby Star Allies.xci/Kirby Star Allies.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Tools.FsSystem.NcaUtils.NcaHeader.DecryptHeader(KeySet keySet, IStorage storage)
+   at LibHac.Tools.FsSystem.NcaUtils.Nca..ctor(KeySet keySet, IStorage storage)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetGameData(VirtualFileSystem fileSystem, IFileSystem pfs, Int32 programIndex) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 829
+   at Ryujinx.UI.App.Common.ApplicationLibrary.GetControlFsAndTitleId(IFileSystem pfs, IFileSystem& controlFs, String& titleId) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 513
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 255
+00:01:05.976 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/Super Mario 3D World plus Bowsers Fury.xci/Super Mario 3D World plus Bowsers Fury.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:01:05.976 |W| GUI.ApplicationLibraryThread Application LoadApplications: The header key is incorrect or missing and therefore the NCA header content type check has failed. Errored File: /home/[redacted]/Games/Switch Game Collection/Super Mario Party.xci/Super Mario Party.xci
+00:01:05.979 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Links Awakening.xci/The Legend of Zelda Links Awakening.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
+00:01:05.980 |W| GUI.ApplicationLibraryThread Application LoadApplications: The file encountered was not of a valid type. File: '/home/[redacted]/Games/Switch Game Collection/The Legend of Zelda Skyward Sword.xci/The Legend of Zelda Skyward Sword.xci' Error: LibHac.Common.HorizonResultException: ResultFsSha256PartitionHashVerificationFailed (2002-4643)
+   at LibHac.Common.ThrowHelper.ThrowResult(Result result)
+   at LibHac.Result.ThrowIfFailure()
+   at LibHac.Tools.Fs.XciPartition..ctor(IStorage storage)
+   at LibHac.Tools.Fs.Xci.OpenPartition(XciPartitionType type)
+   at Ryujinx.UI.App.Common.ApplicationLibrary.LoadApplications(List`1 appDirs, Language desiredTitleLanguage) in /build/source/src/Ryujinx.UI.Common/App/ApplicationLibrary.cs:line 193
