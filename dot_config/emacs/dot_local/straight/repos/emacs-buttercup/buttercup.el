@@ -1,9 +1,9 @@
 ;;; buttercup.el --- Behavior-Driven Emacs Lisp Testing -*-lexical-binding:t-*-
 
 ;; Copyright (C) 2015-2017  Jorgen Schaefer <contact@jorgenschaefer.de>
-;; Copyright (C) 2018-2023  Ola Nilsson <ola.nilsson@gmail.com>
+;; Copyright (C) 2018-2024  Ola Nilsson <ola.nilsson@gmail.com>
 
-;; Version: 1.33
+;; Version: 1.35
 ;; Author: Jorgen Schaefer <contact@jorgenschaefer.de>
 ;; Maintainer: Ola Nilsson <ola.nilsson@gmail.com>
 ;; Package-Requires: ((emacs "24.4"))
@@ -32,6 +32,7 @@
 ;; the first parameter describing the suite and the rest being the body
 ;; of code that implements the suite.
 
+;; ;;; lexical binding is required -*- lexical-binding: t; -*-
 ;; (describe "A suite"
 ;;   (it "contains a spec with an expectation"
 ;;     (expect t :to-be t)))
@@ -55,6 +56,9 @@
 ;; inconsistencies.
 (define-error 'buttercup-internals-error "Internal buttercup error"
               'buttercup-error-base)
+;; Raised when expanding `describe` macros whithout lexical-binding: t
+(define-error 'buttercup-dynamic-binding-error "Lexical binding is not enabled"
+              'buttercup-error-base)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; wrapper function manipulation
@@ -64,9 +68,16 @@
               "Bad test expression"
               'buttercup-internals-error)
 
-(defun buttercup--enclosed-expr (fun)
-  "Given a zero-arg function FUN, return its unevaluated expression.
+(eval-and-compile
+  (when (fboundp 'oclosure-define)      ;Emacs≥29
+    (oclosure-define (buttercup--thunk (:predicate buttercup--thunk-p))
+      "An elisp expression as a function and original code."
+      expr)))
 
+(defun buttercup--enclosed-expr (fun)
+  "Given a FUN `buttercup-thunk', return its unevaluated expression.
+
+For Emacs < 29:
 The function MUST be byte-compiled or have one of the following
 forms:
 
@@ -77,6 +88,9 @@ and the return value will be EXPR, unevaluated. The quoted EXPR
 is useful if EXPR is a macro call, in which case the `quote'
 ensures access to the un-expanded form."
   (cl-assert (functionp fun) t "Expected FUN to be a function")
+  (if (and (fboundp 'buttercup--thunk-p)      ;Emacs≥29
+           (buttercup--thunk-p fun))
+      (buttercup--thunk--expr fun)
   (pcase fun
     ;; This should be the normal case, a closure with unknown enclosed
     ;; variables, empty arglist and a body containing
@@ -95,15 +109,15 @@ ensures access to the un-expanded form."
     (`(lambda nil
         (quote ,expr) (buttercup--mark-stackframe) ,_expanded)
      expr)
-    ;;; This is when FUN has been byte compiled, as when the entire
-    ;;; test file has been byte compiled. Check that it has an empty
-    ;;; arglist, that is all that is possible at this point. The
-    ;;; return value is byte compiled code, not the original
-    ;;; expressions. Also what is possible at this point.
+    ;; This is when FUN has been byte compiled, as when the entire
+    ;; test file has been byte compiled. Check that it has an empty
+    ;; arglist, that is all that is possible at this point. The
+    ;; return value is byte compiled code, not the original
+    ;; expressions. Also what is possible at this point.
     ((and (pred byte-code-function-p) (guard (member (aref fun 0) '(nil 0))))
      (aref fun 1))
     ;; Error
-    (_ (signal 'buttercup-enclosed-expression-error (format "Not a zero-arg one-expression closure: %S" fun)))))
+    (_ (signal 'buttercup-enclosed-expression-error (format "Not a zero-arg one-expression closure: %S" fun))))))
 
 (defun buttercup--expr-and-value (fun)
   "Given a function, return its quoted expression and value.
@@ -171,11 +185,15 @@ Does not have the IGNORE-MISSING and SPLIT parameters."
 (define-error 'buttercup-pending "Buttercup test is pending" 'buttercup-error-base)
 
 (defun buttercup--wrap-expr (expr)
-  "Wrap EXPR to be used by `buttercup-expect'."
-  `(lambda ()
-     (quote ,expr)
-     (buttercup--mark-stackframe)
-     ,expr))
+  "Wrap EXPR in a `buttercup--thunk' to be used by `buttercup-expect'."
+  (if (fboundp 'oclosure-lambda)        ;Emacs≥29
+      `(oclosure-lambda (buttercup--thunk (expr ',expr)) ()
+         (buttercup--mark-stackframe)
+         ,expr)
+    `(lambda ()
+       (quote ,expr)
+       (buttercup--mark-stackframe)
+       ,expr)))
 
 (defmacro expect (arg &optional matcher &rest args)
   "Expect a condition to be true.
@@ -657,27 +675,32 @@ UNEVALUATED-EXPR is the Lisp sexp used before the :to-throw
 matcher keyword in the `expect' statement.
 EXPR-VALUE is the return value from the evaluation of
 UNEVALUATED-EXPR if it did not raise any signal."
-  (let ((thrown-signal-symbol (car thrown-signal))
-        (thrown-signal-args (cdr thrown-signal))
-        (expected-signal-symbol (car expected-signal))
-        (expected-signal-args (cdr expected-signal)))
+  (let* ((thrown-signal-symbol (car thrown-signal))
+         (thrown-signal-args (cdr thrown-signal))
+         (expected-signal-symbol (car expected-signal))
+         (expected-signal-args (cdr expected-signal))
+         (matching-signal-symbol
+          (or (null expected-signal-symbol)
+              (memq expected-signal-symbol (get thrown-signal-symbol 'error-conditions))))
+         (explained-signal-args ; nil for matched, explained or t for mismatched
+          (when expected-signal-args
+              ;; The ert-explainer for equal does an equal internally,
+              ;; so avoid calling equal twice by calling the explainer
+              ;; directly.
+              (funcall (or (get 'equal 'ert-explainer) (lambda (a b) (not (equal a b))))
+                       thrown-signal-args expected-signal-args))))
     (let*
-        ((matched
-          (and thrown-signal
-               (or (null expected-signal-symbol)
-                   (memq expected-signal-symbol (get thrown-signal-symbol 'error-conditions)))
-               (or (null expected-signal-args)
-                   (equal thrown-signal-args expected-signal-args))))
+        ((matched (and thrown-signal matching-signal-symbol (not explained-signal-args)))
          ;; Some of these replacement are always used, there is no
          ;; reason not to format them immediately. But e and t are not
          ;; always used and should be delayed. Use
          ;; buttercup--simple-format for formatting as format-spec
          ;; does not support functions until Emacs 29
          (spec (format-spec-make
-                ?E (format "%S" unevaluated-expr)
-                ?e (lambda () (format "%S" expr-value))
+                ?E (format "`%S'" unevaluated-expr)
+                ?e (lambda () (format "`%S'" expr-value))
                 ?t (lambda () (format "%S" thrown-signal))
-                ?S (lambda () (format "%S" thrown-signal-symbol))
+                ?S (lambda () (format "`%S'" thrown-signal-symbol))
                 ?A (lambda ()
                      (if expected-signal-args
                          (format " with args `%S'" thrown-signal-args)
@@ -687,32 +710,44 @@ UNEVALUATED-EXPR if it did not raise any signal."
                      "a signal")
                 ?a (if expected-signal-args
                        (format " with args `%S'" expected-signal-args)
-                     ""))))
-      (if (null thrown-signal)
-          ;; Match is not possible unless a signal was raied
-          (cons nil (buttercup--simple-format spec "Expected `%E' to throw %s%a, but instead it returned `%e'"))
-        ;; non-matching signal
-        (buttercup--test-expectation matched
-          :expect-match-phrase
-          (buttercup--simple-format
-           spec
-           "Expected `%E' to throw %s%a, but instead it threw `%S'%A")
-          :expect-mismatch-phrase
-          (buttercup--simple-format
-           spec
-           "Expected `%E' not to throw %s%a, but it threw `%S'%A"))))))
+                     "")
+                ?q (lambda () (format "%S" explained-signal-args))
+                )))
+      (cond
+       (matched ;; should be the most likely result
+        `(t . ,(buttercup--simple-format
+                spec "Expected %E not to throw %s%a, but it threw %S%A")))
+       ((null thrown-signal) ; no signal raised
+        `(nil . ,(buttercup--simple-format
+                  spec "Expected %E to throw %s%a, but instead it returned %e")))
+       ((and explained-signal-args (not matching-signal-symbol)) ; neither symbol nor args matched
+        `(nil . ,(buttercup--simple-format
+                  spec
+                  "Expected %E to throw %s%a, but instead it threw %S%A")))
+       (explained-signal-args ; symbol matched
+        `(nil . ,(buttercup--simple-format
+                  spec
+                  "Expected %E to signal %s%a, but instead signalled%A which does not match because %q.")))
+       ((not matching-signal-symbol) ; args matched
+        `(nil . ,(buttercup--simple-format
+                  spec
+                  "Expected %E to throw %s%a, but instead it threw %S%A")))
+       (t (error "`buttercup--handle-to-throw' could not handle args %S %S"
+                 thrown-signal expected-signal))))))
 
 (buttercup-define-matcher :to-have-been-called (spy)
+    "Check that SPY have been called at least once."
   (cl-assert (symbolp (funcall spy)))
   (if (spy-calls-all (funcall spy))
       t
     nil))
 
 (buttercup-define-matcher :to-have-been-called-with (spy &rest args)
+  "Check that SPY has been called at least once with arguments ARGS."
   (setq spy (funcall spy))
   (cl-assert (symbolp spy))
   (setq args (mapcar #'funcall args))
-  (let* ((calls (mapcar 'spy-context-args (spy-calls-all spy))))
+  (let* ((calls (mapcar #'spy-context-args (spy-calls-all spy))))
     (cond
      ((not calls)
       (cons nil
@@ -730,13 +765,16 @@ UNEVALUATED-EXPR if it did not raise any signal."
       t))))
 
 (buttercup-define-matcher :to-have-been-called-times (spy number)
+  "Check that SPY has been called exactly NUMBER times."
   (setq spy (funcall spy)
         number (funcall number))
   (cl-assert (symbolp spy))
   (let* ((call-count (spy-calls-count spy)))
     (cond
      ((= number call-count)
-      t)
+      (cons t
+            (format "Expected `%s' to not have been called exactly %s %s, but it was."
+                    spy number (if (= number 1) "time" "times"))))
      (t
       (cons nil
             (format "Expected `%s' to have been called %s %s, but it was called %s %s"
@@ -789,8 +827,10 @@ Return CHILD."
     (cons (buttercup-suite-or-spec-parent suite-or-spec)
           (buttercup-suite-or-spec-parents (buttercup-suite-or-spec-parent suite-or-spec)))))
 
-(define-obsolete-function-alias 'buttercup-suite-parents 'buttercup-suite-or-spec-parents "emacs-buttercup 1.10")
-(define-obsolete-function-alias 'buttercup-spec-parents 'buttercup-suite-or-spec-parents "emacs-buttercup 1.10")
+(define-obsolete-function-alias 'buttercup-suite-parents
+  #'buttercup-suite-or-spec-parents "emacs-buttercup 1.10")
+(define-obsolete-function-alias 'buttercup-spec-parents
+  #'buttercup-suite-or-spec-parents "emacs-buttercup 1.10")
 
 (defun buttercup-suites-total-specs-defined (suite-list)
   "Return the number of specs defined in all suites in SUITE-LIST."
@@ -915,6 +955,9 @@ form.")
 DESCRIPTION is a string. BODY is a sequence of instructions,
 mainly calls to `describe', `it' and `before-each'."
   (declare (indent 1) (debug (&define sexp def-body)))
+  (unless lexical-binding
+    (signal 'buttercup-dynamic-binding-error
+            "buttercup requires `lexical-binding' to be t"))
   (let ((new-body
          (cond
           ((eq (elt body 0) :var)
@@ -1350,11 +1393,11 @@ in a `buttercup-with-cleanup' environment.")
 
 (defun spy-calls-count-returned (spy)
   "Return the number of times SPY has been called successfully so far."
-  (cl-count-if 'spy-context-return-p (spy-calls-all spy)))
+  (cl-count-if #'spy-context-return-p (spy-calls-all spy)))
 
 (defun spy-calls-count-errors (spy)
   "Return the number of times SPY has been called and thrown errors so far."
-  (cl-count-if 'spy-context-thrown-p (spy-calls-all spy)))
+  (cl-count-if #'spy-context-thrown-p (spy-calls-all spy)))
 
 (defun spy-calls-args-for (spy index)
   "Return the context of the INDEXth call to SPY."
@@ -1366,7 +1409,7 @@ in a `buttercup-with-cleanup' environment.")
 
 (defun spy-calls-all-args (spy)
   "Return the arguments for every recorded call to SPY."
-  (mapcar 'spy-context-args (spy-calls-all spy)))
+  (mapcar #'spy-context-args (spy-calls-all spy)))
 
 (defun spy-calls-most-recent (spy)
   "Return the context of the most recent call to SPY."
@@ -1418,8 +1461,11 @@ each frame, and prefixes each stack frame with lambda or M to
 indicate whether it represents a normal evaluated function call
 or a macro/special form.")
 
-(defvar buttercup-color t
-  "Whether to use colors in output.")
+(defvar buttercup-color (let ((no-color (getenv "NO_COLOR")))
+                          (or (not no-color) (string= no-color "")))
+  "Whether to use colors in output.
+Will be nil if the `NO_COLOR' environment variable is set to any value
+\(see URL https://no-color.org/).")
 
 (defconst buttercup-warning-buffer-name " *Buttercup-Warnings*"
   "Buffer name used to collect warnings issued while running a spec.
@@ -1488,7 +1534,7 @@ current directory."
         (setq args (cdr args)))))
     (setq command-line-args-left nil)
     (setq failed-files-suite (make-buttercup-suite
-                              :description "File failed to load completely: "))
+                              :description "File failed to load correctly:"))
     (dolist (dir (or dirs '(".")))
       (dolist (file (directory-files-recursively
                      dir "\\`test-.*\\.el\\'\\|-tests?\\.el\\'"))
@@ -1511,9 +1557,12 @@ spec and add it to FAILURE-SUITE."
   (cl-destructuring-bind (status description stack)
       (buttercup--funcall #'load file nil t)
     (when (eq status 'failed)
+      (if (memq (cl-caadr description)
+                '(buttercup-dynamic-binding-error end-of-file))
+          (setq stack nil)
       ;; Skip all of stack until load is called
       (while (not (eq (nth 1 (car stack)) 'load))
-        (pop stack))
+        (pop stack)))
       (buttercup-suite-add-child
        failure-suite
        (make-buttercup-spec
@@ -1701,7 +1750,7 @@ Do not change the global value.")
   "Update SUITE-OR-SPEC with the result of calling FUNCTION with ARGS.
 Sets the `status', `failure-description', and `failure-stack' for
 failed and pending specs."
-  (let* ((result (apply 'buttercup--funcall function args))
+  (let* ((result (apply #'buttercup--funcall function args))
          (status (elt result 0))
          (description (elt result 1))
          (stack (elt result 2)))
@@ -1771,6 +1820,15 @@ Two special statuses can be listed in
            (string= (buttercup-spec-failure-description spec) "PENDING"))
       ))
 
+(defun buttercup--reporter-batch-preprint-spec-p (spec)
+  "Return non-nil if the SPEC description should be printed at `spec-started'."
+  (not (or buttercup-reporter-batch-quiet-statuses
+           ;; Do not 'pre-print' in github actions unless color is
+           ;; disabled. See #181.
+           (and (getenv "GITHUB_ACTION") buttercup-color)
+           (and buttercup-color
+                (string-match-p "[\n\v\f]" (buttercup-spec-description spec))))))
+
 (defun buttercup-reporter-batch (event arg)
   "A reporter that handles batch sessions.
 
@@ -1795,10 +1853,8 @@ EVENT and ARG are described in `buttercup-reporter'."
            (push arg buttercup-reporter-batch--suite-stack)
          (buttercup--print "%s\n" (buttercup--indented-description arg))))
       (`spec-started
-       (or buttercup-reporter-batch-quiet-statuses
-           (and buttercup-color
-                (string-match-p "[\n\v\f]" (buttercup-spec-description arg)))
-           (buttercup--print "%s" (buttercup--indented-description arg))))
+       (when (buttercup--reporter-batch-preprint-spec-p arg)
+         (buttercup--print "%s" (buttercup--indented-description arg))))
       (`spec-done
        (when (and buttercup-reporter-batch-quiet-statuses
                   (not (buttercup-reporter-batch--quiet-spec-p arg)))
@@ -1834,8 +1890,8 @@ EVENT and ARG are described in `buttercup-reporter'."
 (defun buttercup-reporter-batch--print-spec-done-line (spec color)
   "Print the remainder of the SPEC report line for `spec-done'.
 
-If COLOR is non-nil, erace the text so far on the current line
-using '\r' and replace it with the same text colored according to
+If COLOR is non-nil, erase the text so far on the current line
+using '\\r' and replace it with the same text colored according to
 the SPEC status. Do not erase and replace if the text would have
 been reprinted with the default color.
 
@@ -1869,7 +1925,8 @@ Finally print the elapsed time for SPEC."
       ;; Carriage returns (\r) should not be colorized. It would mess
       ;; up color handling in Emacs compilation buffers using
       ;; `ansi-color-apply-on-region' in `compilation-filter-hook'.
-      (buttercup--print "\r%s"
+      (buttercup--print "%s%s"
+                        (if (buttercup--reporter-batch-preprint-spec-p spec) "\r" "")
                         (buttercup-colorize
                          (buttercup--indented-description spec) color)))
     (unless (eq 'passed status)
@@ -1935,7 +1992,7 @@ Colorize parts of the output if COLOR is non-nil."
 FMT and ARGS are passed to `format'."
   (send-string-to-terminal (apply #'format fmt args)))
 
-(defun buttercup--display-warning (fn type message &optional level buffer-name)
+(defun buttercup--display-warning (fn type message &optional level buffer-name &rest args)
   "Log all warnings to a special buffer while running buttercup specs.
 
 Emacs' normal display logic for warnings doesn't mix well with
@@ -1955,8 +2012,8 @@ finishes."
       (cl-letf
           ((warning-minimum-level :emergency)
            ((symbol-function 'message) 'ignore))
-        (funcall fn type message level buffer-name))
-    (funcall fn type message level buffer-name)))
+        (apply fn type message level buffer-name args))
+    (apply fn type message level buffer-name args)))
 
 (advice-add 'display-warning :around #'buttercup--display-warning)
 
@@ -1986,7 +2043,7 @@ the capturing behavior."
 (defun buttercup-colorize (string color)
   "Format STRING with COLOR.
 Return STRING unmodified if COLOR is nil."
-  (if color
+  (if (and color buttercup-color)
       (let ((color-code (cdr (assq color buttercup-colors))))
         (format "\e[%sm%s\e[0m" color-code string))
     string))
@@ -2008,7 +2065,7 @@ EVENT and ARG are described in `buttercup-reporter'."
                                 (with-current-buffer buf
                                   (let ((inhibit-read-only t))
                                     (goto-char (point-max))
-                                    (insert (apply 'format fmt args))))))
+                                    (insert (apply #'format fmt args))))))
       (unwind-protect
           (let ((buttercup-color))
             (buttercup-reporter-batch event arg))
@@ -2041,18 +2098,19 @@ failed -- The second value is the description of the expectation
 
 (defun buttercup--debugger (&rest args)
   "Debugger function that return error context with an exception.
-
 ARGS according to `debugger'."
   ;; If we do not do this, Emacs will not run this handler on
   ;; subsequent calls. Thanks to ert for this.
   (setq num-nonmacro-input-events (1+ num-nonmacro-input-events))
   (throw 'buttercup-debugger-continue
          (list 'failed args
-               (cl-destructuring-bind (_ (signal-type . data)) args
+               ;; args is (error (signal . data) ....) where the tail
+               ;; may be empty
+               (cl-destructuring-bind (signal-type . data) (cl-second args)
                  (unless (eq signal-type 'buttercup-pending)
                    (buttercup--backtrace))))))
 
-(defalias 'buttercup--mark-stackframe 'ignore
+(defalias 'buttercup--mark-stackframe #'ignore
   "Marker to find where the backtrace start.")
 
 (defun buttercup--backtrace ()

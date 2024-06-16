@@ -1,4 +1,4 @@
-;;; buttercup-compat.el --- Compatibility definitions for buttercup -*-lexical-binding:nil-*-
+;;; buttercup-compat.el --- Compatibility definitions for buttercup  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015  Jorgen Schaefer
 ;; Copyright (C) 2015  Free Software Foundation, Inc.
@@ -29,31 +29,7 @@
 
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;
-;;; Introduced in 24.4
-
-(when (not (fboundp 'define-error))
-  (defun define-error (name message &optional parent)
-    "Define NAME as a new error signal.
-MESSAGE is a string that will be output to the echo area if such an error
-is signaled without being caught by a `condition-case'.
-PARENT is either a signal or a list of signals from which it inherits.
-Defaults to `error'."
-    (unless parent (setq parent 'error))
-    (let ((conditions
-           (if (consp parent)
-               (apply #'append
-                      (mapcar (lambda (parent)
-                                (cons parent
-                                      (or (get parent 'error-conditions)
-                                          (error "Unknown signal `%s'" parent))))
-                              parent))
-             (cons parent (get parent 'error-conditions)))))
-      (put name 'error-conditions
-           (delete-dups (copy-sequence (cons name conditions))))
-      (when message (put name 'error-message message)))))
-
-;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
 ;;; Introduced in 25.1
 
 (when (not (fboundp 'directory-files-recursively))
@@ -68,7 +44,7 @@ If INCLUDE-DIRECTORIES, also include directories that have matching names."
           ;; also be offered.  We shall suppress them.
           (tramp-mode (and tramp-mode (file-remote-p dir))))
       (dolist (file (sort (file-name-all-completions "" dir)
-                          'string<))
+                          #'string<))
         (unless (member file '("./" "../"))
           (if (directory-name-p file)
               (let* ((leaf (substring file 0 (1- (length file))))
@@ -118,6 +94,26 @@ If INCLUDE-DIRECTORIES, also include directories that have matching names."
 This is the time of the last change to the file's contents, and
 is a Lisp timestamp in the style of `current-time'."
 	(nth 5 attributes)))
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;; Introduced in 28.1
+
+(unless (fboundp 'with-environment-variables)
+  (defmacro with-environment-variables (variables &rest body)
+    "Set VARIABLES in the environment and execute BODY.
+VARIABLES is a list of variable settings of the form (VAR VALUE),
+where VAR is the name of the variable (a string) and VALUE
+is its value (also a string).
+
+The previous values will be restored upon exit."
+    (declare (indent 1) (debug (sexp body)))
+    (unless (consp variables)
+      (error "Invalid VARIABLES: %s" variables))
+    `(let ((process-environment (copy-sequence process-environment)))
+       ,@(mapcar (lambda (elem)
+                   `(setenv ,(car elem) ,(cadr elem)))
+                 variables)
+       ,@body)))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;; Introduced in 29.1

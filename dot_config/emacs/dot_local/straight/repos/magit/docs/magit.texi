@@ -8,7 +8,7 @@
 
 @copying
 @quotation
-Copyright (C) 2015-2024 Jonas Bernoulli <jonas@@bernoul.li>
+Copyright (C) 2015-2024 Jonas Bernoulli <emacs.magit@@jonas.bernoulli.dev>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
@@ -694,7 +694,7 @@ file, but then only a subset of the commands is available.
 
 The global key bindings mentioned in the previous two paragraphs are
 quite inconvenient.  We recommend using @code{C-c g} and @code{C-c f} instead, but
-cannot use those key sequences by default because they are strickly
+cannot use those key sequences by default because they are strictly
 reserved for bindings added by the user.  See @ref{Global Bindings}, if you
 want to explicitly opt-in to the recommended key bindings.
 
@@ -2304,14 +2304,11 @@ this function always asks the user to choose a candidate, just as
 if both defaults were @code{nil}.
 
 @item
-": " is appended to PROMPT@.
-
-@item
-PROMPT is modified to end with \" (default DEF|FALLBACK): \"
-provided that DEF or FALLBACK is non-nil, that neither @code{ivy-mode}
-nor @code{helm-mode} is enabled, and that
-@code{magit-completing-read-function} is set to its default value of
-@code{magit-builtin-completing-read}.
+@code{format-prompt} is called on PROMPT and DEF (or FALLBACK if
+DEF is @code{nil}).  This appends ": " to the prompt and may also
+add the default to the prompt, using the format specified by
+@code{minibuffer-default-prompt-format} and depending on
+@code{magit-completing-read-default-prompt-predicate}.
 @end itemize
 @end defun
 
@@ -4420,8 +4417,8 @@ markers in the worktree file.  Because you and/or Git may have
 already resolved some conflicts, that means that these buffers
 may not contain the actual versions from the respective blobs.
 
-@item @kbd{E m} (@code{magit-ediff-resolve-all})
-@kindex E m
+@item @kbd{E M} (@code{magit-ediff-resolve-all})
+@kindex E M
 @findex magit-ediff-resolve-all
 This command allows you to resolve all conflicts in the file at
 point using Ediff.  If there is no file at point or if it doesn't
@@ -8279,11 +8276,12 @@ of which are read from the minibuffer.
 @findex magit-fetch-all
 This command fetches from all remotes.
 
-@item @kbd{f m} (@code{magit-submodule-fetch})
+@item @kbd{f m} (@code{magit-fetch-modules})
 @kindex f m
-@findex magit-submodule-fetch
-This command fetches all submodules.  With a prefix argument it
-fetches all remotes of all submodules.
+@findex magit-fetch-modules
+This command fetches all submodules.  With a prefix argument, it
+acts as a transient prefix command, allowing the caller to set
+options.
 @end table
 
 @defopt magit-pull-or-fetch
@@ -8914,12 +8912,12 @@ This command displays a list of the current repository's modules.
 @item @kbd{o f} (@code{magit-fetch-modules})
 @kindex o f
 @findex magit-fetch-modules
-This command fetches all populated modules.
+This command fetches all populated modules.  With a prefix argument,
+it acts as a transient prefix command, allowing the caller to set
+options.
 
-Option @code{magit-fetch-modules-jobs} controls how many submodules are
-being fetched in parallel.  Also fetch the super-repository, because
-@code{git fetch} does not support not doing that.  With a prefix argument
-fetch all remotes.
+Also fetch the super-repository, because @code{git fetch} does not
+support not doing that.
 @end table
 
 @node Subtree
@@ -9476,7 +9474,7 @@ By default Magit defines a few global key bindings.  These bindings
 are a compromise between providing no bindings at all and providing
 the better bindings I would have liked to use instead.  Magit cannot
 provide the set of recommended bindings by default because those key
-sequences are stricktly reserved for bindings added by the user.
+sequences are strictly reserved for bindings added by the user.
 Also see @ref{Global Bindings} and @ref{Key Binding Conventions,,,elisp,}.
 
 To use the recommended bindings, add this to your init file and

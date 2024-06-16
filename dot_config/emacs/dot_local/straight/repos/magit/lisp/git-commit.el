@@ -2,21 +2,21 @@
 
 ;; Copyright (C) 2008-2024 The Magit Project Contributors
 
-;; Author: Jonas Bernoulli <jonas@bernoul.li>
+;; Author: Jonas Bernoulli <emacs.magit@jonas.bernoulli.dev>
 ;;     Sebastian Wiesner <lunaryorn@gmail.com>
 ;;     Florian Ragwitz <rafl@debian.org>
 ;;     Marius Vollmer <marius.vollmer@gmail.com>
-;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
+;; Maintainer: Jonas Bernoulli <emacs.magit@jonas.bernoulli.dev>
 
 ;; Homepage: https://github.com/magit/magit
 ;; Keywords: git tools vc
 
 ;; Package-Version: 3.3.0.50-git
 ;; Package-Requires: (
-;;     (emacs "25.1")
-;;     (compat "29.1.4.4")
+;;     (emacs "26.1")
+;;     (compat "29.1.4.5")
 ;;     (seq "2.24")
-;;     (transient "0.5.0")
+;;     (transient "0.6.0")
 ;;     (with-editor "3.3.2"))
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
@@ -114,7 +114,7 @@
 (require 'compat)
 (require 'subr-x)
 
-(when (and (featurep' seq)
+(when (and (featurep 'seq)
            (not (fboundp 'seq-keep)))
   (unload-feature 'seq 'force))
 (require 'seq)
@@ -141,6 +141,8 @@
 (defvar font-lock-beg)
 (defvar font-lock-end)
 (defvar recentf-exclude)
+
+(defvar git-commit-need-summary-line)
 
 (define-obsolete-variable-alias
   'git-commit-known-pseudo-headers
@@ -213,8 +215,13 @@ The major mode configured here is turned on by the minor mode
 ;;;###autoload                   fundamental-mode
 ;;;###autoload                   git-commit-elisp-text-mode))))
 
+(defvaralias 'git-commit-mode-hook 'git-commit-setup-hook
+  "This variable is an alias for `git-commit-setup-hook' (which see).
+Also note that `git-commit-mode' (which see) is not a major-mode.")
+
 (defcustom git-commit-setup-hook
-  '(git-commit-save-message
+  '(git-commit-ensure-comment-gap
+    git-commit-save-message
     git-commit-setup-changelog-support
     git-commit-turn-on-auto-fill
     git-commit-propertize-diff
@@ -223,7 +230,8 @@ The major mode configured here is turned on by the minor mode
   :group 'git-commit
   :type 'hook
   :get (and (featurep 'magit-base) #'magit-hook-custom-get)
-  :options '(git-commit-save-message
+  :options '(git-commit-ensure-comment-gap
+             git-commit-save-message
              git-commit-setup-changelog-support
              magit-generate-changelog
              git-commit-turn-on-auto-fill
@@ -644,24 +652,21 @@ Used as the local value of `header-line-format', in buffer using
       (magit-wip-maybe-add-commit-hook)))
   (setq with-editor-cancel-message
         #'git-commit-cancel-message)
-  (git-commit-mode 1)
   (git-commit-setup-font-lock)
   (git-commit-prepare-message-ring)
   (when (boundp 'save-place)
     (setq save-place nil))
-  (save-excursion
-    (goto-char (point-min))
-    (when (looking-at "\\`\\(\\'\\|\n[^\n]\\)")
-      (open-line 1)))
+  (let ((git-commit-mode-hook nil))
+    (git-commit-mode 1))
   (with-demoted-errors "Error running git-commit-setup-hook: %S"
     (run-hooks 'git-commit-setup-hook))
-  (when git-commit-usage-message
-    (setq with-editor-usage-message git-commit-usage-message))
-  (with-editor-usage-message)
+  (set-buffer-modified-p nil)
   (when-let ((format git-commit-header-line-format))
     (setq header-line-format
           (if (stringp format) (substitute-command-keys format) format)))
-  (set-buffer-modified-p nil))
+  (when git-commit-usage-message
+    (setq with-editor-usage-message git-commit-usage-message))
+  (with-editor-usage-message))
 
 (defun git-commit-run-post-finish-hook (previous)
   (when (and git-commit-post-finish-hook
@@ -682,10 +687,22 @@ Used as the local value of `header-line-format', in buffer using
 (define-minor-mode git-commit-mode
   "Auxiliary minor mode used when editing Git commit messages.
 This mode is only responsible for setting up some key bindings.
-Don't use it directly, instead enable `global-git-commit-mode'."
+Don't use it directly; instead enable `global-git-commit-mode'.
+Variable `git-commit-major-mode' controls which major-mode is
+used."
   :lighter "")
 
 (put 'git-commit-mode 'permanent-local t)
+
+(defun git-commit-ensure-comment-gap ()
+  "Separate initial empty line from initial comment.
+If the buffer begins with an empty line followed by a comment, insert
+an additional newline inbetween, so that once the users start typing,
+the input isn't tacked to the comment."
+  (save-excursion
+    (goto-char (point-min))
+    (when (looking-at (format "\\`\n%s" comment-start))
+      (open-line 1))))
 
 (defun git-commit-setup-changelog-support ()
   "Treat ChangeLog entries as unindented paragraphs."
@@ -695,9 +712,16 @@ Don't use it directly, instead enable `global-git-commit-mode'."
   (setq-local paragraph-start (concat paragraph-start "\\|\\*\\|(")))
 
 (defun git-commit-turn-on-auto-fill ()
-  "Unconditionally turn on Auto Fill mode."
+  "Unconditionally turn on Auto Fill mode.
+Ensure auto filling happens everywhere, except in the summary line."
+  (turn-on-auto-fill)
   (setq-local comment-auto-fill-only-comments nil)
-  (turn-on-auto-fill))
+  (when git-commit-need-summary-line
+    (setq-local auto-fill-function #'git-commit-auto-fill-except-summary)))
+
+(defun git-commit-auto-fill-except-summary ()
+  (unless (eq (line-beginning-position) 1)
+    (do-auto-fill)))
 
 (defun git-commit-turn-on-orglink ()
   "Turn on Orglink mode if it is available.
@@ -808,9 +832,8 @@ With a numeric prefix ARG, go forward ARG comments."
   "Search backward through message history for a match for STRING.
 Save current message first."
   (interactive
-   ;; Avoid `format-prompt' because it isn't available until Emacs 28.
-   (list (read-string (format "Comment substring (default %s): "
-                              log-edit-last-comment-match)
+   (list (read-string (format-prompt "Comment substring"
+                                     log-edit-last-comment-match)
                       nil nil log-edit-last-comment-match)))
   (cl-letf (((symbol-function #'log-edit-previous-comment)
              (symbol-function #'git-commit-prev-message)))
@@ -820,9 +843,8 @@ Save current message first."
   "Search forward through message history for a match for STRING.
 Save current message first."
   (interactive
-   ;; Avoid `format-prompt' because it isn't available until Emacs 28.
-   (list (read-string (format "Comment substring (default %s): "
-                              log-edit-last-comment-match)
+   (list (read-string (format-prompt "Comment substring"
+                                     log-edit-last-comment-match)
                       nil nil log-edit-last-comment-match)))
   (cl-letf (((symbol-function #'log-edit-previous-comment)
              (symbol-function #'git-commit-prev-message)))
@@ -1243,8 +1265,8 @@ Added to `font-lock-extend-region-functions'."
                  (font-lock-ensure)
                (with-no-warnings
                  (font-lock-fontify-buffer))))
-           (let (next (pos (point-min)))
-             (while (setq next (next-single-property-change pos 'face))
+           (let ((pos (point-min)))
+             (while-let ((next (next-single-property-change pos 'face)))
                (put-text-property pos next 'font-lock-face
                                   (get-text-property pos 'face))
                (setq pos next))
