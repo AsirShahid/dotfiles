@@ -258,6 +258,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "alacritty"; }
+    Mod+Return { spawn "alacritty"; }
+    Mod+Shift+Return { spawn "flatpak run org.mozilla.firefox"; }
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
