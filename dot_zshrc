@@ -116,3 +116,6 @@ eval "$(zoxide init zsh)"
 [ -s "/var/home/ashahid/.bun/_bun" ] && source "/var/home/ashahid/.bun/_bun"
 
 source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export EDITOR=emacs
