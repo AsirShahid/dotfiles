@@ -198,6 +198,16 @@ be."
     ;; @}
     )))
 
+(sp-test-command sp-forward-symbol
+  ((nil
+    ("|foo bar" "foo| bar" "foo bar|"))
+   (((mode 'clojure))
+    ("|(map #(identity) {:a 1})"
+     "(map| #(identity) {:a 1})"
+     "(map #(identity|) {:a 1})"
+     "(map #(identity) {:a| 1})"
+     "(map #(identity) {:a 1|})"))))
+
 (sp-test-command sp-forward-parallel-sexp
   ((nil
     ("|foo" "foo|")
@@ -266,7 +276,23 @@ be."
     ("(f|oo)  #'(bar)" "(f|oo  #'(bar))"))
    (((sp-sexp-prefix '((emacs-lisp-mode regexp "\\(?:['`]*,@?\\|[',`]\\)"))))
     ("(fo|o) `',(bar)" "(fo|o `',(bar))")
-    ("(fo|o) ,@(bar)" "(fo|o ,@(bar))"))))
+    ("(fo|o) ,@(bar)" "(fo|o ,@(bar))"))
+   (((mode 'clojure))
+    ;; was sp-test-clojure-slurp-with-prefix
+    ("(foo|) #{...}" "(foo| #{...})")
+    ("(foo|) ^{:a 1}" "(foo| ^{:a 1})")
+    ("(foo|) #(xyzzy 1 2 %)" "(foo| #(xyzzy 1 2 %))")
+    ("(foo|) #_(comment reader macro)" "(foo| #_(comment reader macro))")
+    ("(foo|) ~unquote-me" "(foo| ~unquote-me)")
+    ("(foo|) `~'unquote-me" "(foo| `~'unquote-me)")
+    ("(foo|) ~@(splice-me)" "(foo| ~@(splice-me))")
+    ("(foo|) `(quote-me)" "(foo| `(quote-me))")
+    ("(foo|) @(deref-me)" "(foo| @(deref-me))")
+    ("(foo|) @deref-me" "(foo| @deref-me)")
+    ("(foo|) #?@(:clj [3 4] :cljs [5 6])" "(foo| #?@(:clj [3 4] :cljs [5 6]))")
+    ("(foo|) #?(:clj Double/NaN\n :cljs js/NaN\n :default nil)"
+     ;; longer because slurp causes "autoformat"
+     "(foo| #?(:clj Double/NaN\n        :cljs js/NaN\n        :default nil))"))))
 
 (sp-test-command sp-backward-slurp-sexp
   ((nil
@@ -296,6 +322,16 @@ be."
 
     ("(foo)\nbar ;; baz (f|oo baz)\n(quux)"
      "(foo)\nbar ;; baz (f|oo) baz\n(quux)"))
+
+   (((mode 'clojure))
+    ("(|#{...})" "(|)#{...}")
+    ("(|#(xyzzy 1 2 %))" "(|)#(xyzzy 1 2 %)")
+    ("(|#_(comment reader macro))" "(|)#_(comment reader macro)")
+    ("(|#?@(:clj [3 4] :cljs [5 6]))" "(|)#?@(:clj [3 4] :cljs [5 6])")
+    ("(|#?(:clj     Double/NaN
+      :cljs    js/NaN
+      :default nil))"
+     "(|)#?(:clj     Double/NaN\n     :cljs    js/NaN\n     :default nil)"))
 
    (((mode 'racket)
      (sp-sexp-prefix '((racket-mode regexp "#?['`,]@?"))))
@@ -807,6 +843,31 @@ be."
    (((mode 'js))
     ("{|'foo': 'bar'}" "{'|': 'bar'}"))))
 
+(sp-test-command sp-clone-sexp
+  ((nil
+    ;; from #938 later in the thread
+    ("|(foo (bar) baz)" "(foo (bar) baz)\n|(foo (bar) baz)")
+    ("(foo |(bar) baz)" "(foo (bar)\n     |(bar) baz)")
+    ("(foo (bar) |baz)" "(foo (bar) baz)\n(foo (bar) |baz)")
+    ("(foo (bar) baz)|" "(foo (bar) baz)|")
+
+    ("(foo (bar)| 'baz 'qux)" "(foo (bar) 'baz 'qux)\n(foo (bar)| 'baz 'qux)")
+    ("(foo (bar) 'baz '|qux)" "(foo (bar) 'baz 'qux)\n(foo (bar) 'baz '|qux)")
+
+    ;; from #938 OP
+    ("(defun my-smartparens-hook ()
+  (setq sp-base-key-bindings 'paredit)
+  (define-key smartparens-|mode-map (kbd \"C-, C-y\")  #'sp-clone-sexp)
+  (define-key smartparens-mode-map (kbd \"C-k\")      #'kill-sexp)
+  (define-key smartparens-mode-map (kbd \"C-M-t\")    #'sp-transpose-sexp)
+  )" "(defun my-smartparens-hook ()
+  (setq sp-base-key-bindings 'paredit)
+  (define-key smartparens-mode-map (kbd \"C-, C-y\")  #'sp-clone-sexp)
+  (define-key smartparens-|mode-map (kbd \"C-, C-y\")  #'sp-clone-sexp)
+  (define-key smartparens-mode-map (kbd \"C-k\")      #'kill-sexp)
+  (define-key smartparens-mode-map (kbd \"C-M-t\")    #'sp-transpose-sexp)
+  )"))))
+
 (defun sp--test-sp-rewrap-sexp (initial pair expected &optional keep)
   (sp-test-with-temp-elisp-buffer initial
     (sp-rewrap-sexp pair keep)
@@ -1049,3 +1110,7 @@ This is the behavior of `paredit-convolute-sexp'."
     (call-interactively 'sp-backward-delete-word)
     (call-interactively 'sp-backward-delete-word)
     (sp-buffer-equals "hello world one ")))
+
+;; Local Variables:
+;; eval: (add-to-list 'imenu-generic-expression '("Command test" "\\(^(sp-test-command +\\)\\(\\_<.+\\_>\\)" 2))
+;; End:

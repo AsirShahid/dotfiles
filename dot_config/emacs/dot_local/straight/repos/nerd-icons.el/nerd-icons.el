@@ -39,8 +39,9 @@
 (require 'cl-lib)
 
 (require 'nerd-icons-data)
-
 (require 'nerd-icons-faces)
+
+(declare-function set-fontset-font "src/fontset.c")
 
 (defgroup nerd-icons nil
   "Manage how Nerd Fonts formats icons."
@@ -137,6 +138,12 @@
     ("exe"            nerd-icons-octicon "nf-oct-file_binary"    :face nerd-icons-dsilver)
     ("msg"            nerd-icons-octicon "nf-oct-mail"           :face nerd-icons-dsilver)
     ;; Source Codes
+    ("ada"            nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-blue)
+    ("adb"            nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-blue)
+    ("adc"            nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-blue)
+    ("ads"            nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-blue)
+    ("gpr"            nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-green)
+    ("cgpr"           nerd-icons-sucicon "nf-custom-ada"         :face nerd-icons-green)
     ("scpt"           nerd-icons-devicon "nf-dev-apple"          :face nerd-icons-pink)
     ;; ("aup"         nerd-icons-fileicon "audacity") TODO: audacity
     ("elm"            nerd-icons-sucicon "nf-seti-elm"           :face nerd-icons-blue)
@@ -326,6 +333,10 @@
     ("fsi"            nerd-icons-devicon "nf-dev-fsharp"         :face nerd-icons-blue-alt)
     ("fsx"            nerd-icons-devicon "nf-dev-fsharp"         :face nerd-icons-blue-alt)
     ("fsscript"       nerd-icons-devicon "nf-dev-fsharp"         :face nerd-icons-blue-alt)
+    ;; Godot / GDScript
+    ("gd"             nerd-icons-sucicon "nf-seti-godot"         :face nerd-icons-blue)
+    ("tscn"           nerd-icons-codicon "nf-cod-settings"       :face nerd-icons-orange)
+    ("tres"           nerd-icons-codicon "nf-cod-settings"       :face nerd-icons-orange)
     ;; zig
     ("zig"            nerd-icons-sucicon "nf-seti-zig"           :face nerd-icons-orange)
     ;; odin
@@ -388,6 +399,7 @@
     ("org_archive"    nerd-icons-sucicon "nf-custom-orgmode"     :face nerd-icons-lgreen)
     ("pps"            nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-orange)
     ("ppt"            nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-orange)
+    ("pptx"           nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-orange)
     ("pptsx"          nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-orange)
     ("ppttx"          nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-orange)
     ("knt"            nerd-icons-mdicon "nf-md-file_powerpoint"  :face nerd-icons-cyan)
@@ -672,6 +684,7 @@
     (perl-mode                         nerd-icons-devicon "nf-dev-perl"               :face nerd-icons-lorange)
     (cperl-mode                        nerd-icons-devicon "nf-dev-perl"               :face nerd-icons-lorange)
     (php-mode                          nerd-icons-devicon "nf-dev-php"                :face nerd-icons-lsilver)
+    (php-ts-mode                       nerd-icons-devicon "nf-dev-php"                :face nerd-icons-lsilver)
     (prolog-mode                       nerd-icons-devicon "nf-dev-prolog"             :face nerd-icons-lmaroon)
     (python-mode                       nerd-icons-devicon "nf-dev-python"             :face nerd-icons-dblue)
     (python-ts-mode                    nerd-icons-devicon "nf-dev-python"             :face nerd-icons-dblue)
@@ -684,6 +697,10 @@
     ;; (scheme-mode                    nerd-icons-fileicon   "scheme"                 :face nerd-icons-red)
     (swift-mode                        nerd-icons-devicon "nf-dev-swift"              :face nerd-icons-green)
     (svelte-mode                       nerd-icons-sucicon "nf-seti-svelte"            :face nerd-icons-red)
+    (ada-mode                          nerd-icons-sucicon "nf-custom-ada"             :face nerd-icons-blue)
+    (ada-ts-mode                       nerd-icons-sucicon "nf-custom-ada"             :face nerd-icons-blue)
+    (gpr-mode                          nerd-icons-sucicon "nf-custom-ada"             :face nerd-icons-green)
+    (gpr-ts-mode                       nerd-icons-sucicon "nf-custom-ada"             :face nerd-icons-green)
     (c-mode                            nerd-icons-sucicon "nf-custom-c"               :face nerd-icons-blue)
     (c-ts-mode                         nerd-icons-sucicon "nf-custom-c"               :face nerd-icons-blue)
     (c++-mode                          nerd-icons-sucicon "nf-custom-cpp"             :face nerd-icons-blue)
@@ -706,6 +723,8 @@
     (less-css-mode                     nerd-icons-devicon "nf-dev-less"               :face nerd-icons-dyellow)
     (stylus-mode                       nerd-icons-devicon "nf-dev-stylus"             :face nerd-icons-lgreen)
     (csv-mode                          nerd-icons-octicon "nf-oct-graph"              :face nerd-icons-dblue)
+    (gdscript-mode                     nerd-icons-sucicon "nf-seti-godot"             :face nerd-icons-blue)
+    (gdscript-ts-mode                  nerd-icons-sucicon "nf-seti-godot"             :face nerd-icons-blue)
     (haskell-mode                      nerd-icons-devicon "nf-dev-haskell"            :face nerd-icons-red)
     (haskell-c2hs-mode                 nerd-icons-devicon "nf-dev-haskell"            :face nerd-icons-red)
     (literate-haskell-mode             nerd-icons-devicon "nf-dev-haskell"            :face nerd-icons-red)
@@ -820,7 +839,7 @@
     (julia-ts-mode                     nerd-icons-sucicon "nf-seti-julia"             :face nerd-icons-purple)
     (flycheck-error-list               nerd-icons-faicon "nf-fa-list_alt"             :face nerd-icons-lred)))
 
-(defvar                                                       nerd-icons-url-alist
+(defvar nerd-icons-url-alist
   '(
     ;; Social media and communities
     ("^\\(https?://\\)?\\(www\\.\\)?del\\.icio\\.us"          nerd-icons-faicon "nf-fa-delicious")

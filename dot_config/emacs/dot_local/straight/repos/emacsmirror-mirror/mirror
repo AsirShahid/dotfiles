@@ -146,6 +146,7 @@ amd-mode
 ameba
 aml-mode
 ampc
+ampl-mode
 ample-regexps
 ample-theme
 ample-zen-theme
@@ -254,6 +255,8 @@ atomic-chrome
 attrap
 auctex
 auctex-cluttex
+auctex-cont-latexmk
+auctex-label-numbers
 auctex-latexmk
 auctex-lua
 audacious
@@ -625,16 +628,20 @@ caser
 cask-mode
 cask-package-toolset
 caskxy
-casual
 casual-avy
+casual-calc
 casual-dired
+casual-ibuffer
+casual-info
+casual-isearch
+casual-lib
+casual-suite
 catmacs
 catppuccin-theme
 cats
 cbm
 cc-cedict
 cc-chainsaw
-cc-isearch-menu
 cc-mode-plus
 ccls
 cd-compile
@@ -1051,6 +1058,7 @@ cssh
 csv
 csv-mode
 csv-nav
+csv2ledger
 ct
 ctable
 ctags-update
@@ -1184,6 +1192,7 @@ denote
 denote-explore
 denote-menu
 denote-refs
+denote-sections
 derl
 descr-text-plus
 describe-hash
@@ -1267,6 +1276,7 @@ dired-imenu
 dired-k
 dired-launch
 dired-lsi
+dired-open-with
 dired-posframe
 dired-preview
 dired-quick-sort
@@ -1391,6 +1401,7 @@ dropbox
 dropdown-list
 drupal-mode
 drupal-spell
+dslide
 dsvn
 dtb-mode
 dtext-mode
@@ -1607,7 +1618,6 @@ elisp-sandbox
 elisp-slime-expand
 elisp-slime-nav
 elixir-mode
-elixir-ts-mode
 elixir-yasnippets
 elk-test
 ellama
@@ -1618,7 +1628,6 @@ elm-yasnippets
 elmacro
 elmine
 elmpd
-elnode
 elog
 elogcat
 eloud
@@ -1706,6 +1715,7 @@ encrypt-region
 engine-mode
 engrave-faces
 enh-ruby-mode
+enlight
 enlightened-theme
 enlive
 enotify
@@ -1787,6 +1797,7 @@ esh-help
 eshell-atuin
 eshell-autojump
 eshell-bookmark
+eshell-command-not-found
 eshell-did-you-mean
 eshell-fixed-prompt
 eshell-fringe-status
@@ -1849,6 +1860,7 @@ evalator
 evalator-clojure
 eve-mode
 evelnote
+evenok
 everlasting-scratch
 eviews
 evil
@@ -2409,6 +2421,7 @@ gc-buffers
 gcmh
 gcode-mode
 gdb-bp-session
+gdb-x
 gdscript-mode
 geben
 geben-helm-projectile
@@ -2467,10 +2480,12 @@ git-cliff
 git-code-review
 git-command
 git-commit-insert-issue
+git-commit-ts-mode
 git-dwim
 git-emacs
 git-find-file
 git-grep
+git-grep-transient
 git-gutter
 git-gutter-plus
 git-gutter-fringe
@@ -2756,7 +2771,6 @@ header2
 headlong
 heap
 heaven-and-hell
-heex-ts-mode
 helm
 helm-R
 helm-ack
@@ -2918,7 +2932,6 @@ helm-tail
 helm-taskswitch
 helm-themes
 helm-tramp
-helm-tree-sitter
 helm-twitch
 helm-unicode
 helm-w32-launcher
@@ -3080,6 +3093,7 @@ hyperkitty
 hyperlist-mode
 hyperspace
 hyperspec
+hyperstitional-themes
 i-ching
 i2b2-mode
 i3
@@ -3248,6 +3262,7 @@ io-mode-inf
 ioccur
 iodine-theme
 ios-config-mode
+iosevka-theme
 iota
 ipa
 ipcalc
@@ -3444,6 +3459,7 @@ kakapo-mode
 kakoune
 kaleidoscope
 kana
+kanagawa-theme
 kanban
 kanji-mode
 kaocha-runner
@@ -3680,6 +3696,7 @@ literal-string
 literate-calc-mode
 literate-coffee-mode
 literate-elisp
+literate-scratch
 litex-mode
 live-code-talks
 live-completions
@@ -3705,6 +3722,7 @@ load-theme-buffer-local
 loc-changes
 loccur
 lockfile-mode
+loco
 lodgeit
 log-buffer
 log4e
@@ -3767,7 +3785,6 @@ lsp-ui
 ltsv
 lua-block
 lua-mode
-lua-ts-mode
 luarocks
 lurk-mode
 lush-theme
@@ -3804,6 +3821,7 @@ magit-filenotify
 magit-find-file
 magit-gerrit
 magit-gitflow
+magit-gitlab
 magit-gptcommit
 magit-imerge
 magit-lfs
@@ -3928,6 +3946,7 @@ memory-usage
 mentor
 menu-bar-plus
 meow
+meow-tree-sitter
 merlin
 merlin-eldoc
 mermaid-docker-mode
@@ -4066,6 +4085,7 @@ morlock
 morrowind-theme
 mos-mode
 mosey
+most-faces
 most-used-words
 mote-mode
 motion-and-kill-dwim
@@ -4079,6 +4099,7 @@ move-mode
 move-text
 movie
 mowedline
+mowie
 mozart
 mozc
 mozc-cand-posframe
@@ -4469,7 +4490,7 @@ open-in-msvs
 open-junk-file
 open-related-file
 opencc
-opencl-mode
+opencl-c-mode
 opener
 openfoam
 openpaste
@@ -4624,7 +4645,6 @@ org-pdftools
 org-picklink
 org-pomodoro
 org-present
-org-present-remote
 org-presie
 org-pretty-tags
 org-preview-html
@@ -4680,6 +4700,7 @@ org-sync
 org-sync-snippets
 org-table-color
 org-table-comment
+org-table-jb-extras
 org-table-sticky-header
 org-tag-beautify
 org-tagged
@@ -4692,6 +4713,7 @@ org-timeline
 org-toodledo
 org-tracktable
 org-transclusion
+org-transclusion-http
 org-transform-tree-table
 org-translate
 org-tree-slide
@@ -4835,7 +4857,6 @@ package-lint
 package-loading-notifier
 package-store
 package-utils
-packed
 pacmacs
 pact-mode
 paganini-theme
@@ -4919,9 +4940,7 @@ pdfgrep
 pdfscan
 peacock-theme
 pebble-mode
-peek-mode
 peertube
-peg
 pelican-mode
 pepita
 per-buffer-theme
@@ -5150,7 +5169,9 @@ pretty-mode
 pretty-sha-path
 pretty-speedbar
 pretty-symbols
+preview-auto
 preview-dvisvgm
+preview-tailor
 prism
 prisma-ts-mode
 private
@@ -5255,7 +5276,6 @@ pycoverage
 pydoc
 pyenv-mode
 pygen
-pygn-mode
 pyim
 pyim-basedict
 pyim-cangjiedict
@@ -5291,6 +5311,7 @@ python-test
 python-view-data
 python-x
 pythonic
+pythontest
 pyvenv
 pyvenv-auto
 q-mode
@@ -5322,6 +5343,7 @@ quickrun
 quiet
 quilt
 quiz
+qwen-chat-shell
 r-autoyas
 racer
 racket-mode
@@ -5442,6 +5464,7 @@ register-channel
 register-list
 register-quicknav
 rego-mode
+regswap
 related
 related-files
 relint
@@ -5651,6 +5674,7 @@ scss-mode
 sculpture-themes
 sdcv
 sdlang-mode
+sdml-mode
 search-prop
 search-web
 searcher
@@ -5965,6 +5989,7 @@ spinner
 spiral
 split-root
 splitjoin
+splunk-mode
 spotify
 spotlight
 spray
@@ -6213,6 +6238,7 @@ temp-buffer-browse
 tempel
 tempel-collection
 templ-ts-mode
+template-dumper
 template-overlays
 template-simple
 templatel
@@ -6249,6 +6275,8 @@ test-kitchen
 test-more
 test-simple
 testcover-mark-line
+tex-item
+tex-parens
 tex-smart-umlauts
 texfrag
 text-align
@@ -6295,6 +6323,7 @@ time-block
 time-ext
 time-uuid-mode
 timeclock-x
+timeout
 timer-plus
 timer-revert
 timerfunctions
@@ -6340,6 +6369,7 @@ tomelr
 toml
 toml-mode
 tommyh-theme
+tomorrow-night-deepblue-theme
 tongbu
 tool-bar-plus
 toolbox
@@ -6391,21 +6421,19 @@ tray
 tree-edit
 tree-inspector
 tree-mode
-tree-sitter
-tree-sitter-ess-r
-tree-sitter-indent
-tree-sitter-ispell
-tree-sitter-langs
 treebundel
 treefactor
 treemacs
 treemacs-nerd-icons
 treepy
 treesit-auto
+treesit-fold
+treesit-ispell
 treeview
 trelloel
 trident-mode
 trie
+trimspace-mode
 trinary
 trindle
 triples
@@ -6513,6 +6541,7 @@ universal-sidecar
 unmodified-buffer
 unobtrusive-magit-theme
 unparen
+unspecified-theme
 untappd
 untitled-new-buffer
 upbo
@@ -6607,6 +6636,7 @@ viking-mode
 vim-empty-lines-mode
 vim-modeline
 vim-region
+vim-tab-bar
 vimgolf
 vimish-fold
 vimrc-mode
@@ -6641,6 +6671,7 @@ vscdark-theme
 vscode-dark-plus-theme
 vscode-icon
 vterm
+vterm-hotkey
 vterm-toggle
 vtm
 vue-html-mode
@@ -6716,8 +6747,8 @@ weyland-yutani-theme
 wfnames
 wgrep
 wgsl-mode
+whaler
 what-the-commit
-which-key
 which-key-posframe
 whiley-mode
 whitaker
@@ -6779,6 +6810,7 @@ with-proxy
 with-shell-interpreter
 with-simulated-input
 with-venv
+wiz
 wmctrl
 wmii
 wn-mode
@@ -6932,6 +6964,7 @@ zeno-theme
 zenscript-mode
 zephir-mode
 zero-input
+zero-input-panel-posframe
 zerodark-theme
 zetteldeft
 zetteldesk

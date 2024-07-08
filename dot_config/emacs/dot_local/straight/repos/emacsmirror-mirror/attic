@@ -371,6 +371,7 @@ elim
 elite-for-emacs
 ell
 elmake
+elnode
 elo
 elscreen-vim-mode
 else-mode
@@ -614,6 +615,7 @@ helm-nrepl
 helm-odoc
 helm-projectile-all
 helm-rb
+helm-tree-sitter
 helpex
 hide-copyleft
 hier-imenu
@@ -741,7 +743,6 @@ judge-indent
 juick
 junkbust
 kag-mode
-kanagawa-theme
 kbd-fns
 kbdraw
 keep-buffers
@@ -993,6 +994,7 @@ org-osm-link
 org-password-manager
 org-pdfview
 org-pivotal
+org-present-remote
 org-pua
 org-recur
 org-roam-server
@@ -1018,6 +1020,7 @@ ox-texinfo-plus
 p4pymarshal
 pack-windows
 package-safe-delete
+packed
 page-mode
 pair-mode
 pallet
@@ -1035,6 +1038,7 @@ pcmpl-arch
 pdb
 pde
 peano
+peek-mode
 peep-dired
 peepopen
 per-window-point
@@ -1110,6 +1114,7 @@ pwsafe
 pydoc-info
 pyenv-mode-auto
 pyfmt
+pygn-mode
 python-extras
 qa
 qda
@@ -1392,6 +1397,11 @@ track-scroll
 translate
 trashcan
 traverselisp
+tree-sitter
+tree-sitter-ess-r
+tree-sitter-indent
+tree-sitter-ispell
+tree-sitter-langs
 ttrss
 tty-format
 tumblr
@@ -1477,6 +1487,7 @@ weechat-alert
 wget
 what-domain
 which
+which-key
 whine
 whitespace-mode
 whizzytex

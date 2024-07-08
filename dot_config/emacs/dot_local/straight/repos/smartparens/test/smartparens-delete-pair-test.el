@@ -13,7 +13,7 @@
       (delete-backward-char 1)
       (should (equal (buffer-string) "\\{")))))
 
-(ert-deftest sp-test-delete-pair-closing ()
+(ert-deftest sp-test-delete-pair-opening ()
   (let ((sp-pairs sp--test-basic-pairs))
     (sp-test-with-temp-elisp-buffer "\\{|"
       (smartparens-strict-mode -1)
@@ -79,3 +79,12 @@
     (smartparens-strict-mode 1)
     (sp-backward-delete-char)
     (sp-buffer-equals "\" | \"")))
+
+(ert-deftest sp-test-delete-pair-dont-delete-with-active-region ()
+  "Fixes #703"
+  (sp-test-with-temp-elisp-buffer "(|
+
+M)"
+    (smartparens-strict-mode -1)
+    (call-interactively 'backward-delete-char)
+    (should (equal (buffer-string) "()"))))

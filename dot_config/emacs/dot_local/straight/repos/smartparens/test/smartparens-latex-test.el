@@ -22,7 +22,7 @@
     (sp-backward-slurp-sexp 2)
     (sp-buffer-equals "foo ((bar)(baz)|)")
     (sp-backward-barf-sexp 2)
-    (sp-buffer-equals "foo (bar)(baz)|()")))
+    (sp-buffer-equals "foo (bar)(baz)(|)")))
 
 (ert-deftest sp-test-latex-insert-space-on-backward-slurp-where-necessary ()
   (sp-test-with-temp-buffer "foo bar(baz|)"
@@ -92,3 +92,11 @@ thesmeves and would not break unrelated pair)"
       (latex-mode)
     (execute-kbd-macro "``")
     (sp-buffer-equals "$foo ``| baz$")))
+
+;; #834
+(ert-deftest sp-test-latex-wrap-with-trigger ()
+  "A region should be wrapped with a pair if trigger key is pressed."
+  (sp-test-with-temp-buffer "foo Mbar baz| bam"
+      (latex-mode)
+    (execute-kbd-macro "\"")
+    (sp-buffer-equals "foo ``bar baz''| bam")))

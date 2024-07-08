@@ -3,7 +3,7 @@ include ../default.mk
 
 docs: texi info html html-dir pdf
 
-texi: $(PKG).org
+texi: $(PKG).texi
 info: $(PKG).info dir
 html: $(PKG).html
 pdf:  $(PKG).pdf
@@ -16,6 +16,7 @@ ORG_EVAL += --funcall org-texinfo-export-to-texinfo
 %.texi: %.org
 	@printf "Generating $@\n"
 	@$(EMACS) $(ORG_ARGS) $< $(ORG_EVAL)
+	@sed -i -e 's/“/``/g' -e "s/”/''/g" -e '$$a\' $(PKG).texi #'
 
 %.info: %.texi
 	@printf "Generating $@\n"
