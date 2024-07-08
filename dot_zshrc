@@ -119,3 +119,4 @@ source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export EDITOR=emacs
+export EDITOR=emacs
