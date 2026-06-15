@@ -1,0 +1,11 @@
+# Gemini CLI — credentials and runtime state. Never track these.
+# (settings.json and GEMINI.md ARE tracked, under dot_gemini/)
+.gemini/oauth_creds.json
+.gemini/google_accounts.json
+.gemini/google_account_id
+.gemini/user_id
+.gemini/installation_id
+.gemini/mcp-oauth-tokens.json
+.gemini/projects.json
+.gemini/history
+.gemini/tmp
