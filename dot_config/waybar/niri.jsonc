@@ -1,0 +1,151 @@
+// Waybar for the niri session — Catppuccin Mocha.
+// Launched by niri as: waybar -c ~/.config/waybar/niri.jsonc -s ~/.config/waybar/niri.css
+// (kept separate from the HyDE-era hyprland waybar config in this directory)
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 8,
+    "reload_style_on_change": true,
+
+    "modules-left": ["custom/launcher", "niri/workspaces", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["privacy", "tray", "idle_inhibitor", "wireplumber", "network", "bluetooth", "battery", "custom/notification", "custom/power"],
+
+    "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "fuzzel --config /var/home/ashahid/.config/fuzzel/niri.ini"
+    },
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰝥",
+            "default": "󰝦"
+        }
+    },
+
+    "niri/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "separate-outputs": true,
+        "rewrite": {
+            "": "~"
+        }
+    },
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%a %b %-d    %-I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#a6adc8'>{}</span>",
+                "weekdays": "<span color='#cba6f7'><b>{}</b></span>",
+                "today": "<span color='#89b4fa'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "privacy": {
+        "icon-spacing": 8,
+        "icon-size": 14,
+        "modules": [
+            { "type": "screenshare" },
+            { "type": "audio-in" }
+        ]
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        },
+        "tooltip-format-activated": "Idle inhibited (screen stays on)",
+        "tooltip-format-deactivated": "Idle: normal"
+    },
+
+    "wireplumber": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  --",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "scroll-step": 3,
+        "max-volume": 100,
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "format-disabled": "󰂲",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}\n{power:.1f} W"
+    },
+
+    // Bell that lights up when swaync has notifications; click = panel.
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱏧",
+            "dnd-none": "󱏧",
+            "inhibited-notification": "󱅫",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󱏧",
+            "dnd-inhibited-none": "󱏧"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "/var/home/ashahid/.local/bin/niri-power-menu"
+    }
+}

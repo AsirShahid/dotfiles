@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Power menu for the niri session (fuzzel dmenu).
+set -uo pipefail
+
+chosen=$(printf '󰌾   Lock\n󰤄   Suspend\n󰍃   Log out\n󰜉   Reboot\n󰐥   Shut down' | \
+    fuzzel --dmenu --config "$HOME/.config/fuzzel/niri.ini" \
+        --prompt "⏻   " --lines 5 --width 24)
+
+case "$chosen" in
+    *Lock)        loginctl lock-session ;;
+    *Suspend)     systemctl suspend ;;
+    *"Log out")   niri msg action quit --skip-confirmation ;;
+    *Reboot)      systemctl reboot ;;
+    *"Shut down") systemctl poweroff ;;
+esac

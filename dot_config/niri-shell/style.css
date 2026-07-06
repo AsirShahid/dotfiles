@@ -1,0 +1,251 @@
+/* niri-shell (AGS v2 / GTK4) — Catppuccin Mocha
+ *
+ * base #1e1e2e  mantle #181825  crust #11111b
+ * surface0 #313244  surface1 #45475a  overlay0 #6c7086
+ * text #cdd6f4  subtext0 #a6adc8
+ * blue #89b4fa  lavender #b4befe  mauve #cba6f7
+ * red #f38ba8  peach #fab387  yellow #f9e2af  green #a6e3a1  teal #94e2d5 */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-size: 13px;
+}
+
+/* Astal windows are transparent; the inner boxes carry the surface. */
+window.bar,
+window.qs-window,
+window.notifications-window,
+window.osd-window {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* ═══ Bar ═══════════════════════════════════════════════════════════ */
+
+.bar-inner {
+    /* three floating islands, matching the waybar fallback */
+    background: transparent;
+    min-height: 34px;
+}
+
+.bar-inner > box {
+    background: rgba(17, 17, 27, 0.88);
+    border: 1px solid rgba(203, 166, 247, 0.22);
+    border-radius: 16px;
+    padding: 0 6px;
+    margin: 0;
+}
+
+/* buttons in the bar are flat by default */
+.bar button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 12px;
+    padding: 2px 8px;
+    min-height: 26px;
+    transition: background 150ms ease, color 150ms ease;
+}
+.bar button:hover {
+    background: rgba(203, 166, 247, 0.16);
+}
+
+.launcher label {
+    color: #89b4fa;
+    font-size: 17px;
+    padding: 0 4px;
+}
+.launcher:hover label { color: #b4befe; }
+
+.workspaces button {
+    padding: 0 4px;
+    min-width: 22px;
+}
+.workspaces button label { color: #6c7086; font-size: 12px; }
+.workspaces button.active label { color: #89b4fa; }
+.workspaces button.focused label {
+    color: #cba6f7;
+    text-shadow: 0 0 8px rgba(203, 166, 247, 0.7);
+}
+.workspaces button:hover label { color: #b4befe; }
+
+.title { color: #a6adc8; padding: 0 8px; }
+
+.clock label { color: #cdd6f4; font-weight: 600; }
+
+.tray-item { padding: 2px 4px; }
+
+.pill {
+    padding: 2px 12px;
+}
+.pill image { color: #cdd6f4; }
+.pill label { color: #cdd6f4; }
+
+.power label { color: #f38ba8; font-size: 14px; }
+.power:hover label { color: #eba0ac; }
+
+/* ═══ Quick Settings ═══════════════════════════════════════════════ */
+
+.qs {
+    background: rgba(17, 17, 27, 0.96);
+    border: 1px solid rgba(203, 166, 247, 0.28);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+.qs-header .greeting { font-size: 16px; font-weight: 700; color: #cdd6f4; }
+.qs-header .subtle { color: #a6adc8; font-size: 12px; }
+.qs-header .hbtn {
+    background: rgba(49, 50, 68, 0.7);
+    border: none;
+    border-radius: 999px;
+    min-width: 34px;
+    min-height: 34px;
+    color: #cdd6f4;
+    transition: background 150ms ease;
+}
+.qs-header .hbtn:hover { background: #45475a; }
+.qs-header .hbtn.danger:hover { background: rgba(243, 139, 168, 0.3); color: #f38ba8; }
+
+.qs-toggle {
+    background: rgba(49, 50, 68, 0.6);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 12px 14px;
+    color: #cdd6f4;
+    transition: all 150ms ease;
+}
+.qs-toggle:hover { background: #45475a; }
+.qs-toggle image { color: #a6adc8; }
+.qs-toggle.on {
+    background: linear-gradient(135deg, #cba6f7, #89b4fa);
+    color: #11111b;
+    border-color: rgba(203, 166, 247, 0.5);
+}
+.qs-toggle.on image { color: #11111b; }
+
+.qs-sliders { padding: 4px 2px; }
+.qs-sliders image { color: #a6adc8; }
+
+/* Astal.Slider renders as a GtkScale */
+.slider trough {
+    background: #313244;
+    border-radius: 999px;
+    min-height: 8px;
+}
+.slider trough highlight,
+.slider highlight {
+    background: linear-gradient(90deg, #89b4fa, #cba6f7);
+    border-radius: 999px;
+    min-height: 8px;
+}
+.slider slider {
+    background: #cdd6f4;
+    border-radius: 999px;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.media {
+    background: rgba(30, 30, 46, 0.8);
+    border: 1px solid rgba(69, 71, 90, 0.7);
+    border-radius: 16px;
+    padding: 10px;
+}
+.media .cover { border-radius: 10px; }
+.media-title { font-weight: 600; color: #cdd6f4; }
+.media-artist { color: #a6adc8; font-size: 12px; }
+.media-btn {
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    min-width: 30px;
+    min-height: 30px;
+    color: #cdd6f4;
+}
+.media-btn:hover { background: rgba(203, 166, 247, 0.2); }
+
+.qs-section { padding: 2px; }
+.section-title { font-weight: 700; color: #cdd6f4; }
+.clear {
+    background: rgba(49, 50, 68, 0.7);
+    border: none;
+    border-radius: 10px;
+    padding: 3px 10px;
+    color: #a6adc8;
+}
+.clear:hover { background: rgba(243, 139, 168, 0.25); color: #f38ba8; }
+.empty { color: #6c7086; padding: 12px; }
+
+/* ═══ Notifications (shared card) ══════════════════════════════════ */
+
+.notifications { margin: 6px 10px 0 0; }
+
+.notification {
+    background: rgba(17, 17, 27, 0.96);
+    border: 1px solid rgba(203, 166, 247, 0.28);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    min-width: 360px;
+}
+.notification.critical { border-color: rgba(243, 139, 168, 0.7); }
+.notification .app-icon, .notification .app-image { border-radius: 8px; }
+.notification .app-name { color: #cba6f7; font-size: 12px; font-weight: 600; }
+.notification .time { color: #6c7086; font-size: 11px; }
+.notification .summary { color: #cdd6f4; font-weight: 600; }
+.notification .body { color: #a6adc8; }
+.notification .close {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    min-width: 26px;
+    min-height: 26px;
+    color: #6c7086;
+}
+.notification .close:hover { background: rgba(243, 139, 168, 0.25); color: #f38ba8; }
+.notification .action {
+    background: rgba(49, 50, 68, 0.7);
+    border: none;
+    border-radius: 10px;
+    padding: 6px;
+    color: #cdd6f4;
+}
+.notification .action:hover { background: #45475a; }
+
+/* Quick Settings list uses slightly tighter cards */
+.qs-notifications .notification { min-width: 0; padding: 10px; }
+
+/* ═══ OSD ══════════════════════════════════════════════════════════ */
+
+.osd {
+    background: rgba(17, 17, 27, 0.95);
+    border: 1px solid rgba(203, 166, 247, 0.3);
+    border-radius: 18px;
+    padding: 14px 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.osd image { color: #cba6f7; }
+.osd-label { color: #cdd6f4; font-weight: 600; }
+.osd-bar trough {
+    background: #313244;
+    border-radius: 999px;
+    min-height: 8px;
+}
+.osd-bar block.filled {
+    background: linear-gradient(90deg, #89b4fa, #cba6f7);
+    border-radius: 999px;
+    min-height: 8px;
+}
+
+/* ═══ Tooltips ═════════════════════════════════════════════════════ */
+
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid rgba(203, 166, 247, 0.35);
+    border-radius: 10px;
+    color: #cdd6f4;
+}

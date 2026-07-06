@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# Volume/brightness keys for the niri session, with an OSD rendered as a
+# self-replacing progress notification (swaync/dunst both honor the
+# synchronous hint). No dedicated OSD daemon needed.
+set -uo pipefail
+
+osd() { # title, percent, icon
+    notify-send -e -a "niri-osd" -u low -t 1400 \
+        -h string:x-canonical-private-synchronous:niri-osd \
+        -h string:x-dunst-stack-tag:niri-osd \
+        -h "int:value:$2" \
+        -i "$3" "$1"
+}
+
+vol() {
+    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'
+}
+
+vol_icon() {
+    if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+        echo audio-volume-muted-symbolic
+    elif [ "$1" -ge 60 ]; then
+        echo audio-volume-high-symbolic
+    elif [ "$1" -ge 25 ]; then
+        echo audio-volume-medium-symbolic
+    else
+        echo audio-volume-low-symbolic
+    fi
+}
+
+case "${1:-}" in
+    volume-up)
+        wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+        v=$(vol); osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+        ;;
+    volume-down)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        v=$(vol); osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+        ;;
+    volume-mute)
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        v=$(vol)
+        if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+            osd "Muted" 0 audio-volume-muted-symbolic
+        else
+            osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+        fi
+        ;;
+    mic-mute)
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
+            osd "Microphone muted" 0 microphone-sensitivity-muted-symbolic
+        else
+            osd "Microphone on" 100 microphone-sensitivity-high-symbolic
+        fi
+        ;;
+    brightness-up)
+        brightnessctl -q set 5%+
+        b=$(brightnessctl -m | awk -F, '{print substr($4, 1, length($4)-1)}')
+        osd "Brightness ${b}%" "$b" display-brightness-symbolic
+        ;;
+    brightness-down)
+        brightnessctl -q set 5%-
+        b=$(brightnessctl -m | awk -F, '{print substr($4, 1, length($4)-1)}')
+        osd "Brightness ${b}%" "$b" display-brightness-symbolic
+        ;;
+    *)
+        echo "usage: niri-osd {volume-up|volume-down|volume-mute|mic-mute|brightness-up|brightness-down}" >&2
+        exit 1
+        ;;
+esac

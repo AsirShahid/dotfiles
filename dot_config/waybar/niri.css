@@ -1,0 +1,153 @@
+/* Waybar (niri session) — Catppuccin Mocha, three floating islands */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(17, 17, 27, 0.88);
+    border: 1px solid rgba(203, 166, 247, 0.22);
+    border-radius: 16px;
+    padding: 0 6px;
+}
+
+/* ── left island ─────────────────────────────────────────── */
+
+#custom-launcher {
+    color: #89b4fa;
+    font-size: 16px;
+    padding: 0 10px 0 12px;
+}
+#custom-launcher:hover {
+    color: #b4befe;
+}
+
+#workspaces {
+    padding: 0 2px;
+}
+#workspaces button {
+    padding: 0 5px;
+    color: #6c7086;
+    background: transparent;
+    transition: color 0.2s ease;
+}
+#workspaces button.active,
+#workspaces button.focused {
+    color: #cba6f7;
+}
+#workspaces button:hover {
+    color: #b4befe;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#window {
+    color: #a6adc8;
+    padding: 0 12px 0 6px;
+}
+
+/* ── center island ───────────────────────────────────────── */
+
+#clock {
+    color: #cdd6f4;
+    font-weight: 600;
+    padding: 0 14px;
+}
+
+/* ── right island ────────────────────────────────────────── */
+
+#privacy,
+#tray,
+#idle_inhibitor,
+#wireplumber,
+#network,
+#bluetooth,
+#battery,
+#custom-notification,
+#custom-power {
+    padding: 0 9px;
+    color: #cdd6f4;
+}
+
+#privacy {
+    color: #f9e2af;
+}
+
+#idle_inhibitor.activated {
+    color: #f9e2af;
+}
+
+#wireplumber.muted {
+    color: #6c7086;
+}
+
+#network {
+    color: #94e2d5;
+}
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#bluetooth {
+    color: #89b4fa;
+}
+#bluetooth.disabled,
+#bluetooth.off {
+    color: #6c7086;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+#battery.discharging {
+    color: #cdd6f4;
+}
+#battery.warning:not(.charging) {
+    color: #fab387;
+}
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 1s steps(4) infinite alternate;
+}
+@keyframes blink {
+    to {
+        color: #cdd6f4;
+    }
+}
+
+#custom-notification {
+    color: #f9e2af;
+    font-size: 14px;
+}
+
+#custom-power {
+    color: #f38ba8;
+    font-size: 14px;
+    padding-right: 12px;
+}
+#custom-power:hover {
+    color: #eba0ac;
+}
+
+/* ── tooltips ────────────────────────────────────────────── */
+
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid rgba(203, 166, 247, 0.35);
+    border-radius: 12px;
+}
+tooltip label {
+    color: #cdd6f4;
+    padding: 4px;
+}

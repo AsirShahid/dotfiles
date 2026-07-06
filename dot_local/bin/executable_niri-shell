@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Launch the niri session shell. Prefers the AGS v2 shell
+# (~/.config/niri-shell); if `ags` is missing or the shell exits within a
+# few seconds, falls back to waybar + swaync so first login always has a
+# working bar and notifications.
+#
+# niri spawns this once at startup (see ~/.config/niri/config.kdl).
+set -uo pipefail
+
+LOG="${XDG_CACHE_HOME:-$HOME/.cache}/niri-shell.log"
+APP="$HOME/.config/niri-shell/app.ts"
+
+start_fallback() {
+    echo "[niri-shell] starting waybar + swaync fallback" >>"$LOG"
+    waybar -c "$HOME/.config/waybar/niri.jsonc" \
+           -s "$HOME/.config/waybar/niri.css" >>"$LOG" 2>&1 &
+    if command -v swaync >/dev/null 2>&1; then
+        swaync >>"$LOG" 2>&1 &
+    fi
+    wait
+}
+
+: >"$LOG"
+
+if command -v ags >/dev/null 2>&1 && [ -f "$APP" ]; then
+    echo "[niri-shell] starting AGS shell" >>"$LOG"
+    ags run "$APP" >>"$LOG" 2>&1 &
+    ags_pid=$!
+    sleep 4
+    if kill -0 "$ags_pid" 2>/dev/null; then
+        wait "$ags_pid"       # AGS came up cleanly; let it own the session
+        exit 0
+    fi
+    echo "[niri-shell] AGS exited early; falling back" >>"$LOG"
+fi
+
+start_fallback

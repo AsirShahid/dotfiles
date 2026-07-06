@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Lock the niri session: hyprlock once the image update lands,
+# mocha-themed swaylock as the fallback until then.
+set -uo pipefail
+
+if command -v hyprlock >/dev/null 2>&1; then
+    pidof hyprlock >/dev/null || exec hyprlock
+else
+    exec swaylock -f \
+        --color 11111b \
+        --indicator-radius 90 \
+        --indicator-thickness 8 \
+        --inside-color 1e1e2e \
+        --inside-clear-color 313244 \
+        --inside-ver-color 313244 \
+        --inside-wrong-color 313244 \
+        --ring-color cba6f7 \
+        --ring-clear-color f9e2af \
+        --ring-ver-color 89b4fa \
+        --ring-wrong-color f38ba8 \
+        --key-hl-color 89b4fa \
+        --bs-hl-color f38ba8 \
+        --text-color cdd6f4 \
+        --text-clear-color cdd6f4 \
+        --text-ver-color cdd6f4 \
+        --text-wrong-color f38ba8 \
+        --line-color 00000000 \
+        --separator-color 00000000
+fi
