@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Reproducible install of the local Hermes agent.
+#   Repo:     github.com/NousResearch/hermes-agent  (setuptools + uv.lock, python <3.14)
+#   Launcher: ~/.local/bin/hermes  ->  ~/.hermes/hermes-agent/venv/bin/hermes
+#
+# Run this MANUALLY — it's a heavy (~1.2G), machine-specific install, so it is
+# deliberately NOT wired into `chezmoi apply`. Secrets / model config are separate
+# (see the repo's README + AGENTS.md / USER.md).
+set -euo pipefail
+
+DEST="${HOME}/.hermes/hermes-agent"
+if [ ! -d "${DEST}/.git" ]; then
+  mkdir -p "${HOME}/.hermes"
+  git clone git@github.com:NousResearch/hermes-agent.git "${DEST}"
+fi
+
+cd "${DEST}"
+# uv provisions a compatible interpreter (<3.14 per requires-python) and installs
+# the exact pinned deps from uv.lock into ./venv (matching the launcher path).
+UV_PROJECT_ENVIRONMENT=venv uv sync
+
+echo "hermes-agent installed into ${DEST}/venv — launcher: ~/.local/bin/hermes"

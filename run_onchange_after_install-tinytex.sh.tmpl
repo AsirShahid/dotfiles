@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Reproducibly provisions TinyTeX (~/.TinyTeX) + the package set used by
+# md2pdf / Quarto / beamer. Installs TinyTeX if absent, then `tlmgr install`s
+# the tracked package list (idempotent — tlmgr skips what's already present).
+# Re-runs when the package list changes (hash below).
+#
+# packages hash: {{ include "dot_config/tinytex/packages.txt" | sha256sum }}
+set -euo pipefail
+
+if [ ! -d "${HOME}/.TinyTeX" ]; then
+  echo "Installing TinyTeX (host-native, no root)..."
+  curl -fsSL https://yihui.org/tinytex/install-bin-unix.sh | sh
+fi
+
+TLMGR="$(echo "${HOME}"/.TinyTeX/bin/*/tlmgr)"
+if [ ! -x "${TLMGR}" ]; then
+  echo "tlmgr not found after install; skipping package sync." >&2
+  exit 0
+fi
+
+# shellcheck disable=SC2046  # intentional word-splitting of the package list
+"${TLMGR}" install $(tr '\n' ' ' < "${HOME}/.config/tinytex/packages.txt") || true

@@ -1,0 +1,29 @@
+# Homebrew packages for this machine, managed by chezmoi.
+#
+# Applied automatically by run_onchange_after_brew-bundle.sh on `chezmoi apply`
+# (that script re-runs whenever this file changes). Homebrew itself is set up at
+# boot by brew-setup.service from the myos image; this file pins WHAT to install.
+#
+# Scope notes:
+#   - Flatpaks are declared in the myos recipe (default-flatpaks), not here.
+#   - `modal` is installed system-wide by the myos image (getmodal.sh).
+#   - `atuin`/`gh` are ALSO in the dnf layer, but the Homebrew builds are newer
+#     (atuin 18.17 vs 18.12; gh 2.96 vs 2.94) and win on PATH, so they are pinned
+#     here. To make Homebrew the single source, drop `- atuin`/`- gh` from the
+#     myos recipe's dnf list on your next image edit.
+
+brew "atuin"          # newer than dnf copy; owns the migrated history DB
+brew "bash-preexec"   # precmd/preexec hooks (atuin, starship) for bash
+brew "gemini-cli"     # Google Gemini CLI (settings tracked in ~/.gemini)
+brew "gh"             # GitHub CLI (newer than dnf copy)
+brew "ncdu"           # ncurses disk usage
+brew "neovim"
+brew "ranger"         # TUI file manager
+brew "restic"         # encrypted backups
+brew "unar"           # multi-format unarchiver
+brew "uv"             # Python package/tool manager
+
+cask "quarto"         # md/ipynb -> PDF/HTML publishing (used by md2pdf)
+
+# codex CLI ships only via npm; keep it reproducible here.
+npm "@openai/codex"

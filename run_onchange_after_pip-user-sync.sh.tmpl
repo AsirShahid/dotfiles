@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Reproducibly installs the user-level Python packages — the coherent --user env
+# used by VS Code's Jupyter kernel, emacs DAP (debugpy), and ad-hoc REPL work.
+# Re-runs whenever the pinned requirements change (hash embedded below).
+#
+# NOTE: Fedora's system python is externally-managed (PEP 668). --user installs
+# land in ~/.local and never touch system site-packages, so --break-system-packages
+# is safe here (it's required for pip to proceed at all).
+#
+# Per-project work should still use uv (`uv init` / `uv add`), not this global env.
+#
+# requirements hash: {{ include "dot_config/python/user-requirements.txt" | sha256sum }}
+set -euo pipefail
+command -v python3 >/dev/null 2>&1 || { echo "python3 not found; skipping." >&2; exit 0; }
+exec python3 -m pip install --user --break-system-packages \
+  -r "${HOME}/.config/python/user-requirements.txt"

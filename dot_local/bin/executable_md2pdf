@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# md2pdf — Markdown → nice PDF via Quarto + Typst.
+# Handles emoji, Unicode math symbols, and GitHub-style tight lists/blockquotes.
+# Usage: md2pdf [-o OUTDIR] FILE.md [MORE.md ...]     (globs work: md2pdf *.md)
+set -uo pipefail
+
+# Make sure quarto (installed via brew) is reachable even from a bare shell.
+command -v quarto >/dev/null 2>&1 || export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+outdir=""
+if [[ "${1:-}" == "-o" ]]; then
+  outdir="${2:?md2pdf: -o needs a directory}"; shift 2
+  mkdir -p "$outdir"
+fi
+
+if [[ $# -eq 0 ]]; then
+  echo "usage: md2pdf [-o OUTDIR] FILE.md [MORE.md ...]" >&2
+  exit 1
+fi
+
+status=0
+for f in "$@"; do
+  if [[ ! -f "$f" ]]; then
+    echo "md2pdf: no such file: $f" >&2; status=1; continue
+  fi
+  if ! quarto render "$f" --to typst -M from=gfm+smart; then
+    status=1; continue
+  fi
+  pdf="${f%.*}.pdf"
+  if [[ -n "$outdir" && -f "$pdf" ]]; then
+    mv -f "$pdf" "$outdir/$(basename "$pdf")" && echo "  -> $outdir/$(basename "$pdf")"
+  fi
+done
+exit $status

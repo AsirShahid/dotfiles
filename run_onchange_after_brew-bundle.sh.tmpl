@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Installs everything declared in the chezmoi-managed Brewfile.
+# Re-runs automatically whenever that Brewfile changes: its hash is embedded
+# below, so chezmoi sees this script as "changed" and re-runs it on apply.
+#
+# Brewfile hash: {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+set -euo pipefail
+
+# Ensure brew is reachable even in chezmoi's minimal apply environment.
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "brew not found on PATH; skipping brew bundle (will apply on next run)." >&2
+  exit 0
+fi
+
+exec brew bundle install --file="${HOME}/.config/homebrew/Brewfile"
