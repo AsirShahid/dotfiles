@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# chezmoi-managed script (lives only in the source dir, has no target file).
+# Re-runs on `chezmoi apply` whenever the manifest or provisioning script changes,
+# because their hashes are embedded below. Builds the box if it's missing, then
+# (re)provisions it idempotently.
+#
+# distrobox.ini  hash: {{ include "dot_config/distrobox/distrobox.ini" | sha256sum }}
+# arch-provision hash: {{ include "dot_config/distrobox/executable_arch-provision.sh" | sha256sum }}
+set -euo pipefail
+
+BOX=Arch
+INI="$HOME/.config/distrobox/distrobox.ini"
+PROVISION="$HOME/.config/distrobox/arch-provision.sh"
+
+command -v distrobox >/dev/null 2>&1 || { echo ":: distrobox not installed — skipping box setup."; exit 0; }
+
+if ! podman container exists "$BOX" 2>/dev/null; then
+  echo ":: '$BOX' box missing — creating from manifest (fresh image pull)…"
+  distrobox assemble create --file "$INI"
+fi
+
+echo ":: Provisioning '$BOX' (idempotent)…"
+distrobox enter "$BOX" -- bash "$PROVISION"
+echo ":: '$BOX' is ready."
