@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=Claude Science
+Comment=Claude Science daemon + web UI
+Exec=/var/home/ashahid/.local/bin/claude-science-launch
+Path=/var/home/ashahid
+Icon=claude-science
+Terminal=false
+Categories=Development;
+Keywords=claude;ai;anthropic;science;research;
+StartupNotify=false
+Actions=nosandbox;terminal;
+
+[Desktop Action nosandbox]
+Name=Launch without sandbox (folder access)
+Exec=/var/home/ashahid/.local/bin/claude-science-launch --dangerously-no-sandbox
+
+[Desktop Action terminal]
+Name=Launch in terminal (visible logs)
+Exec=ptyxis --new-window -- /var/home/ashahid/.local/bin/claude-science serve
