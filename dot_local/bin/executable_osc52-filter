@@ -1,0 +1,86 @@
+#!/usr/bin/python3
+"""Pass-through stream filter that mirrors OSC 52 clipboard writes to the
+local Wayland clipboard.
+
+Ptyxis/VTE silently drops OSC 52 (gitlab.gnome.org/GNOME/vte/-/issues/2495),
+so remote clipboard integration (e.g. Claude Code's /copy over SSH) never
+reaches the local clipboard. Piping an interactive ssh session through this
+filter fixes that:
+
+    ssh host | osc52-filter
+
+Bytes are forwarded to stdout unmodified (the terminal ignores the OSC 52
+sequences anyway); any complete OSC 52 write spotted in the stream is
+base64-decoded and handed to wl-copy.
+"""
+import base64
+import os
+import re
+import signal
+import subprocess
+import sys
+
+# \e]52;<targets>;<base64 payload>(BEL | ESC \)
+OSC52 = re.compile(rb"\x1b\]52;[^;\x07\x1b]*;([A-Za-z0-9+/=]*)(?:\x07|\x1b\\)")
+MARKER = b"\x1b]52;"
+MAX_CARRY = 1024 * 1024  # give up on any partial sequence longer than this
+
+
+def set_clipboard(b64: bytes) -> None:
+    try:
+        data = base64.b64decode(b64, validate=False)
+    except Exception:
+        return
+    if not data:
+        return
+    try:
+        subprocess.run(
+            ["wl-copy"],
+            input=data,
+            timeout=5,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:
+        pass
+
+
+def write_all(fd: int, data: bytes) -> None:
+    while data:
+        n = os.write(fd, data)
+        data = data[n:]
+
+
+def main() -> int:
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    fd_in = sys.stdin.fileno()
+    fd_out = sys.stdout.fileno()
+    carry = b""
+    while True:
+        try:
+            chunk = os.read(fd_in, 65536)
+        except OSError:
+            break
+        if not chunk:
+            break
+        try:
+            write_all(fd_out, chunk)
+        except (BrokenPipeError, OSError):
+            return 0  # terminal went away; nothing left to forward to
+        buf = carry + chunk
+        pos = 0
+        for m in OSC52.finditer(buf):
+            set_clipboard(m.group(1))
+            pos = m.end()
+        buf = buf[pos:]
+        start = buf.rfind(MARKER)
+        if start != -1 and len(buf) - start <= MAX_CARRY:
+            carry = buf[start:]
+        else:
+            # keep a small tail in case a marker is split across chunks
+            carry = buf[-(len(MARKER) - 1):] if buf else b""
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

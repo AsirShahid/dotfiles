@@ -1,0 +1,23 @@
+#!/bin/sh
+# Desktop-entry launcher: start the claude-science daemon in the background
+# (no terminal window) and open the web UI via a single-use login link.
+# Extra args (e.g. --dangerously-no-sandbox) are passed to 'serve'; they only
+# take effect when this invocation actually starts the daemon.
+
+CS="$HOME/.local/bin/claude-science"
+[ -x "$CS" ] || CS=claude-science
+
+if ! out=$("$CS" serve --detached --no-browser "$@" 2>&1); then
+    command -v notify-send >/dev/null 2>&1 && \
+        notify-send "Claude Science" "Failed to start: $out"
+    exit 1
+fi
+
+url=""
+for _ in 1 2 3 4 5; do
+    url=$("$CS" url 2>/dev/null)
+    [ -n "$url" ] && break
+    sleep 0.4
+done
+
+exec xdg-open "${url:-http://localhost:8000}"
