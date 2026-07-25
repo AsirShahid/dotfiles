@@ -1,23 +1,42 @@
 #!/usr/bin/env bash
-# Volume/brightness keys for the niri session, with an OSD rendered as a
-# self-replacing progress notification (swaync/dunst both honor the
-# synchronous hint). No dedicated OSD daemon needed.
+# Volume/brightness keys for the niri session, with a centered OSD rendered by
+# niri-shell. The notification hints keep this usable with other notification
+# daemons too.
 set -uo pipefail
 
 osd() { # title, percent, icon
-    notify-send -e -a "niri-osd" -u low -t 1400 \
+    notify-send -e -a "niri-osd" -u low -t 2000 \
         -h string:x-canonical-private-synchronous:niri-osd \
         -h string:x-dunst-stack-tag:niri-osd \
         -h "int:value:$2" \
         -i "$3" "$1"
 }
 
+volume_feedback() {
+    # Match GNOME's volume-key feedback event. It is played after wpctl changes
+    # the sink, so the chime itself demonstrates the newly selected volume.
+    if command -v canberra-gtk-play >/dev/null 2>&1; then
+        canberra-gtk-play \
+            --id=audio-volume-change \
+            --description="Volume changed" \
+            >/dev/null 2>&1 &
+    elif command -v pw-play >/dev/null 2>&1 &&
+         [ -r /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga ]; then
+        pw-play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga \
+            >/dev/null 2>&1 &
+    fi
+}
+
 vol() {
     wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'
 }
 
+muted() {
+    wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED
+}
+
 vol_icon() {
-    if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+    if muted; then
         echo audio-volume-muted-symbolic
     elif [ "$1" -ge 60 ]; then
         echo audio-volume-high-symbolic
@@ -30,20 +49,29 @@ vol_icon() {
 
 case "${1:-}" in
     volume-up)
+        # Raising the volume also unmutes, like GNOME. The mute flag survives
+        # plain set-volume, and a muted sink with a moving volume bar reads as
+        # working audio.
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
         wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
-        v=$(vol); osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+        v=$(vol); osd "Volume ${v}%" "$v" "$(vol_icon "$v")"; volume_feedback
         ;;
     volume-down)
         wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-        v=$(vol); osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+        v=$(vol)
+        if muted; then
+            osd "Muted ${v}%" "$v" audio-volume-muted-symbolic
+        else
+            osd "Volume ${v}%" "$v" "$(vol_icon "$v")"; volume_feedback
+        fi
         ;;
     volume-mute)
         wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         v=$(vol)
-        if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+        if muted; then
             osd "Muted" 0 audio-volume-muted-symbolic
         else
-            osd "Volume ${v}%" "$v" "$(vol_icon "$v")"
+            osd "Volume ${v}%" "$v" "$(vol_icon "$v")"; volume_feedback
         fi
         ;;
     mic-mute)
