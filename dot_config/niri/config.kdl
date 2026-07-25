@@ -1,267 +1,170 @@
-// ═══════════════════════════════════════════════════════════════════════
-//  niri config — Catppuccin Mocha
-//  Framework 13 (2256x1504 @ 1.0, matching GNOME), colemak
-//  Docs: https://yalter.github.io/niri/Configuration:-Overview
-//  niri validates and live-reloads this file on every save.
-//  Previous config preserved at config.kdl.bak
-// ═══════════════════════════════════════════════════════════════════════
-
-// ── Input ────────────────────────────────────────────────────────────────
+// sidescroll: niri + DankMaterialShell
+// Hand-written. DMS-generated files live in ./dms/ and are included below:
+// binds.kdl is included BEFORE the binds block so this file's binds win;
+// colors/layout/alttab are included at the end so DMS's generated values win.
 
 input {
     keyboard {
         xkb {
-            layout "us"
-            variant "colemak"
         }
     }
-
     touchpad {
         tap
-        dwt                       // disable while typing
+        dwt
         accel-speed 0.5
-        click-method "clickfinger"
-        // natural-scroll        // off, matching your GNOME setting
     }
-
-    mouse {
-    }
-
-    // Focus follows the pointer, but never scrolls the view to do it.
-    // Delete this line if it gets annoying.
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-// ── Outputs ──────────────────────────────────────────────────────────────
-
 output "eDP-1" {
-    // GNOME runs this panel at 1x, so niri does too (its auto-pick would
-    // be larger). Bump to 1.25/1.5 here if you ever want bigger UI.
     scale 1.0
+    // variable-refresh-rate on-demand=true
 }
 
-// ── Layout ───────────────────────────────────────────────────────────────
+include optional=true "dms/binds.kdl"
 
 layout {
     gaps 12
     center-focused-column "never"
-    always-center-single-column
-
-    // Transparent so the backdrop wallpaper (layer-rule below) shows
-    // through in normal view, not just in the overview.
     background-color "transparent"
+
+    // PaperWM-style edge peek: keep a sliver of the adjacent off-screen column
+    // visible at each screen edge; clicking a sliver slides that column in.
+    // (Upstream niri-wm/niri PR #4069 "edge-overscroll" is the future native
+    // hover version; focus-follows-mouse max-scroll-amount governs hover.)
+    struts {
+        left 32
+        right 32
+    }
 
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-        proportion 1.0
     }
     default-column-width { proportion 0.5; }
 
     focus-ring {
+        on
         width 2
-        active-gradient from="#cba6f7" to="#89b4fa" angle=45 relative-to="workspace-view"
-        inactive-color "#45475a"
     }
 
-    border { off; }
+    border {
+        off
+    }
 
     shadow {
         on
-        softness 24
-        spread 6
-        offset x=0 y=8
-        color "#11111baa"
+        softness 30
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000070"
     }
 
     tab-indicator {
-        hide-when-single-tab
-        place-within-column
-        position "left"
-        gap 6
+        position "top"
         width 4
-        gaps-between-tabs 4
+        gap 4
         corner-radius 4
-        active-color "#cba6f7"
-        inactive-color "#45475a"
-    }
-
-    insert-hint {
-        color "#cba6f766"
+        gaps-between-tabs 4
+        length total-proportion=0.5
+        place-within-column
     }
 }
-
-// ── Startup ──────────────────────────────────────────────────────────────
-// xwayland-satellite is spawned automatically by niri (X11 apps just work).
-
-// niri-shell = AGS v2 shell (bar + notifications + OSD), with an automatic
-// waybar+swaync fallback if AGS isn't installed yet or fails to start.
-spawn-at-startup "/var/home/ashahid/.local/bin/niri-shell"
-spawn-at-startup "swaybg" "-i" "/var/home/ashahid/Pictures/Wallpapers/mocha-glow.png" "-m" "fill"
-spawn-at-startup "hypridle"
-spawn-at-startup "/usr/bin/lxqt-policykit-agent"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "wlsunset" "-l" "40.9" "-L" "-73.1"
-spawn-at-startup "nm-applet"
-spawn-at-startup "blueman-applet"
-
-// ── Misc ─────────────────────────────────────────────────────────────────
 
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H%M%S.png"
-
-environment {
-    QT_QPA_PLATFORM "wayland;xcb"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 cursor {
-    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 24
 }
 
-overview {
-    zoom 0.5
-    backdrop-color "#11111b"
+hotkey-overlay {
+    skip-at-startup
 }
 
-// Put the wallpaper in the overview backdrop; with the transparent layout
-// background above, it is visible in normal view too and stays static
-// while workspaces slide over it.
-layer-rule {
-    match namespace="^wallpaper$"
-    place-within-backdrop true
+blur {
+    passes 2
+    offset 3
+    noise 0.02
 }
 
-// ── Window rules ─────────────────────────────────────────────────────────
-
-// Rounded corners everywhere.
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
-// Yellow ring on any window that is being screencast — you always know
-// what's visible to others.
 window-rule {
-    match is-window-cast-target=true
-    focus-ring {
-        active-color "#f9e2af"
-        inactive-color "#f9e2af"
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+    background-effect {
+        blur true
+        xray true
     }
 }
 
-// Never let the password manager appear in screenshots or screen shares.
 window-rule {
-    match app-id=r#"(?i)bitwarden"#
-    block-out-from "screen-capture"
-}
-
-// Browser picture-in-picture: float it in the bottom-right corner.
-window-rule {
-    match title="^Picture-in-Picture$"
-    match title="^Picture in picture$"
-    open-floating true
-    default-floating-position x=24 y=24 relative-to="bottom-right"
-}
-
-// Small utility windows float.
-window-rule {
-    match app-id="pavucontrol"
-    match app-id="nm-connection-editor"
-    match app-id=r#"blueman-manager"#
-    match app-id=r#"^org\.gnome\.Calculator$"#
+    match app-id="xdg-desktop-portal-gtk"
     open-floating true
 }
 
-// ── Binds ────────────────────────────────────────────────────────────────
-// Mod+Shift+/ shows this list inside the session at any time.
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Apps
-    Mod+T            hotkey-overlay-title="Terminal (alacritty)" { spawn "alacritty"; }
-    Mod+Return       { spawn "alacritty"; }
-    Mod+D            hotkey-overlay-title="App launcher (fuzzel)" { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
-    Mod+B            hotkey-overlay-title="Browser (zen)" { spawn "flatpak" "run" "app.zen_browser.zen"; }
-    Mod+Shift+Return { spawn "flatpak" "run" "app.zen_browser.zen"; }
-    Mod+E            hotkey-overlay-title="Files (thunar)" { spawn "thunar"; }
+    Mod+Return { spawn "ptyxis" "--new-window"; }
+    Mod+D { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
+    Mod+Space { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
+    Mod+N { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Semicolon repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Alt+V repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Escape allow-when-locked=true { spawn "dms" "ipc" "call" "lock" "lockAndOutputsOff"; }
 
-    // Session
-    Super+Alt+L   hotkey-overlay-title="Lock screen" { spawn "/var/home/ashahid/.local/bin/niri-lock"; }
-    Mod+Backspace hotkey-overlay-title="Power menu" { spawn "/var/home/ashahid/.local/bin/niri-power-menu"; }
-    Mod+N         hotkey-overlay-title="Notification center" { spawn "swaync-client" "-t" "-sw"; }
-    Mod+Shift+N   hotkey-overlay-title="Do not disturb" { spawn "swaync-client" "-d" "-sw"; }
-    Mod+Shift+V   hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | fuzzel --dmenu --config ~/.config/fuzzel/niri.ini --width 60 --lines 12 --prompt '󰅍   ' | cliphist decode | wl-copy"; }
-
-    // Volume / brightness / media (OSD via notifications)
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-up"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-down"; }
-    XF86AudioMute         allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-mute"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "mic-mute"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "brightness-up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "/var/home/ashahid/.local/bin/niri-osd" "brightness-down"; }
-    XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioNext  allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
-
-    // Overview
-    Mod+O   repeat=false { toggle-overview; }
-    Mod+Tab repeat=false { toggle-overview; }
+    XF86AudioRaiseVolume allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-down"; }
+    XF86AudioMute allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "volume-mute"; }
+    XF86AudioMicMute allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "mic-mute"; }
+    XF86MonBrightnessUp allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true allow-inhibiting=false { spawn "/var/home/ashahid/.local/bin/niri-osd" "brightness-down"; }
+    XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
 
     Mod+Q { close-window; }
+    Mod+O repeat=false { toggle-overview; }
 
-    // Focus
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+Left { focus-column-left; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
-    Mod+Home  { focus-column-first; }
-    Mod+End   { focus-column-last; }
+    Mod+Down { focus-window-down; }
+    Mod+Up { focus-window-up; }
 
-    // Move
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
-    Mod+Ctrl+Home  { move-column-to-first; }
-    Mod+Ctrl+End   { move-column-to-last; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
 
-    // Monitors
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Home { focus-column-first; }
+    Mod+End { focus-column-last; }
 
-    // Workspaces
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+U { focus-workspace-down; }
+    Mod+I { focus-workspace-up; }
+    Mod+Shift+U { move-column-to-workspace-down; }
+    Mod+Shift+I { move-column-to-workspace-up; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -282,49 +185,40 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    // Mouse wheel
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-    Mod+WheelScrollRight      { focus-column-right; }
-    Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-    // Columns
-    Mod+Comma        { consume-window-into-column; }
-    Mod+Period       { expel-window-from-column; }
-    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+Comma { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+    Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+W            { toggle-column-tabbed-display; }
 
-    // Sizing
-    Mod+R       { switch-preset-column-width; }
+    Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R  { reset-window-height; }
-    Mod+F       { maximize-column; }
+    Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F  { expand-column-to-available-width; }
-    Mod+C       { center-column; }
-    Mod+Minus       { set-column-width "-10%"; }
-    Mod+Equal       { set-column-width "+10%"; }
+    Mod+C { center-column; }
+    Mod+W { toggle-column-tabbed-display; }
+    Mod+V { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    // Floating
-    Mod+V      { toggle-window-floating; }
-    Mod+Ctrl+V { switch-focus-between-floating-and-tiling; }
-
-    // Screenshots (niri's built-in UI: area select, then Enter/click)
-    Print       { screenshot; }
+    Print { screenshot; }
     Mod+Shift+S { screenshot; }
-    Ctrl+Print  { screenshot-screen; }
-    Alt+Print   { screenshot-window; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
 
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollRight { focus-column-right; }
+    Mod+WheelScrollLeft { focus-column-left; }
 
-    Mod+Shift+E     { quit; }
+    Mod+Shift+E { quit; }
+    Mod+Shift+P { power-off-monitors; }
     Ctrl+Alt+Delete { quit; }
-    Mod+Shift+P     { power-off-monitors; }
 }
+
+include optional=true "dms/colors.kdl"
+include optional=true "dms/layout.kdl"
+include optional=true "dms/alttab.kdl"
