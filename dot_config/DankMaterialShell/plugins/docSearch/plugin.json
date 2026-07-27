@@ -1,0 +1,16 @@
+{
+  "id": "docSearch",
+  "name": "Document Search",
+  "description": "Full-text search inside PDF, DOCX, PPTX and EPUB files using dsearch body search",
+  "version": "1.1.0",
+  "author": "Asir Shahid",
+  "type": "launcher",
+  "capabilities": ["launcher"],
+  "component": "./DocSearch.qml",
+  "settings": "./DocSearchSettings.qml",
+  "trigger": "#",
+  "icon": "find_in_page",
+  "viewMode": "list",
+  "requires_dms": ">=1.5.0",
+  "permissions": ["settings_read", "settings_write", "process", "network"]
+}

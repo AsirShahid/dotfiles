@@ -11,7 +11,7 @@
 # Idempotent: re-running is a no-op. DMS watches settings.json (watchChanges,
 # ~50 ms reload), so no restart is needed when the shell is running.
 #
-# settings version: 2
+# settings version: 3
 set -euo pipefail
 
 command -v python3 >/dev/null 2>&1 || { echo "python3 not found; skipping." >&2; exit 0; }
@@ -19,6 +19,12 @@ command -v python3 >/dev/null 2>&1 || { echo "python3 not found; skipping." >&2;
 # Registry plugins are git clones that `dms plugins update` rewrites, so they are
 # not chezmoi-tracked. Reinstall by id instead. Safe to re-run; install on an
 # already-present plugin is a no-op.
+#
+# docSearch is deliberately absent from this list. It is a local plugin with no
+# registry entry, tracked directly under
+# dot_config/DankMaterialShell/plugins/docSearch. This is a run_onchange_after_
+# script, so chezmoi has already written its files by the time we get here. It
+# still needs enabling below, same as the rest.
 if command -v dms >/dev/null 2>&1; then
   for plugin in calculator converter emojiLauncher recentFiles \
                 niriWindows webSearch dankLauncherKeys; do
@@ -57,8 +63,16 @@ want = {
     "launcherPluginOrder": [
         "recentFiles", "calculator", "converter",
         "niriWindows", "emojiLauncher", "dankLauncherKeys",
-        "webSearch",
+        "webSearch", "docSearch",
     ],
+    # docSearch runs a dsearch query per keystroke, so it must never be part of
+    # the untriggered "all" search. The plugin also asserts this itself when it
+    # loads; setting it here means a fresh provision has it right before the
+    # shell has ever started.
+    "launcherPluginVisibility": {
+        "recentFiles": {"allowWithoutTrigger": False},
+        "docSearch": {"allowWithoutTrigger": False},
+    },
 }
 
 if p.exists():
@@ -85,7 +99,13 @@ if not all(cfg.get(k) == v for k, v in want.items()):
 # no shell is running yet. DMS rewrites this file whenever a plugin is enabled,
 # which resets the trigger to the plugin.json default, so re-assert that too.
 PLUGINS = ["calculator", "converter", "emojiLauncher", "recentFiles",
-           "niriWindows", "webSearch", "dankLauncherKeys"]
+           "niriWindows", "webSearch", "dankLauncherKeys", "docSearch"]
+
+# Triggers that must survive DMS rewriting the file. recentFiles ships "rf" in
+# its manifest, which is alphabetic and therefore swallows every query starting
+# with those two letters. docSearch already ships "#", but assert it anyway so
+# an accidental change in the UI is corrected on the next apply.
+TRIGGERS = {"recentFiles": ",", "docSearch": "#"}
 
 pp = pathlib.Path(os.path.expanduser("~/.config/DankMaterialShell/plugin_settings.json"))
 if pp.exists():
@@ -101,14 +121,16 @@ for plugin in PLUGINS:
     if ps.setdefault(plugin, {}).get("enabled") is not True:
         ps[plugin]["enabled"] = True
         changed = True
-if ps["recentFiles"].get("trigger") != ",":
-    ps["recentFiles"]["trigger"] = ","
-    changed = True
+for plugin, trigger in TRIGGERS.items():
+    if ps[plugin].get("trigger") != trigger:
+        ps[plugin]["trigger"] = trigger
+        changed = True
 
 if changed:
     pp.parent.mkdir(parents=True, exist_ok=True)
     tmp = pp.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(ps, indent=2))
     tmp.replace(pp)
-    print("plugin_settings.json applied: 7 plugins enabled, recentFiles trigger ','")
+    print("plugin_settings.json applied: {} plugins enabled, triggers {}".format(
+        len(PLUGINS), ", ".join("{} {!r}".format(k, v) for k, v in TRIGGERS.items())))
 PY
