@@ -13,7 +13,7 @@ index_path = "/var/home/ashahid/.cache/danksearch/index"
 listen_addr = "127.0.0.1:43654"
 max_file_bytes = 2097152
 worker_count = 6
-text_extensions = [".txt", ".md", ".org", ".tex", ".qmd", ".bib", ".csv", ".go", ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".yaml", ".yml", ".toml", ".kdl", ".html", ".css", ".rs", ".c", ".cpp", ".h", ".java", ".rb", ".php", ".sh", ".sql"]
+text_extensions = [".txt", ".md", ".org", ".tex", ".qmd", ".bib", ".csv", ".go", ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".yaml", ".yml", ".toml", ".kdl", ".html", ".css", ".rs", ".c", ".cpp", ".h", ".java", ".rb", ".php", ".sh", ".sql", ".doctext"]
 index_all_files = true
 index_xattr_tags = true
 max_depth = 0
@@ -25,4 +25,18 @@ max_depth = 0
   exclude_dirs = ["Projects", "vps-rescue", "Android"]
   merge_default_exclude_dirs = true
   extract_exif = true
+  extract_xattr_tags = false
+
+# Text extracted out of PDFs, docx, pptx and epub by dank-doctext-sync, which
+# gives the launcher full-text search over documents dsearch 0.3.2 cannot read
+# itself. Named explicitly because the root lives under a hidden directory and
+# ".cache" is in the default exclude list; neither applies to an index root.
+# merge_default_exclude_dirs is off here so nothing prunes the mirror.
+[[index_paths]]
+  path = "/var/home/ashahid/.cache/dank-doctext"
+  max_depth = 0
+  exclude_hidden = false
+  exclude_dirs = []
+  merge_default_exclude_dirs = false
+  extract_exif = false
   extract_xattr_tags = false

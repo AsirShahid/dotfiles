@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Open source document
+Comment=Opens the PDF or document a danksearch text sidecar came from
+Exec=/var/home/ashahid/.local/bin/dank-doctext-open %f
+MimeType=application/x-dank-doctext;
+NoDisplay=true
+Terminal=false

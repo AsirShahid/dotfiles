@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Rebuilds the user MIME and desktop caches so *.doctext resolves to
+# dank-doctext-open, which is what makes Enter on a full-text PDF hit in the
+# launcher open the original PDF instead of the extracted text sidecar.
+#
+# Both caches are generated, not tracked, so they have to be rebuilt on any
+# machine chezmoi provisions. Re-runs when either input file changes.
+#
+# mime hash:    {{ include "dot_local/share/mime/packages/dank-doctext.xml" | sha256sum }}
+# desktop hash: {{ include "dot_local/share/private_applications/dank-doctext.desktop" | sha256sum }}
+set -euo pipefail
+
+if command -v update-mime-database >/dev/null 2>&1; then
+  update-mime-database "${HOME}/.local/share/mime"
+fi
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database "${HOME}/.local/share/applications"
+fi
+
+# Build the sidecars once on a fresh provision so search works immediately
+# rather than after the timer's first daily run. Cheap when they already exist.
+systemctl --user enable --now dank-doctext.timer >/dev/null 2>&1 || true

@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""Extract document text into sidecars that danksearch can full-text index.
+
+dsearch 0.3.2 has no PDF extractor, so the launcher can find a PDF by filename
+but not by anything written inside it. This mirrors every PDF, docx, pptx and
+epub under the indexed roots into ~/.cache/dank-doctext as a plain .doctext
+file. ".doctext" is in danksearch's text_extensions, so the body gets indexed
+with no plugin code involved.
+
+Each sidecar starts with a source header. dank-doctext-open reads it, which is
+what makes opening a search hit open the original document instead of the
+extracted text. The MIME association for *.doctext points at that opener.
+
+Incremental: a sidecar is rebuilt only when the source is newer, and sidecars
+whose source is gone are deleted. A full first run over ~800 PDFs takes a few
+minutes; later runs are seconds.
+"""
+
+import os
+import re
+import subprocess
+import sys
+import zipfile
+from pathlib import Path
+
+HOME = Path.home()
+CACHE = HOME / ".cache/dank-doctext"
+HEADER = "# dank-doctext-source: "
+
+# Same shape as the danksearch config: everything under $HOME except the big
+# code/backup trees and anything hidden.
+EXCLUDE_TOP = {"Projects", "vps-rescue", "Android"}
+EXTS = {".pdf", ".docx", ".pptx", ".epub"}
+MAX_BYTES = 8 * 1024 * 1024  # cap on extracted text per document
+
+
+def sources():
+    for entry in sorted(HOME.iterdir()):
+        if not entry.is_dir() or entry.name.startswith(".") or entry.name in EXCLUDE_TOP:
+            continue
+        for dirpath, dirnames, filenames in os.walk(entry):
+            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+            for name in filenames:
+                # Hidden files too, matching danksearch's exclude_hidden. Skips
+                # LibreOffice's ".~Lecture 3.pptx" lock files, which are not zips.
+                if name.startswith("."):
+                    continue
+                if Path(name).suffix.lower() in EXTS:
+                    yield Path(dirpath) / name
+
+
+def from_pdf(path):
+    r = subprocess.run(
+        ["pdftotext", "-q", "-nopgbrk", str(path), "-"],
+        capture_output=True, timeout=120,
+    )
+    return r.stdout.decode("utf-8", "replace")
+
+
+def _unescape(text):
+    for entity, char in (("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"),
+                         ("&quot;", '"'), ("&apos;", "'"), ("&#160;", " ")):
+        text = text.replace(entity, char)
+    return re.sub(r"&#\d+;|&[a-zA-Z]+;", " ", text)
+
+
+def from_ooxml(path, members, run_tag, para_tag):
+    """docx/pptx: pull only run text, concatenating runs within a paragraph.
+
+    Word splits a single word across <w:t> runs whenever formatting changes, so
+    replacing tags with spaces turns "2026" into "202 6" and the search then
+    misses it. Runs are joined with nothing and only paragraph ends produce a
+    space.
+    """
+    run_re = re.compile(r"<%s(?:\s[^>]*)?>(.*?)</%s>" % (run_tag, run_tag), re.S)
+    para_re = re.compile(r"</%s>" % para_tag)
+    out = []
+    with zipfile.ZipFile(path) as z:
+        for name in sorted(n for n in z.namelist() if members(n)):
+            try:
+                raw = z.read(name).decode("utf-8", "replace")
+            except Exception:
+                continue
+            for para in para_re.split(raw):
+                runs = "".join(run_re.findall(para))
+                if runs.strip():
+                    out.append(_unescape(runs))
+    return re.sub(r"\s+", " ", " ".join(out)).strip()
+
+
+def from_zip_html(path, members):
+    """epub is real HTML, where tags genuinely are word boundaries."""
+    out = []
+    with zipfile.ZipFile(path) as z:
+        for name in sorted(n for n in z.namelist() if members(n)):
+            try:
+                raw = z.read(name).decode("utf-8", "replace")
+            except Exception:
+                continue
+            raw = re.sub(r"<(script|style)\b.*?</\1>", " ", raw, flags=re.S | re.I)
+            out.append(_unescape(re.sub(r"<[^>]+>", " ", raw)))
+    return re.sub(r"\s+", " ", " ".join(out)).strip()
+
+
+def extract(path):
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        return from_pdf(path)
+    if suffix == ".docx":
+        return from_ooxml(
+            path,
+            lambda n: n.startswith("word/") and n.endswith(".xml"),
+            run_tag="w:t", para_tag="w:p",
+        )
+    if suffix == ".pptx":
+        return from_ooxml(
+            path,
+            # Slides and speaker notes only. ppt/slideMasters and ppt/slideLayouts
+            # are template boilerplate ("Click to edit Master title style").
+            lambda n: (n.startswith("ppt/slides/") or n.startswith("ppt/notesSlides/"))
+            and n.endswith(".xml"),
+            run_tag="a:t", para_tag="a:p",
+        )
+    if suffix == ".epub":
+        return from_zip_html(path, _is_epub_page)
+    return ""
+
+
+def _is_epub_page(name):
+    """Most epubs use .xhtml/.html, but some store pages as plain .xml.
+
+    Accept those too, minus the container/manifest/nav files, which are metadata
+    and would otherwise contribute a page of junk per book.
+    """
+    lower = name.lower()
+    if lower.startswith("meta-inf/") or lower.endswith((".opf", ".ncx")):
+        return False
+    return lower.endswith((".xhtml", ".html", ".htm", ".xml"))
+
+
+def sidecar_for(path):
+    return CACHE / (str(path.relative_to(HOME)) + ".doctext")
+
+
+def main():
+    force = "--force" in sys.argv
+    CACHE.mkdir(parents=True, exist_ok=True)
+
+    wanted, built, skipped, failed = set(), 0, 0, 0
+
+    for src in sources():
+        dest = sidecar_for(src)
+        wanted.add(dest)
+        try:
+            if not force and dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
+                skipped += 1
+                continue
+            text = extract(src)
+        except Exception as exc:
+            failed += 1
+            print(f"warn: {src}: {exc}", file=sys.stderr)
+            continue
+
+        if not text or not text.strip():
+            failed += 1
+            continue
+
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        tmp = dest.with_suffix(".doctext.tmp")
+        tmp.write_text(HEADER + str(src) + "\n\n" + text[:MAX_BYTES], errors="replace")
+        tmp.replace(dest)
+        # Match the source mtime so the skip check above is stable.
+        os.utime(dest, (src.stat().st_atime, src.stat().st_mtime))
+        built += 1
+
+    # Drop sidecars whose source is gone.
+    removed = 0
+    for stale in CACHE.rglob("*.doctext"):
+        if stale not in wanted:
+            stale.unlink()
+            removed += 1
+    for d in sorted(CACHE.rglob("*"), reverse=True):
+        if d.is_dir() and not any(d.iterdir()):
+            d.rmdir()
+
+    print(f"built={built} unchanged={skipped} removed={removed} no_text={failed}")
+
+
+if __name__ == "__main__":
+    main()

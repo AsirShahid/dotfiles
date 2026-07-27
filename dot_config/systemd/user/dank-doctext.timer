@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh danksearch document-text sidecars
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1d
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

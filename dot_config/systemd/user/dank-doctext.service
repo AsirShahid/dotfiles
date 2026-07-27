@@ -1,0 +1,14 @@
+[Unit]
+Description=Extract document text into danksearch sidecars
+Documentation=man:pdftotext(1)
+After=dsearch.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/dank-doctext-sync
+# Keep dsearch's view current even if the inotify watch misses a batch write.
+ExecStartPost=-/usr/bin/dsearch index sync
+# Background maintenance; never compete with interactive work.
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=50%

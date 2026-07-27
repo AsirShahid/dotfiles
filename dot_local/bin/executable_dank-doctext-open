@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Opens the document a .doctext sidecar was extracted from.
+#
+# The launcher's file results call Qt.openUrlExternally, which goes through the
+# normal MIME association. *.doctext is associated with this script (see
+# ~/.local/share/mime/packages/dank-doctext.xml), so hitting Enter on a
+# full-text search hit opens the original PDF rather than the extracted text.
+set -euo pipefail
+
+sidecar="${1:-}"
+[ -n "$sidecar" ] || { echo "usage: dank-doctext-open <file.doctext>" >&2; exit 2; }
+
+# Tolerate being handed a file:// URL.
+case "$sidecar" in
+  file://*) sidecar="$(python3 -c 'import sys,urllib.parse;print(urllib.parse.unquote(sys.argv[1][7:]))' "$sidecar")" ;;
+esac
+
+source_path=""
+if [ -r "$sidecar" ]; then
+  first_line="$(head -n1 "$sidecar")"
+  case "$first_line" in
+    "# dank-doctext-source: "*) source_path="${first_line#\# dank-doctext-source: }" ;;
+  esac
+fi
+
+if [ -n "$source_path" ] && [ -e "$source_path" ]; then
+  exec xdg-open "$source_path"
+fi
+
+# No usable header, or the original moved. Show the text rather than nothing.
+echo "dank-doctext: original not found, opening the extracted text" >&2
+exec xdg-open "$sidecar"
