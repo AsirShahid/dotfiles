@@ -44,9 +44,17 @@ want = {
         "dms_clipboard_search": {"enabled": True, "trigger": ";"},
     },
     # Shared ranking for plugin sections and the __files/__folders magic
-    # entries: listed ids get priority 2.6 + index*0.01, unlisted get worse.
+    # entries: a listed id gets priority 2.6 + index*0.01, lower sorting first.
+    #
+    # __files/__folders are deliberately NOT listed. Unlisted, they fall back to
+    # DMS's built-in 4 and 4.1, which puts them below every plugin section. When
+    # they were listed at index 0 and 1 they got 2.60/2.61 and outranked the
+    # plugins, so searching ":e tear of" showed a Folders section above the
+    # emoji the trigger was explicitly asking for. The file search is async and
+    # lands after the trigger path has already returned, so file and folder
+    # sections show up even in trigger mode; ordering is what keeps them out of
+    # the way.
     "launcherPluginOrder": [
-        "__files", "__folders",
         "recentFiles", "calculator", "converter",
         "niriWindows", "emojiLauncher", "dankLauncherKeys",
         "webSearch",

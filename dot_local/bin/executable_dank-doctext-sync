@@ -16,6 +16,7 @@ whose source is gone are deleted. A full first run over ~800 PDFs takes a few
 minutes; later runs are seconds.
 """
 
+import hashlib
 import os
 import re
 import subprocess
@@ -26,6 +27,8 @@ from pathlib import Path
 HOME = Path.home()
 CACHE = HOME / ".cache/dank-doctext"
 HEADER = "# dank-doctext-source: "
+SEP = " › "      # path separator inside the flat filename
+NAME_MAX = 200        # bytes; filesystem limit is 255, leave headroom
 
 # Same shape as the danksearch config: everything under $HOME except the big
 # code/backup trees and anything hidden.
@@ -138,8 +141,36 @@ def _is_epub_page(name):
     return lower.endswith((".xhtml", ".html", ".htm", ".xml"))
 
 
+def _clip(text, nbytes):
+    """Truncate to a byte budget without splitting a multi-byte character."""
+    encoded = text.encode()
+    if len(encoded) <= nbytes:
+        return text
+    return encoded[:nbytes].decode(errors="ignore")
+
+
 def sidecar_for(path):
-    return CACHE / (str(path.relative_to(HOME)) + ".doctext")
+    """Flat filename encoding the relative path, rather than a mirrored tree.
+
+    Mirroring the source directories created ~200 cache directories that
+    duplicated real folder names, so the launcher showed every documents folder
+    twice, once real and once under .cache. Flattening leaves a single directory
+    and moves the context into the name, where it is actually readable.
+    """
+    rel = path.relative_to(HOME)
+    name = SEP.join(rel.parts) + ".doctext"
+    if len(name.encode()) <= NAME_MAX:
+        return CACHE / name
+
+    # Too long for the filesystem. Keep the leading directories and the
+    # basename, which carry the most meaning, and add a digest of the full
+    # relative path so the result is still unique.
+    digest = hashlib.sha1(str(rel).encode()).hexdigest()[:8]
+    fixed = len(f"{SEP}...{SEP} {digest}.doctext".encode())
+    budget = NAME_MAX - fixed
+    head = _clip(SEP.join(rel.parts[:-1]), budget // 3)
+    tail = _clip(rel.name, budget - len(head.encode()))
+    return CACHE / f"{head}{SEP}...{SEP}{tail} {digest}.doctext"
 
 
 def main():
