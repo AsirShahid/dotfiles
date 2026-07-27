@@ -1,0 +1,28 @@
+# DankSearch Configuration
+# See https://github.com/AvengeMedia/danksearch for documentation
+#
+# Scoped 2026-07-27. Two changes from the generated default:
+#   max_depth 6 -> 0 (unlimited); the depth cap was silently dropping files
+#     under School, TabX and RSOM, including course PDFs.
+#   Projects/vps-rescue/Android excluded; they are 510k of the 524k non-hidden
+#     files in $HOME and are all noise in a launcher.
+# merge_default_exclude_dirs keeps the built-in ~40-name list (node_modules,
+# __pycache__, .venv, ...) instead of replacing it.
+
+index_path = "/var/home/ashahid/.cache/danksearch/index"
+listen_addr = "127.0.0.1:43654"
+max_file_bytes = 2097152
+worker_count = 6
+text_extensions = [".txt", ".md", ".org", ".tex", ".qmd", ".bib", ".csv", ".go", ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".yaml", ".yml", ".toml", ".kdl", ".html", ".css", ".rs", ".c", ".cpp", ".h", ".java", ".rb", ".php", ".sh", ".sql"]
+index_all_files = true
+index_xattr_tags = true
+max_depth = 0
+
+[[index_paths]]
+  path = "/var/home/ashahid"
+  max_depth = 0
+  exclude_hidden = true
+  exclude_dirs = ["Projects", "vps-rescue", "Android"]
+  merge_default_exclude_dirs = true
+  extract_exif = true
+  extract_xattr_tags = false

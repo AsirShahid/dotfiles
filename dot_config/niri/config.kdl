@@ -124,8 +124,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "ptyxis" "--new-window"; }
-    Mod+D { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
-    Mod+Space { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
+    Mod+D repeat=false { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Space repeat=false { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Slash repeat=false { spawn "dms" "ipc" "call" "spotlight" "toggleWith" "files"; }
+    // Break-glass: fuzzel is its own process, the DMS launcher shares one with the bar and lock screen.
+    Mod+Shift+D { spawn "fuzzel" "--config" "/var/home/ashahid/.config/fuzzel/niri.ini"; }
     Mod+N { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+Semicolon repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     Alt+V repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
