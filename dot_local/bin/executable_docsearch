@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""Search inside documents from the terminal.
+
+The DMS launcher can do this through the docSearch plugin, but the plugin only
+exists because DMS never passes dsearch's -f/--field flag. From a shell there is
+no such limitation, so this is a thin wrapper over:
+
+    dsearch search <query> -f body --json
+
+Hits come back as .doctext sidecars under ~/.cache/dank-doctext, which are the
+extracted text of the real documents. Each sidecar's first line is
+"# dank-doctext-source: <abs path>", so results are mapped back to the original
+PDF, docx, pptx or epub before being shown.
+
+Plain .md, .txt and other natively-indexed files are reported as themselves.
+
+    docsearch capitation
+    docsearch -n 20 "cost containment"
+    docsearch --open mitochondria     # open the top hit
+    docsearch --paths clostridioides  # bare paths, for piping
+"""
+
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+HOME = Path.home()
+CACHE = HOME / ".cache/dank-doctext"
+HEADER = "# dank-doctext-source: "
+
+
+def resolve(hit_path):
+    """Map a hit to the document to show, plus text to pull a snippet from.
+
+    A .doctext sidecar resolves to the original PDF/docx/pptx/epub via its
+    header line. Anything else (.md, .txt, source files) is already the real
+    file, so it is its own snippet source.
+    """
+    p = Path(hit_path)
+    if p.suffix != ".doctext":
+        try:
+            return p, p.read_text(errors="replace")[:400_000]
+        except OSError:
+            return p, None
+    try:
+        with p.open(errors="replace") as fh:
+            first = fh.readline()
+            body = fh.read(400_000)
+    except OSError:
+        return p, None
+    if not first.startswith(HEADER):
+        return p, None
+    return Path(first[len(HEADER):].strip()), body
+
+
+def snippet(body, query, width=160):
+    """A window of text around the first match, for context."""
+    if not body:
+        return ""
+    flat = re.sub(r"\s+", " ", body)
+    terms = [t for t in re.split(r"\s+", query.strip()) if t]
+    idx = -1
+    for t in terms:
+        idx = flat.lower().find(t.lower())
+        if idx != -1:
+            break
+    if idx == -1:
+        return flat[:width].strip()
+    start = max(0, idx - width // 3)
+    out = flat[start:start + width].strip()
+    return ("..." if start else "") + out + "..."
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        prog="docsearch",
+        description="Full-text search inside PDFs, docx, pptx, epub and notes.")
+    ap.add_argument("query", nargs="+")
+    ap.add_argument("-n", "--limit", type=int, default=10)
+    ap.add_argument("--fuzzy", action="store_true", help="tolerate typos")
+    ap.add_argument("--paths", action="store_true",
+                    help="print bare paths only, for piping")
+    ap.add_argument("--open", action="store_true",
+                    help="open the top hit instead of listing")
+    args = ap.parse_args()
+    query = " ".join(args.query)
+
+    if not shutil.which("dsearch"):
+        sys.exit("dsearch is not installed")
+
+    cmd = ["dsearch", "search", "-f", "body", "--json", "-n", str(args.limit)]
+    if args.fuzzy:
+        cmd.append("--fuzzy")
+    cmd += ["--", query]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, timeout=30)
+    except subprocess.TimeoutExpired:
+        sys.exit("dsearch timed out")
+    if proc.returncode != 0:
+        sys.exit(proc.stderr.decode(errors="replace").strip() or "dsearch failed")
+
+    try:
+        data = json.loads(proc.stdout.decode(errors="replace"))
+    except json.JSONDecodeError:
+        sys.exit("could not parse dsearch output; is the service running?")
+
+    hits = data.get("hits") or []
+    if not hits:
+        print(f"nothing contains {query!r}", file=sys.stderr)
+        return 1
+
+    seen, rows = set(), []
+    for h in hits:
+        src, body = resolve(h.get("id", ""))
+        if str(src) in seen:
+            continue
+        seen.add(str(src))
+        rows.append((src, snippet(body, query), h.get("score", 0.0)))
+
+    if args.open:
+        target = rows[0][0]
+        if not target.exists():
+            sys.exit(f"top hit no longer exists: {target}")
+        subprocess.run(["xdg-open", str(target)])
+        return 0
+
+    if args.paths:
+        for src, _, _ in rows:
+            print(src)
+        return 0
+
+    bold, dim, reset = ("\033[1m", "\033[2m", "\033[0m") if sys.stdout.isatty() else ("", "", "")
+    for src, snip, score in rows:
+        try:
+            shown = src.relative_to(HOME)
+        except ValueError:
+            shown = src
+        missing = "" if src.exists() else f" {dim}(deleted){reset}"
+        print(f"{bold}{src.name}{reset}{missing}")
+        print(f"  {dim}{shown.parent}  ·  {score:.2f}{reset}")
+        if snip:
+            print(f"  {snip}")
+        print()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
