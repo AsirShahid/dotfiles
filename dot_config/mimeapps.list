@@ -1,0 +1,17 @@
+[Added Associations]
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/http=app.zen_browser.zen.desktop;
+text/html=app.zen_browser.zen.desktop;
+application/xhtml+xml=app.zen_browser.zen.desktop;
+x-scheme-handler/https=app.zen_browser.zen.desktop;
+
+[Default Applications]
+x-scheme-handler/beeper=Beeper.desktop
+x-scheme-handler/http=app.zen_browser.zen.desktop
+text/html=app.zen_browser.zen.desktop
+application/xhtml+xml=app.zen_browser.zen.desktop
+x-scheme-handler/https=app.zen_browser.zen.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+text/plain=org.gnome.TextEditor.desktop

@@ -11,3 +11,7 @@ end
 set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/var/home/ashahid/.local/bin" $PATH

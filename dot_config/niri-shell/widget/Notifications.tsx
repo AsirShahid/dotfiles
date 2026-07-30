@@ -1,4 +1,4 @@
-// Transient notification popups (top-right) + a bottom-center OSD.
+// Transient notification popups (top-right) + a centered OSD.
 //
 // The OSD reuses the `niri-osd` script's notify-send messages: when a
 // notification arrives from app "niri-osd", we render it as a progress OSD
@@ -12,7 +12,7 @@ import { Variable, bind, timeout } from "astal"
 import { notifd } from "../lib/services"
 import NotificationCard from "./Notification"
 
-const { TOP, RIGHT, BOTTOM } = Astal.WindowAnchor
+const { TOP, RIGHT } = Astal.WindowAnchor
 
 // ── OSD ────────────────────────────────────────────────────────────────
 
@@ -31,22 +31,20 @@ function showOsd(summary: string, appIcon: string) {
 
     osd.set({ icon, label: summary, value })
     const token = ++osdToken
-    timeout(1400, () => { if (token === osdToken) osd.set(null) })
+    timeout(2000, () => { if (token === osdToken) osd.set(null) })
 }
 
 function Osd() {
     return <window
         cssClasses={["osd-window"]}
         namespace="niri-osd"
-        anchor={BOTTOM}
-        marginBottom={90}
         layer={Astal.Layer.OVERLAY}
         visible={bind(osd).as(o => o !== null)}
         application={App}>
-        <box cssClasses={["osd"]} spacing={12}>
-            <image iconName={bind(osd).as(o => o?.icon ?? "")} pixelSize={22} />
+        <box cssClasses={["osd"]} spacing={14}>
+            <image iconName={bind(osd).as(o => o?.icon ?? "")} pixelSize={28} />
             <box orientation={Gtk.Orientation.VERTICAL} spacing={6}
-                valign={Gtk.Align.CENTER} widthRequest={210}>
+                valign={Gtk.Align.CENTER} widthRequest={250}>
                 <label cssClasses={["osd-label"]} halign={Gtk.Align.START}
                     label={bind(osd).as(o => o?.label ?? "")} />
                 <levelbar cssClasses={["osd-bar"]}
@@ -67,6 +65,7 @@ function Popups() {
         namespace="niri-notifications"
         anchor={TOP | RIGHT}
         layer={Astal.Layer.OVERLAY}
+        visible={bind(popups).as(ids => ids.length > 0)}
         application={App}>
         <box cssClasses={["notifications"]}
             orientation={Gtk.Orientation.VERTICAL} spacing={8}>

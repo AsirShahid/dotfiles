@@ -8,7 +8,9 @@
 set -uo pipefail
 
 LOG="${XDG_CACHE_HOME:-$HOME/.cache}/niri-shell.log"
-APP="$HOME/.config/niri-shell/app.ts"
+APP_DIR="$HOME/.config/niri-shell"
+APP="$APP_DIR/app.ts"
+GTK4_LAYER_SHELL_LIB="/usr/lib64/libgtk4-layer-shell.so.0"
 
 start_fallback() {
     echo "[niri-shell] starting waybar + swaync fallback" >>"$LOG"
@@ -24,7 +26,20 @@ start_fallback() {
 
 if command -v ags >/dev/null 2>&1 && [ -f "$APP" ]; then
     echo "[niri-shell] starting AGS shell" >>"$LOG"
-    ags run "$APP" >>"$LOG" 2>&1 &
+    # AGS resolves the JSX runtime from the current project's tsconfig.
+    # Starting elsewhere makes it fall back to GTK3, which conflicts with
+    # this shell's explicit Astal GTK4 imports.
+    (
+        cd "$APP_DIR" || exit 1
+        # Fedora's `ags run --gtk4` currently points LD_PRELOAD at
+        # /usr/lib/libgtk4-layer-shell.so, but the packaged library lives in
+        # /usr/lib64. Preloading the real soname is required for GTK4
+        # layer-shell windows.
+        if [ -r "$GTK4_LAYER_SHELL_LIB" ]; then
+            export LD_PRELOAD="$GTK4_LAYER_SHELL_LIB${LD_PRELOAD:+:$LD_PRELOAD}"
+        fi
+        exec ags run "$APP"
+    ) >>"$LOG" 2>&1 &
     ags_pid=$!
     sleep 4
     if kill -0 "$ags_pid" 2>/dev/null; then

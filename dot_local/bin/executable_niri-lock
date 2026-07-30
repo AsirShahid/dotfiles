@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-# Lock the niri session: hyprlock once the image update lands,
-# mocha-themed swaylock as the fallback until then.
+# Lock the niri session. DMS must stay the ONLY ext-session-lock client when
+# it is running (hyprlock racing it froze unlocks, 2026-07-25); hyprlock/
+# swaylock are fallbacks for a DMS-less session only.
 set -uo pipefail
 
-if command -v hyprlock >/dev/null 2>&1; then
+if command -v dms >/dev/null 2>&1; then
+    # DMS installed = DMS is the only allowed lock client, even if its IPC is
+    # briefly down (mid-restart). Fail loudly rather than racing it with a
+    # second ext-session-lock client (2026-07-25 freeze).
+    exec dms ipc call lock lock
+elif command -v hyprlock >/dev/null 2>&1; then
     pidof hyprlock >/dev/null || exec hyprlock
 else
     exec swaylock -f \

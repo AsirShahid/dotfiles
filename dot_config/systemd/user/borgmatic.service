@@ -1,0 +1,20 @@
+[Unit]
+Description=borgmatic backup (home -> BorgBase)
+# No hard network dependency: borgmatic's own retries handle offline runs,
+# and the timer's Persistent= catches missed windows.
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+# borgmatic lives in linuxbrew; borg itself is /usr/bin/borg.
+Environment=PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+# Keep compression from monopolizing a CPU core while the laptop is in use.
+CPUQuota=25%
+# sleep inhibitor: idle suspend or a lid close mid-backup would interrupt
+# long runs (borg checkpoints make that survivable, not nice). handle-lid-switch
+# is needed on top of sleep because logind defaults LidSwitchIgnoreInhibited=yes,
+# so a plain sleep inhibitor does not stop lid-close suspends.
+ExecStart=/usr/bin/systemd-inhibit --what=sleep:handle-lid-switch --who=borgmatic --why=backup-in-progress /home/linuxbrew/.linuxbrew/bin/borgmatic --verbosity -1 --syslog-verbosity 1

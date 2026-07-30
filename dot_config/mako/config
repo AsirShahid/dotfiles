@@ -1,0 +1,26 @@
+# Regular notifications remain in their usual top-right location.
+layer=top
+anchor=top-right
+
+# Media keys use a compact, centered OSD which stays above fullscreen windows.
+[app-name="niri-osd"]
+layer=overlay
+anchor=center
+width=320
+height=90
+margin=0
+padding=18
+border-size=2
+border-radius=14
+background-color=#1e1e2eee
+text-color=#cdd6f4ff
+border-color=#cba6f7cc
+progress-color=over #cba6f744
+font=Sans 13
+format=<b>%s</b>
+text-alignment=center
+icons=1
+max-icon-size=42
+history=0
+default-timeout=1400
+on-button-left=dismiss --no-history

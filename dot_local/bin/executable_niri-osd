@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
-# Volume/brightness keys for the niri session, with a centered OSD rendered by
-# niri-shell. The notification hints keep this usable with other notification
-# daemons too.
+# Volume/brightness keys for the niri session. DMS renders its own volume,
+# microphone, and brightness OSDs (it watches PipeWire and brightness state
+# directly) and plays its own volume sound, so while DMS is up this script
+# only mutates state. The notification + chime below are fallbacks for
+# sessions without DMS (quickshell's binary is `qs`).
 set -uo pipefail
 
+dms_up() {
+    # Unit check, not pgrep: on NixOS the quickshell process's comm is the
+    # Qt-wrapper name (".quickshell-wra"), and a process-name match would
+    # also false-positive on non-DMS quickshell instances.
+    systemctl --user is-active --quiet dms.service 2>/dev/null
+}
+
 osd() { # title, percent, icon
+    dms_up && return 0
     notify-send -e -a "niri-osd" -u low -t 2000 \
         -h string:x-canonical-private-synchronous:niri-osd \
         -h string:x-dunst-stack-tag:niri-osd \
@@ -13,6 +23,7 @@ osd() { # title, percent, icon
 }
 
 volume_feedback() {
+    dms_up && return 0
     # Match GNOME's volume-key feedback event. It is played after wpctl changes
     # the sink, so the chime itself demonstrates the newly selected volume.
     if command -v canberra-gtk-play >/dev/null 2>&1; then

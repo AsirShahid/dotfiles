@@ -14,14 +14,17 @@
 
 brew "atuin"          # newer than dnf copy; owns the migrated history DB
 brew "bash-preexec"   # precmd/preexec hooks (atuin, starship) for bash
+brew "borgmatic"      # borg wrapper: hourly home backup to BorgBase (~/.config/borgmatic)
 brew "gemini-cli"     # Google Gemini CLI (settings tracked in ~/.gemini)
 brew "gh"             # GitHub CLI (newer than dnf copy)
+brew "mosh"           # roaming-proof remote terminal; used over the tailnet to the VPS
 brew "ncdu"           # ncurses disk usage
 brew "neovim"
 brew "ranger"         # TUI file manager
 brew "restic"         # encrypted backups
 brew "unar"           # multi-format unarchiver
 brew "uv"             # Python package/tool manager
+brew "zellij"         # terminal multiplexer; per-terminal persistent session (auto-started in .zshrc)
 
 cask "quarto"         # md/ipynb -> PDF/HTML publishing (used by md2pdf)
 

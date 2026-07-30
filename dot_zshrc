@@ -1,122 +1,84 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# ~/.zshrc — interactive zsh config (migrated from bash 2026-06-27)
+# Switched from bash because atuin's enter_accept leaked "__atuin_accept__:"
+# in plain bash (no native accept-line). zsh's ZLE supports it natively.
 
-# Path to your oh-my-zsh installation.
+# --- PATH (mirrors ~/.zprofile / old ~/.bashrc) -----------------------------
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# --- Homebrew ---------------------------------------------------------------
+[[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && \
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# --- oh-my-zsh (plugins/completions only; starship owns the prompt) ---------
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+ZSH_THEME=""          # empty: let starship draw the prompt instead of an omz theme
 plugins=(git)
+[[ -f "$ZSH/oh-my-zsh.sh" ]] && source "$ZSH/oh-my-zsh.sh"
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-[[ "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
-
-[[ "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
-
-[[ "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
-
-[[ "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
-eval "$(zoxide init zsh)"
-
-# bun completions
-[ -s "/var/home/ashahid/.bun/_bun" ] && source "/var/home/ashahid/.bun/_bun"
-
-source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export EDITOR=emacs
-export EDITOR=emacs
+
+# --- fixterm: recover a terminal left in mouse-reporting / raw mode ----------
+# A TUI (e.g. Claude Code on the VPS) killed by a dropped ssh link when the
+# laptop sleeps leaves the terminal spewing mouse escapes (64;10;6M ...) and
+# swallowing input. Disable mouse + bracketed-paste modes, sane the tty, reinit.
+alias fixterm='printf "\e[?1000l\e[?1002l\e[?1003l\e[?1006l\e[?1015l\e[?2004l"; stty sane; reset'
+
+# --- ssh clipboard bridge ----------------------------------------------------
+# Ptyxis/VTE drops OSC 52 (gitlab.gnome.org/GNOME/vte/-/issues/2495), so
+# clipboard writes from remote sessions (e.g. Claude Code /copy on the VPS)
+# never reach the local clipboard. osc52-filter passes the stream through
+# untouched and mirrors any OSC 52 payload into the Wayland clipboard.
+ssh() {
+    if [[ -t 0 && -t 1 && -n ${WAYLAND_DISPLAY-} ]] && (( $+commands[osc52-filter] )); then
+        command ssh "$@" | osc52-filter
+        return ${pipestatus[1]}
+    fi
+    command ssh "$@"
+}
+
+# --- mosh: roaming-proof twins of the ssh workflow ---------------------------
+# mosh keeps the session alive through laptop sleep / WiFi drops / IP changes
+# (UDP state sync + local echo), so no `Enter ~ .` + fixterm + re-pick dance.
+# It runs over the tailnet (vps-ts): the OCI security list blocks mosh's UDP
+# 60000-61000 on the public IP, but tailscale0 carries it fine.
+#   mosh claude|codex [label]  ->  fresh agent tmux session (like `ssh claude`)
+#   mosh pick / bare `mosh`    ->  fzf session picker      (like `ssh pick`)
+#   anything else              ->  real mosh (e.g. `mosh vps-ts` = plain shell)
+# NB: mosh bootstraps via `ssh` the binary (not the wrapper below), and Ptyxis
+# drops OSC 52 either way, so /copy from the VPS still can't reach the local
+# clipboard under mosh; keep using Shift+drag + Ctrl+Shift+C.
+mosh() {
+    local agent=/home/ubuntu/.local/bin/agent
+    case "${1-}" in
+        claude|codex) command mosh vps-ts -- "$agent" new "$@" ;;
+        pick|'')      command mosh vps-ts -- "$agent" pick ;;
+        *)            command mosh "$@" ;;
+    esac
+}
+
+# --- Prompt -----------------------------------------------------------------
+command -v starship >/dev/null && eval "$(starship init zsh)"
+
+# --- atuin shell history (native zsh accept; no ble.sh hack needed) ---------
+command -v atuin >/dev/null && eval "$(atuin init zsh)"
+
+# --- zellij: per-terminal persistent session (survives a desktop/terminal crash)
+# Each new terminal opens its own fresh zellij session; if gnome-shell or the
+# terminal dies, the session keeps running detached. Reattach with `za` and pick
+# it back. Skips: non-interactive shells, tmux (agent sessions), an existing
+# zellij, and VS Code / Emacs embedded shells. Kill switch: `touch ~/.no-zellij`
+# (works even over `ssh host 'touch ~/.no-zellij'` since that is non-interactive).
+if [[ -o interactive ]] \
+     && [[ -z "$ZELLIJ" && -z "$TMUX" ]] \
+     && [[ "$TERM_PROGRAM" != "vscode" && -z "$INSIDE_EMACS" ]] \
+     && [[ ! -e "$HOME/.no-zellij" ]] \
+     && command -v zellij >/dev/null 2>&1; then
+    # Only close the terminal if zellij ran cleanly; if it fails to start,
+    # fall through to a normal shell so a broken zellij can never lock you out.
+    if zellij; then exit; fi
+fi
+alias za='zellij attach'
+
+# kimi-code
+export PATH="/var/home/ashahid/.kimi-code/bin:$PATH"

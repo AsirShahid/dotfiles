@@ -9,3 +9,14 @@
 .gemini/projects.json
 .gemini/history
 .gemini/tmp
+
+# Self-updating trees and app-written state. These drift by design and made
+# chezmoi-update fail on every run (prompt EOF under --no-tty); unmanaged
+# 2026-07-29. oh-my-zsh updates itself in place; atuin has its own sync.
+.oh-my-zsh
+.local/share/atuin
+.config/fish/fish_variables
+.config/nvim/lazy-lock.json
+
+# Repo documentation, not a dotfile to deploy into $HOME.
+README.md

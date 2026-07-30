@@ -10,13 +10,32 @@
 
 import { App } from "astal/gtk4"
 import Bar from "./widget/Bar"
-import QuickSettings from "./widget/QuickSettings"
+import QuickSettings, { qsVisible } from "./widget/QuickSettings"
 import Notifications from "./widget/Notifications"
+import { notifd } from "./lib/services"
 
 App.start({
     instanceName: "niri-shell",
     // Astal.apply_css treats a path ending in .css as a file to load.
     css: "/var/home/ashahid/.config/niri-shell/style.css",
+    requestHandler(request, respond) {
+        switch (request) {
+            case "toggle-quick-settings":
+                qsVisible.set(!qsVisible.get())
+                respond("ok")
+                break
+            case "toggle-dnd":
+                if (!notifd) {
+                    respond("notification service unavailable")
+                    break
+                }
+                notifd.dontDisturb = !notifd.dontDisturb
+                respond(notifd.dontDisturb ? "on" : "off")
+                break
+            default:
+                respond(`unknown request: ${request}`)
+        }
+    },
     main() {
         App.get_monitors().forEach(Bar)
         Notifications()   // popups + OSD, on the primary monitor

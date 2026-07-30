@@ -1,0 +1,93 @@
+# borgmatic config — home backup to BorgBase.
+# Managed by chezmoi. The repo passphrase lives in ~/.config/borgmatic/passphrase
+# (mode 0600), which is deliberately NOT tracked by chezmoi — keep a copy in your
+# password manager.
+#
+# Patterns are first-match-wins. "! " excludes without recursing (fast skip for
+# big junk); "- " excludes but still walks the tree so a later/earlier "+ " can
+# re-include something beneath it (needed for the Anki carve-out from .var/app).
+
+patterns:
+  - "R /var/home/ashahid"
+
+  # Keep Anki's data (collection + AnKing media) despite excluding flatpak data
+  # below — but not Anki's own trash and .colpkg auto-backups (borg versions the
+  # collection itself; these are 12GB of churn).
+  - "! pp:/var/home/ashahid/.var/app/net.ankiweb.Anki/data/Anki2/User 1/media.trash"
+  - "! pp:/var/home/ashahid/.var/app/net.ankiweb.Anki/data/Anki2/User 1/backups"
+  - "+ pp:/var/home/ashahid/.var/app/net.ankiweb.Anki/data"
+  - "- pp:/var/home/ashahid/.var/app"
+
+  # Big, re-downloadable, or machine-local stuff.
+  - "! pp:/var/home/ashahid/Downloads"
+  - "! pp:/var/home/ashahid/vps-rescue"
+  - "! pp:/var/home/ashahid/Roms"
+  - "! pp:/var/home/ashahid/3ds"
+
+  # Caches, package stores, reinstallable toolchains.
+  - "! pp:/var/home/ashahid/.cache"
+  - "! pp:/var/home/ashahid/.config/BeeperTexts"
+  - "! pp:/var/home/ashahid/.claude-science/conda"
+  - "! pp:/var/home/ashahid/.claude-science/runtime"
+  - "! pp:/var/home/ashahid/.local/share/Trash"
+  - "! pp:/var/home/ashahid/.local/share/containers"
+  - "! pp:/var/home/ashahid/.local/share/libvirt"
+  - "! pp:/var/home/ashahid/.local/share/gnome-boxes"
+  - "! pp:/var/home/ashahid/.local/share/waydroid"
+  - "! pp:/var/home/ashahid/.local/share/pnpm"
+  - "! pp:/var/home/ashahid/.local/share/flatpak"
+  - "! pp:/var/home/ashahid/.local/lib"
+  - "! pp:/var/home/ashahid/.npm"
+  - "! pp:/var/home/ashahid/.cargo"
+  - "! pp:/var/home/ashahid/.TinyTeX"
+  - "! pp:/var/home/ashahid/.vscode"
+
+  # Build/dependency junk anywhere in the tree.
+  - "! sh:/var/home/ashahid/**/node_modules"
+  - "! sh:/var/home/ashahid/**/.venv"
+  - "! sh:/var/home/ashahid/**/__pycache__"
+  - "! sh:/var/home/ashahid/**/.cache"
+
+  # VM disk images (regenerable from the nixos-myos flake; huge and churny).
+  - "! sh:/var/home/ashahid/**/*.qcow2"
+
+  # makepkg build/extract output (regenerable from the PKGBUILDs themselves).
+  - "! sh:/var/home/ashahid/Projects/PKGBUILDs/*/pkg"
+  - "! sh:/var/home/ashahid/Projects/PKGBUILDs/*/src"
+
+# Also skip anything carrying a CACHEDIR.TAG (cargo target dirs, many tools),
+# and any directory where you drop a ".nobackup" marker file.
+exclude_caches: true
+exclude_if_present:
+  - .nobackup
+
+repositories:
+  - path: ssh://yn70yqda@yn70yqda.repo.borgbase.com/./repo
+    label: borgbase
+
+encryption_passcommand: cat /var/home/ashahid/.config/borgmatic/passphrase
+compression: zstd,3
+archive_name_format: "myos-{now:%Y-%m-%dT%H:%M:%S}"
+
+# Flaky-wifi tolerance.
+retries: 2
+retry_wait: 300
+
+# Retention (pruned + compacted automatically on every run).
+keep_hourly: 24
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 6
+
+# Periodic integrity checks (spread out; cheap ones more often).
+checks:
+  - name: repository
+    frequency: 2 weeks
+  - name: archives
+    frequency: 1 month
+check_last: 3
+
+# Dead-man's-switch monitoring — uncomment and fill in once you make a check
+# at https://healthchecks.io (also enable BorgBase's own "no activity" alert).
+# healthchecks:
+#   ping_url: https://hc-ping.com/REPLACE_ME

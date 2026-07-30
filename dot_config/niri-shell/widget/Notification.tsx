@@ -16,7 +16,7 @@ function urgencyClass(n: Notification): string {
 }
 
 function time(n: Notification): string {
-    return GLib.DateTime.new_from_unix_local(n.time).format("%-I:%M %p") ?? ""
+    return GLib.DateTime.new_from_unix_local(n.time).format("%I:%M %p") ?? ""
 }
 
 function icon(n: Notification) {
@@ -47,7 +47,7 @@ export default function NotificationCard(n: Notification) {
             </box>
             <button cssClasses={["close"]} valign={Gtk.Align.START}
                 onClicked={() => n.dismiss()}>
-                <label label="" />
+                <image iconName="window-close-symbolic" pixelSize={14} />
             </button>
         </box>
         {n.body && n.body.length > 0 && <label
